@@ -1,0 +1,9 @@
+permalink: pretty
+markdown: kramdown
+exclude:
+  - ".rvmrc"
+  - ".rbenv-version"
+  - ".ruby-version"
+  - "Gemfile"
+  - "Gemfile.lock"
+  - "README.md"
