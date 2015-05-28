@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>reveal.js - The HTML Presentation Framework</title>
+    <title>Rails Girls Brisbane - Tutorial</title>
 
     <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
     <meta name="author" content="RailsGirls Brisbane">
@@ -80,14 +80,18 @@
         <!-- Create project files and app directories -->
         <section class="title" data-background="#dddddd">
             <h2>Setting up</h2>
+
             <p>First, we're going to create a folder to store our app.</p>
         </section>
-        <section data-background="#dddddd" >
+        <section data-background="#dddddd">
             <p>In Nitrous, the boxes at the bottom of the page are your Terminal.</p>
-            <p>Your Terminal is used to write commands that control the server, <br>the files you're creating and your database.</p>
+
+            <p>Your Terminal is used to write commands that control the server, <br>the files you're creating and your
+                database.</p>
         </section>
-        <section data-background="#dddddd" >
+        <section data-background="#dddddd">
             <p>We are going to create a folder to store our app in .</p>
+
             <p>In the terminal type:</p>
             <pre><code>mkdir projects</code></pre>
             <p>The 'mkdir' command means 'make directory'. So, we've made a directory called 'projects'.
@@ -95,13 +99,16 @@
         </section>
         <section data-background="#dddddd">
             <p>Now, we need to access the directory we made.</p>
+
             <p>In the terminal type:</p>
             <pre><code>cd projects</code></pre>
             <p>The 'cd' command means 'change directory'. We're now in the 'projects' directory.</p>
+
             <p>The 'projects' directory is usually used to store all your different coding projects.</p>
         </section>
         <section data-background="#dddddd">
             <p>We're going to make an app called Rails Girls.</p>
+
             <p>In the terminal type:</p>
             <pre><code>rails new railsgirls</code></pre>
             <p>The 'rails new' command creates a new rails app. All the necessary files gets created for you here.</p>
@@ -109,18 +116,24 @@
         <section data-background="#dddddd">
             <section data-background="#dddddd">
                 <p>To access our app, we need to change directory again</p>
+
                 <p>In the terminal type:</p>
                 <pre><code>cd railsgirls</code></pre>
                 <p>We are now in the 'railsgirls' directory where our app resides </p>
+
                 <p>If you type this in the terminal</p>
                 <pre><code>ls</code></pre>
-                <p>you will see a list of folders such as <strong>app</strong> and <strong>config</strong> </p>
+                <p>you will see a list of folders such as <strong>app</strong> and <strong>config</strong></p>
+
                 <p>Want to know how to move back up the directory?</p>
+
                 <p><a href="#" class="navigate-down">Yes</a></p>
+
                 <p><a href="#" class="navigate-right">Nah, I want to move on to the next step</a></p>
             </section>
             <section data-background="#dddddd">
                 <p>To move back up the directory to <i>Project</i></p>
+
                 <p>In the terminal type:</p>
                 <pre><code>cd ..</code></pre>
             </section>
@@ -128,18 +141,73 @@
         <section data-background="#dddddd">
             <section data-background="#dddddd">
                 <p>We will start up the web server </p>
+
                 <p>In the terminal type:</p>
                 <pre><code>rails server</code></pre>
                 <p><a href="#" class="navigate-down">What is a server?</a></p>
             </section>
             <section data-background="#dddddd">
-            <p>You just started a server on your computer! A server SERVES up files to people who ask for them. Right now, our server is showing the "Welcome aboard" page when you go to http://localhost:3000/ - it's "serving" that file up to you when you ask for it by going to that URL.</p>
+                <p>You just started a server on your computer! A server SERVES up files to people who ask for them.
+                    Right now, our server is showing the "Welcome aboard" page when you go to http://localhost:3000/ -
+                    it's "serving" that file up to you when you ask for it by going to that URL.</p>
             </section>
         </section>
         <section data-background="#dddddd">
             <h3>Lets create something</h3>
-            <p>One of the reasons why Rails is awesome is that it comes with built-in commands that makes it easy for you to get started.</p>
-            <p>The <code>scaffold</code> command makes it super easy to create a concept by generating all the necessary files and folders which you don't have to worry about. </p>
+
+            <p>One of the reasons why Rails is awesome is that it comes with built-in commands that makes it easy for
+                you to get started.</p>
+
+            <p>The <code>scaffold</code> command makes it super easy to create a concept by generating all the necessary
+                files and folders which you don't have to worry about.
+                It also generates database tables to store information and boilerplate code of how every module
+                interacts.
+            </p>
+
+            <p><code>Scaffold</code> allows you to create a concept (eg: a user, post, comments) in a single command.
+            </p>
+
+            <p></p>
+        </section>
+
+        <section data-background="#dddddd">
+            <p>We are going to create the <strong>idea</strong> concept with the help of <code>scaffold</code> command
+            </p>
+            <pre><code>rails generate scaffold idea name:string description:text picture:string </code></pre>
+        </section>
+
+        <section data-background="#dddddd">
+            <section data-background="#dddddd">
+                <p>You have now created the concept called <strong>idea</strong> that includes:</p>
+                <ul>
+                    <li>Name</li>
+                    <li>Description</li>
+                    <li>Picture</li>
+                </ul>
+
+                <p>The 'string' and 'text' denotes the type of data it will be when stored in the database</p>
+                <p><a href="#" class="navigate-down">Tell me more about data types</a></p>
+                <p><a href="#" class="navigate-right"> I understand this and I'm ready to move on</a></p>
+            </section>
+            <section data-background="#dddddd">
+                <p>There are various types of data you might include, such as:</p>
+                <ul>
+                    <li><code>:binary</code> - stores data such as images, audio files or movies</li>
+                    <li><code>:boolean</code> - stores true or false values</li>
+                    <li><code>:date</code> - stores data in the date format(year/month/day)</li>
+                    <li><code>:datetime</code> - stores data in both date and time format</li>
+                    <li><code>:integer</code> - stores data as whole numbers</li>
+                    <li><code>:decimal</code> - stores data in decimal numbers</li>
+                </ul>
+            </section>
+        </section>
+
+        <section data-background="#dddddd">
+        <p>We asked rails to keep track of the <strong>idea</strong> concept in the database, and we need to update it.
+            This is called a 'migration'.
+        </p>
+        <p>In the terminal type:</p>
+        <pre><code>rake db:migrate</code></pre>
         </section>
 
     </div>

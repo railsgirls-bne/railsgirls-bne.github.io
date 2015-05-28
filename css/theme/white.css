@@ -16,7 +16,7 @@ body {
 
 .reveal {
   font-family: 'Source Sans Pro', Helvetica, sans-serif;
-  font-size: 30px;
+  font-size: 28px;
   font-weight: normal;
   color: #222; }
 
@@ -135,7 +135,12 @@ body {
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3); }
 
 .reveal code {
-  font-family: monospace; }
+  font-family: monospace;
+  color: #1A82E8;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+
+}
 
 .reveal pre code {
   display: block;
