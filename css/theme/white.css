@@ -16,7 +16,7 @@ body {
 
 .reveal {
   font-family: 'Source Sans Pro', Helvetica, sans-serif;
-  font-size: 28px;
+  font-size: 23px;
   font-weight: normal;
   color: #222; }
 
@@ -126,9 +126,9 @@ body {
   display: block;
   position: relative;
   width: 90%;
-  margin: 20px auto;
+  margin: 10px auto;
   text-align: left;
-  font-size: 0.55em;
+  font-size: 0.68em;
   font-family: monospace;
   line-height: 1.2em;
   word-wrap: break-word;
@@ -144,9 +144,9 @@ body {
 
 .reveal pre code {
   display: block;
-  padding: 5px;
+  padding: 10px;
   overflow: auto;
-  max-height: 400px;
+  max-height: 600px;
   word-wrap: normal;
   background: #3F3F3F;
   color: #DCDCDC; }

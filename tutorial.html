@@ -144,12 +144,18 @@
 
                 <p>In the terminal type:</p>
                 <pre><code>rails server</code></pre>
+                <p>Click on the <strong>Preview</strong> at the top of the Web IDE and select 'Port 3000'.
+                    This is to make sure that the server is running properly.
+                </p>
+                <img width="600" src="/images/nitrous-preview-tab.png" alt="Preview">
+
                 <p><a href="#" class="navigate-down">What is a server?</a></p>
             </section>
             <section data-background="#dddddd">
                 <p>You just started a server on your computer! A server SERVES up files to people who ask for them.
-                    Right now, our server is showing the "Welcome aboard" page when you go to http://localhost:3000/ -
+                    Right now, our server is showing the "Welcome aboard" page when you go to
                     it's "serving" that file up to you when you ask for it by going to that URL.</p>
+
             </section>
         </section>
         <section data-background="#dddddd">
@@ -186,7 +192,9 @@
                 </ul>
 
                 <p>The 'string' and 'text' denotes the type of data it will be when stored in the database</p>
+
                 <p><a href="#" class="navigate-down">Tell me more about data types</a></p>
+
                 <p><a href="#" class="navigate-right"> I understand this and I'm ready to move on</a></p>
             </section>
             <section data-background="#dddddd">
@@ -203,12 +211,93 @@
         </section>
 
         <section data-background="#dddddd">
-        <p>We asked rails to keep track of the <strong>idea</strong> concept in the database, and we need to update it.
-            This is called a 'migration'.
-        </p>
-        <p>In the terminal type:</p>
-        <pre><code>rake db:migrate</code></pre>
+            <p>We asked rails to keep track of the <strong>idea</strong> concept in the database, and we need to update
+                it.
+                This is called a 'migration'.
+            </p>
+
+            <p>In the terminal type:</p>
+            <pre><code>rake db:migrate</code></pre>
         </section>
+
+        <section data-background="#dddddd">
+            <p>Lets start our server and see what we have created so far.
+            </p>
+
+            <p>In the terminal type:</p>
+            <pre><code>rails server</code></pre>
+        </section>
+
+        <section data-background="#dddddd">
+            <section data-background="#dddddd">
+                <p>
+                    Click on the <strong>Preview</strong> again and select 'Port 3000'.
+                    The address in the browser will be yourappname.nitrousbox.com.
+                    Add '/ideas' to the end of the URL.
+                    You'll now be able to see the basics of the app you're creating!
+                    If you can't see your app, ask a coach for help.
+                </p>
+
+                <p><a href="#" class="navigate-down">What did scaffold do?</a></p>
+
+                <p><a href="#" class="navigate-right">I want to move on to the next step</a></p>
+            </section>
+            <section data-background="#dddddd">
+                <p>
+                    The <code>scaffold</code> command allow Rails developers to create apps really fast.
+                    It creates a lot of building blocks for you so you don't have to do it manually.
+                    Lets look at the folders and directories it has created.
+                </p>
+                <ul>
+                    <li>app/assets/javascripts/ideas.js.coffee</li>
+                    <li>app/assets/stylesheets/ideas.css.scss</li>
+                    <li>app/assets/stylesheets/scaffolds.css.scss</li>
+                    <li>app/controllers/ideas_controller.rb</li>
+                    <li>app/helpers/ideas_helper.rb</li>
+                    <li>app/models/idea.rb</li>
+                    <li>app/views/ideas/</li>
+                    <li>db/migrate/</li>
+                    <li>db/schema.rb</li>
+                    <li>test/controllers/ideas_controller_test.rb</li>
+                    <li>test/fixtures/ideas.yml</li>
+                    <li>test/helpers/ideas_helper_test.rb</li>
+                    <li>test/models/idea_test.rb</li>
+                </ul>
+                <p><a href="#" class="navigate-down">What are the essential files that I need to know about</a></p>
+            </section>
+            <section data-background="#dddddd">
+                <p>
+                    That is a whole lot of files we didn't need to create. We will discuss a few that we will be working
+                    on.
+                </p>
+
+                <p>
+                    <code>app/models/idea.rb</code> is the file that keeps track of the <strong>model</strong>
+                    information for the <strong>idea</strong> concept.
+                    We'll be working with this file when we add in photos.
+                </p>
+
+                <p>
+                    <code>app/controllers/ideas_controller.rb</code> helps <strong>control</strong> and process all the
+                    requests the server gets
+                    for the pages <strong>ideas</strong>. There are code generated in the file for you which handles the
+                    actions
+                    show, create, edit, delete.
+                </p>
+
+                <p>
+                    <code>app/views/ideas/</code> is a directory that holds all the view(HTML files) of the <strong>ideas</strong>
+                    concept.
+                    This is where you can pretty up the app which we will dive into in the next step.
+                </p>
+            </section>
+        </section>
+
+        <section data-background="#dddddd">
+            <h1>Lets make things beautiful</h1>
+        </section>
+
+        
 
     </div>
 
