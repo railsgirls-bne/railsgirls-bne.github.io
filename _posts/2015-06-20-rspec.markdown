@@ -1,23 +1,21 @@
 ---
 layout: default
-title: Rails Girls Rspec tutorial
-permalink: sinatra-app
+title: Rails Girls Rspec tutorial for Ideas app
+permalink: rspec-ideas-app
 ---
 
 # Testing with Rspec
 
 *Created by Sorcha Abel, [@sabel25](https://twitter.com/sabel25)*
 
-Rspec is a testing framework. As developers we are constantly testing, as soon as we develop code we run it to see if it works. That is manual testing.
-
-Rspec is simply testing with code. You write code to test other code. Rspec tests where a portion of code outputs the desired behaviour in a controlled environment. Given..when and then is the
+Rspec is a testing framework. Simply put you write code to test other code. Rspec tests that a portion of code outputs the desired behaviour in a controlled environment. Given..when and then is the
 basic structure of all tests
 
 __COACH__: Talk about given..when..then ie. Given some context..when an particular event occurs...then the result should be. Rspec is written in Ruby using a DSL
 
 ### Install Rspec
 
-Rspec is a gem. To add a gem to your rails application open the file gemfile in the root of your project, add the following lines and save
+To add rspec to your rails application open the file *Gemfile* in the root of your project, add the following lines and save
 
 {% highlight sh %}
 group :development, :test do
@@ -25,27 +23,26 @@ group :development, :test do
 end
 {% endhighlight %}
 
-Then we call the following from our terminal. We do this to install the gem we just added
+Then we type the following command in the terminal while in our project directory. We do this to install the gem we just added
 
 {% highlight sh %}
 bundle install
 {% endhighlight %}
 
-This will create two files, rails-helper.rb and spec_helper.rb in the spec directory for you. All tests will
-be stored in this directory inside your project.
+This will create two files, rails-helper.rb and spec_helper.rb in the spec directory for you. All tests will be stored in this directory inside your project.
 
-Next we will create a spec to test the Idea.rb model we created earlier. But before we do that we need to modify
-the model idea.rb
+Next we will create a spec to test the idea.rb model we created earlier with out scaffold. But before we do that we need to modify the model idea.rb
 
-Open this file in the app/models folder and add this line. This simply means that each idea we add via our browser page
-must have a name. Otherwise it is not considered to be a valid record and will not save to the database.
+Open this file in the app/models folder and add this line. The change we are making simply means that each idea we add via our browser page must have a name. Otherwise it is not considered to be a valid record and will not save to the database.
 
 {% highlight sh %}
 validates :addr1, presence: true
 {% endhighlight %}
 
-Next inside the spec directory create 2 new folders called app and then models inside the app folder. Inside the model
-folder create a file called idea_spec.rb
+Next step is inside the spec directory where we create 2 new directories and one file (spec/app/models/idea_spec.rb)
+1. The first directory is called *app*. Once created double click to open it.
+2. The second directory is called *models*. Once created double click to open it.
+3. Inside the model directory create a file called idea_spec.rb
 
 __COACH__: talk about the format of a rspec file i.e. filename_spec.rb
 
@@ -67,7 +64,7 @@ bundle exec rspec spec/app/models/idea_spec.rb
 {% endhighlight %}
 
 ## What's next
-
+practise practise practise.
 
 ## Additional Guides
 
