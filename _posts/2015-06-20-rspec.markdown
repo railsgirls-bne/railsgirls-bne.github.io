@@ -1,0 +1,82 @@
+---
+layout: default
+title: Rails Girls Rspec tutorial for Ideas app
+permalink: rspec-ideas-app
+---
+
+# Testing with Rspec
+
+*Created by Sorcha Abel, [@sabel25](https://twitter.com/sabel25)*
+
+Rspec is a testing framework. Simply put you write code to test other code. Rspec tests that a portion of code outputs the desired behaviour in a controlled environment. Given..when and then is the
+basic structure of all tests
+
+__COACH__: Talk about given..when..then ie. Given some context..when an particular event occurs...then the result should be. Rspec is written in Ruby using a DSL
+
+### Install Rspec
+
+To add rspec to your rails application open the file *Gemfile* in the root of your project, add the following lines and save
+
+{% highlight sh %}
+group :development, :test do
+  gem 'rspec-rails'
+end
+{% endhighlight %}
+
+Then we type the following command in the terminal while in our project directory. We do this to install the gem we just added
+
+{% highlight sh %}
+bundle install
+{% endhighlight %}
+
+This will create two files, rails-helper.rb and spec_helper.rb in the spec directory for you. All tests will be stored in this directory inside your project.
+
+Next we will create a spec to test the idea.rb model we created earlier with out scaffold. But before we do that we need to modify the model idea.rb
+
+Open this file in the app/models folder and add this line. The change we are making simply means that each idea we add via our browser page must have a name. Otherwise it is not considered to be a valid record and will not save to the database.
+
+{% highlight sh %}
+validates :addr1, presence: true
+{% endhighlight %}
+
+Next step is inside the spec directory where we create 2 new directories and one file (spec/app/models/idea_spec.rb)
+1. The first directory is called *app*. Once created double click to open it.
+2. The second directory is called *models*. Once created double click to open it.
+3. Inside the model directory create a file called idea_spec.rb
+
+__COACH__: talk about the format of a rspec file i.e. filename_spec.rb
+
+{% highlight sh %}
+require 'rails_helper'
+
+describe Idea do
+  it 'will not save without a name' do
+    idea = Idea.new
+    expect(idea).to_not be_valid
+  end
+end
+{% endhighlight %}
+
+Finally go back to your terminal window and run
+
+{% highlight sh %}
+bundle exec rspec spec/app/models/idea_spec.rb
+{% endhighlight %}
+
+## What's next
+practise practise practise.
+
+## Additional Guides
+
+* Guide 0: [Handy cheatsheet for Ruby, Rails, console etc.](https://github.com/PragTob/rails-beginner-cheatsheet)
+* Guide 1: [Add commenting by Janika Liiv](/commenting)
+* Guide 2: [Put your app online with Heroku by Terence Lee](/heroku) / [Put your app online with OpenShift by Katie Miller](/openshift) / [Put your app online with Shelly Cloud](/shellycloud) / [Put your app online with anynines](/anynines) / [Put your app online with Trucker.io](/trucker)
+* Guide 3: [Create thumbnail images for the uploads by Miha Filej](/thumbnails)
+* Guide 4: [Add design using HTML &amp; CSS by Alex Liao](/design)
+* Guide 5: [Add Authentication (user accounts) with Devise by Piotr Steininger](/devise/)
+* Guide 6: [Adding profile pictures with Gravatar](/gravatar)
+* Guide 7: [Test your app with RSpec](/testing-rspec)
+* Guide 8: [Continuous Deployment with Travis-CI](/continuous-travis) / [Continuous Deployment with Codeship](/continuous)
+* Guide 9: [Go through additional explanations for the App by Lucy Bain](https://github.com/lbain/railsgirls)
+
+
