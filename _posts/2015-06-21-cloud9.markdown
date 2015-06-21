@@ -1,0 +1,47 @@
+---
+layout: default
+title: Rails Girls Cloud9 Setup Guide
+permalink: cloud9-guide
+---
+
+# Rails Girls Cloud9 Setup Guide
+
+*Created by Sorcha Abel, [@sabel25](https://twitter.com/sabel25)*
+
+Open your browser and in the address bar go to the cloud9 website [https://c9.io/](https://c9.io/)
+
+Click the __signup__ button, you can signup using your github/bitbucket account or you can enter a username, your email and a password
+
+Follow the steps below to get started
+
+1. click __Go to your Dashboard__
+
+2. Select __Create New Workspace__
+
+3. Select the __Ruby on Rails__ from the options provided
+
+4. Name your project __railsgirls__
+
+5. Click __Create__
+
+6. After Cloud9 has finished creating the workspace, select it and click __Start editing__
+
+
+## Set up the text editor
+
+The Ruby global convention is to use 2 spaces for indentation. Lets change the default editor to use 2 spaces.
+
+1. Click on the settings icon in the upper right side of the window. A preferences window will open and from here select __Code Editor (Ace)__ to edit the __Soft Tabs__ setting and reduce it to 2.
+
+
+## Viewing your project in the Browser
+
+From the ruby-railsgirls terminal you need to start the rails server
+
+{% highlight sh %}
+rails server -b $IP -p $PORT
+{% endhighlight %}
+
+Click on the share button in the top right window. From the __Share this workspace__ window click on the url in Application and select the open option
+
+The Welcome Aboard Ruby page will be displayed
