@@ -36,7 +36,7 @@ Next we will create a spec to test the idea.rb model we created earlier with out
 Open this file in the app/models folder and add this line. The change we are making simply means that each idea we add via our browser page must have a name. Otherwise it is not considered to be a valid record and will not save to the database.
 
 {% highlight sh %}
-validates :addr1, presence: true
+validates :name, presence: true
 {% endhighlight %}
 
 Next step is inside the spec directory where we create 2 new directories and one file (spec/app/models/idea_spec.rb)
