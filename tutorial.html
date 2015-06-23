@@ -423,13 +423,108 @@
 
         <section data-background="#dddddd">
             <p>Finally, we're going to make some changes to the way our ideas display. We want to space them out a bit. Open <code>app/assets/stylesheets/application.css</code> <br>and at the bottom, add:
-            <pre><code>body { padding-top: 100px; }
+            <pre><code>
+                body { padding-top: 100px; }
                 footer { margin-top: 100px; }
                 table, td, th { vertical-align: middle; border: none; }
                 th { border-bottom: 1px solid #DDD; }</code></pre>
         <p>Make sure you save the file. There's a 'Save' button at the top of the text editor box.</p>
         </section>
 
+        <section data-background="#dddddd">
+            <p>So, what did that CSS do?</p>
+            <p><code>body</code> - this part is known as the selector and refers to the HTML element you wish to style.</p>
+            <p><code>{ padding-top: 100px; }</code> - this part is known as the declaration; each declaration has a property which is the style attribute you wish to change <code>(padding-top)</code>, <br>and an associated value <code>(100px)</code>.</p>
+            <p>Declarations always end with a semicolon and declaration groups <br>are always enclosed by curly brackets.</p>
+        </section>
+
+        <section data-background="#dddddd">
+            <p>Now lets have a look how did the changes to CSS impact our app </p>
+            <p> Go to the terminal and type: </p>
+            <pre><code>rails server</code></pre>
+            <p>Go to your browser on and preview the page</p>
+            <p> Add the '/ideas' to the end of the URL</p>
+        </section>
+
+        <section data-background="#dddddd">
+            <h1>Adding Images</h1>
+        </section>
+
+        <section data-background="#dddddd">
+            <p>At the moment, our app can't upload images and we need to install a piece of software to enable that.</p>
+            <p>In Rails, there are a lot of plug ins that we can incorporate with our app which are called <strong>gems</strong></p>
+            <p>Gems are basically libraries that contains pre-written code so that you don't have to write it from scratch.</p>
+            <p>Gems are very useful to reduce duplication and errors in your code and are portable to be used in multiple projects.</p>
+        </section>
+
+        <section data-background="#dddddd">
+            <p>In your project menu,you'll see a file called <code>Gemfile</code>. <br>This has all the gems that came with the application we created when we used the <pre><code>rails new</code></pre> generator at the beginning.</p>
+            <p>Open gemfile so you can edit it in the text editor. Under the line, <pre><code>gem 'sqlite3'</code></pre> add:</p>
+            <pre><code>gem 'carrierwave'</code></pre>
+            <p>The <code>sqlite3 gem</code> interfaces with our database, and <code>carrierwave</code> <br>makes it easier to upload images.</p>
+            <p>Hit <code>CTRL-C</code> in the terminal to stop the server</p>
+        </section>
+
+        <section data-background="#dddddd">
+            <p>In the terminal, run this command: </p>
+            <pre><code>bundle</code></pre>
+            <p>Bundler downloads all the gems that are specified in the <code>Gemfile</code> and tracks the versions to ensure that your project has a consistent environment.</p>
+        </section>
+
+        <section data-background="#dddddd">
+            <p>Now, we can generate the code that handles image uploads by doing: </p>
+            <pre><code>rails generate uploader Picture</code></pre>
+            <p>Please start your server up again.</p>
+        </section>
+
+        <section data-background="#dddddd">
+            <p>Open <code>app/models/idea.rb</code>. Under the line <code>class Idea < ActiveRecord::Base</code>, add:
+            <pre><code>mount_uploader :picture, PictureUploader</code></pre>
+        </section>
+        <section data-background="#dddddd">
+            <p>Now, we need to customise the form we use for editing and uploading ideas.</p>
+            <p>We're using the same bit of code to edit and upload. This is found in <code>app/models/idea.rb</code>.</p>
+            <p>This code snippet is used in both <code>edit.html.erb</code> and <code>new.html.erb</code>, as the two forms are basically identical. This saves us some work! If you look at either of those pages, <br>rather than form code, it just says <code><%= render 'form' %></code>.</p>
+        </section>
+
+        <section data-background="#dddddd">
+            <section data-background="#dddddd">
+              <p>If you open <code>app/views/ideas/_form.html.erb</code>, you will see the code <code>form_for(@idea)</code>.</p> 
+              <p>This file has HTML code generated for us to create our <strong>idea</strong> form.</p>
+              <p>Find <code><%= f.text_field :picture %></code> and change it to:</p>
+              <pre><code><%= f.file_field :picture %></code></pre>
+              <p>This changes the code from asking for a text input to asking for a file input, which makes it easier for our users to upload an image.</p>
+              <p>Did you get an error?</p>
+                <p><a href="#" class="navigate-right">No.</a></p>
+                <p><a href="#" class="navigate-down">Yes.</a>
+            </section>
+           <section data-background="#dddddd">
+              <p>Sometimes, you might get an <i>TypeError: can’t cast   ActionDispatch::Http::UploadedFile to string.</i> </p>
+              <p>If this happens, change the line to this code instead: </p>
+              <pre><code><%= form_for @idea, :html => {:multipart => true} do |f| %></code></pre>
+           </section>
+        </section>
+
+        <section data-background="#dddddd">
+          <section data-background="#dddddd">
+            <p>In your browser, upload a picture to your idea. When you upload a picture, it doesn't look nice because it only shows the file path, so lets go ahead and fix that.</p>
+            <p>Open <code>app/views/ideas/show.html.erb</code> and change <code><%= @idea.picture %></code> to:
+            <pre><code><%= image_tag(@idea.picture_url, :width => 600) if @idea.picture.present? %></code></pre>
+            <p>Refresh your browser to see what changed.</p>
+            <p><a href="#" class="navigate-right">I understand what happened and want to move on</a></p>
+            <p><a href="#" class="navigate-down">I want to know what did the code changed</a>
+          </section>
+          <section data-background="#dddddd">
+            <p>Let's take a closer look at <code>app/views/ideas/show.html.erb</code>.</p>
+            <p>
+            In the code <code><%= @idea.picture %></code>, @idea is what we call an 'instance variable'. Instance variables are prefixed with an @ symbol. Each <i>view</i> file (files in the app/views folder), has a corresponding controller action, where the instance variables are set.</p>
+            <p>In our code, @idea is set in the ‘show’ action of the Ideas controller. It's set with the code <code>@idea = Idea.find(params[:id])</code>.</p> 
+            <p>This allows us to use it in the view <code>show.html.erb</code>. It uses the Rails 'Find' method to get the ideas for our app from our database.</p> 
+          </section>
+          
+          
+
+        </section>
 
 
     </div>
