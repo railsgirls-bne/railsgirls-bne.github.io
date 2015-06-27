@@ -8,7 +8,9 @@ permalink: cloud9-guide
 
 *Created by Sorcha Abel, [@sabel25](https://twitter.com/sabel25)*
 
-Open your browser and in the address bar go to the cloud9 website [https://c9.io/](https://c9.io/)
+Open your browser and in the address bar go to the [Github](https://github.com/) page and __signup__ for an account
+
+Then,int the address bar go to the cloud9 website [https://c9.io/](https://c9.io/)
 
 Click the __signup__ button, you can signup using your github/bitbucket account or you can enter a username, your email and a password
 
