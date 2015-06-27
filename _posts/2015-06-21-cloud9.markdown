@@ -14,17 +14,22 @@ Click the __signup__ button, you can signup using your github/bitbucket account 
 
 Follow the steps below to get started
 
-1. click __Go to your Dashboard__
+### 1. click __Go to your Dashboard__
 
-2. Select __Create New Workspace__
+### 2. Select __Create New Workspace__
+<img src="/images/c9/c9-create-workspace.png" alt="Workspace" width="200">
 
-3. Select the __Ruby on Rails__ from the options provided
+### 3. Select the __Ruby on Rails__ from the options provided
+<img src="/images/c9/c9-create-ror.png" alt="Workspace" width="600">
 
-4. Name your project __railsgirls__
+### 4. Name your project __railsgirls__
 
-5. Click __Create__
+### 5. Click __Create__
 
-6. After Cloud9 has finished creating the workspace, select it and click __Start editing__
+### 6. After Cloud9 has finished creating the workspace, select it and click __Start editing__
+
+## Workspace environment
+![Cloud 9](/images/c9/c9-project-workspace.png "C9 workspace")
 
 
 ## Set up the text editor
@@ -32,7 +37,7 @@ Follow the steps below to get started
 The Ruby global convention is to use 2 spaces for indentation. Lets change the default editor to use 2 spaces.
 
 1. Click on the settings icon in the upper right side of the window. A preferences window will open and from here select __Code Editor (Ace)__ to edit the __Soft Tabs__ setting and reduce it to 2.
-
+![Cloud 9 editor](/images/c9/c9-setting.png "C9 editor")
 
 ## Viewing your project in the Browser
 
@@ -43,5 +48,7 @@ rails server -b $IP -p $PORT
 {% endhighlight %}
 
 Click on the share button in the top right window. From the __Share this workspace__ window click on the url in Application and select the open option
+
+<img src="/images/c9/c9-rails-server.png" alt="Workspace" width="600">
 
 The Welcome Aboard Ruby page will be displayed
