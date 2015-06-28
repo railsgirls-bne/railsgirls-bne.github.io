@@ -489,7 +489,7 @@
 
         <section data-background="#dddddd">
             <section data-background="#dddddd">
-              <p>If you open <code>app/views/ideas/_form.html.erb</code>, you will see the code <code>form_for(@idea)</code>.</p> 
+              <p>If you open <code>app/views/ideas/_form.html.erb</code>, you will see the code <code>form_for(@idea)</code>.</p>
               <p>This file has HTML code generated for us to create our <strong>idea</strong> form.</p>
               <p>Find <code><%= f.text_field :picture %></code> and change it to:</p>
               <pre><code><%= f.file_field :picture %></code></pre>
@@ -518,14 +518,73 @@
             <p>Let's take a closer look at <code>app/views/ideas/show.html.erb</code>.</p>
             <p>
             In the code <code><%= @idea.picture %></code>, @idea is what we call an 'instance variable'. Instance variables are prefixed with an @ symbol. Each <i>view</i> file (files in the app/views folder), has a corresponding controller action, where the instance variables are set.</p>
-            <p>In our code, @idea is set in the ‘show’ action of the Ideas controller. It's set with the code <code>@idea = Idea.find(params[:id])</code>.</p> 
-            <p>This allows us to use it in the view <code>show.html.erb</code>. It uses the Rails 'Find' method to get the ideas for our app from our database.</p> 
+            <p>In our code, @idea is set in the ‘show’ action of the Ideas controller. It's set with the code <code>@idea = Idea.find(params[:id])</code>.</p>
+            <p>This allows us to use it in the view <code>show.html.erb</code>. It uses the Rails '<strong>find</strong> method to get the ideas for our app from our database.</p>
           </section>
-          
-          
 
+          <section data-background="#dddddd">
+            <p>The code that follows the <code>@idea</code> variable (<code>.picture</code>) tells Rails to access the ‘picture’ attribute of our resource (idea). </p>
+            <p>Our new code, <code><%= image_tag(@idea.picture_url,:width => 600)</code>, uses the Ruby on Rails image_tag helper. This helper generates the HTML code <code>&lt;img&gt;</code> tag, but retrieves the image we want to display from the folder 'public/images' where our uploaded images are stored.</p>
+            <p>Rails provide helpers that generates HTML code so that you only need to write vital code and not repeat yourself writing boilerplate code.</p>
+          </section>
+          <section data-background="#dddddd">
+            <p>In the <code>image_tag</code>, we have also specified the width of the image width to 600</p>
+            <p>Finally, the <code>.present?</code> after <code>@idea.picture</code> is a Rails method to check if the picture exists before proceeding in executing the rest of the code.</p>
+          </section>
         </section>
 
+        <section data-background="#dddddd">
+            <h1>Fine-tuning Routes</h1>
+        </section>
+
+        <section data-background="#dddddd">
+            <p>Our Rails app would need to listen for requests from the browser and provide the correct information through a system called <strong>routing</strong>.</p>
+            <p>Requests from the browser are interpreted as specific HTTP(Hypertext Transfer Protocol) methods.</p>
+            <p> This protocol basically defines how information (usually webpages or webpage components composed of text with hyperlinks - ‘hypertext’), is formatted and transmitted across the internet. </p>
+        </section>
+        <section data-background="#dddddd">
+            <section data-background="#dddddd">
+                <p>There are 4 HTTP methods: </p>
+                    <ul>
+                        <li>GET</li>
+                        <li>PUT</li>
+                        <li>POST</li>
+                        <li>DELETE</li>
+                    </ul>
+                <p>Rails routing system ensures the app knows what to do when it receives each of those methods for any of the resources in your app.</p>
+                <p>For example, <code>GET /ideas/new</code> will give you the form for adding a new idea.</p>
+                <p><code>POST /ideas</code> will create a new idea.</p>
+                <p>Need more explanation on how routing works?:</p>
+                    <p><a href="#" class="navigate-right">I am ready for the next task</a></p>
+                    <p><a href="#" class="navigate-down">I want to know more</a></p>
+            </section>
+
+            <section data-background="#dddddd">
+                <p> Rails’ inbuilt routing system automatically generates routes for each resource that map to specific actions (index, show, new, edit, create, update, delete) defined in the controller.
+                     So, for each of our models, there are seven related actions defined in the associated controller,
+                     <code>ideas_controller.rb</code>
+                     These actions specify the appropriate response (a ‘method’) which is most likely to render the corresponding view,<code>ideas/index.html.erb</code>
+                </p>
+            </section>
+            <section data-background="#dddddd">
+                <p>If you look in your <code>ideas_controller.rb</code> you can see these actions and the associated behaviour, and the HTTP method that corresponds with each action:</p>
+                <pre><code>
+                def show
+                    @idea = Idea.find(params[:id])
+
+                    respond_to do |format|
+                      format.html # show.html.erb
+                      format.json { render json: @idea }
+                    end
+                  end
+
+                  # GET /ideas/new
+                  # GET /ideas/new.json
+                </code></pre>
+                In this instance, <code>show</code> is the controller action that corresponds with the
+                </section>
+            </section>
+        </section>
 
     </div>
 </div>
