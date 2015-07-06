@@ -642,10 +642,71 @@
           <p>In that folder, you'll see a page called <code>info.html.erb</code>. Open it up.</p>
           <p>You can customise the information in this page. <br>If you add /pages/info to your app URL now, you'll see this page. To see your new info page, take your browser to http://localhost:3000/pages/info.</p>
         </section>
-      <section class="title">
+      <section data-background="#dddddd">
         <h2>Push your app to GitHub</h2>
+        <center> <img src="images/octocat.png" width="200" "box-shadow: 0 0 0px;"></center>
       </section>
-
+      <section data-background="#dddddd">                   
+        <p>Earlier, you created a GitHub account.</p>
+        <p>Now, we are going to add your new app to GitHub.</p>
+    </section>
+    <section data-background="#dddddd"> 
+        <p>Open the GitHub website and log in.</p>
+        <p>Click the <a href="https://github.com/new" target="_blank"><img src="images/newrepo.png" width="100"></a> button.</p>            
+    </section>
+    <section data-background="#dddddd">
+        <p>Give the repository a name, such as rails-girls.</p>
+        <p>You can also add a description.</p>
+    </section>
+    <section data-background="#dddddd">                         
+    <p>Choose the 'Public Repository' option and make sure you tick the 'Initialize this repository with a README' box.</p>
+    </section>
+    <section data-background="#dddddd">
+      <p>This creates a new repository (a place to store your app). It then initializes the repository, which allows you to record revisions of the project, and finally, it creates a README document(to document what your project is about).</p>
+    </section>
+    <section data-background="#dddddd">   
+      <p>Go back to Cloud9. Make sure you are still in your project directory.</p>
+      <p>You can check this by looking at the terminal. It should show something like this:</p>
+      <pre><code>your_username@railsgirls:~/projects/railsgirls $</code></pre>
+      <p>If you are not, use the <code>cd</code> command you learned earlier to change back into that directory.</p>
+    </section>
+    <section data-background="#dddddd">
+      <p>In the terminal, type:</p>
+        <pre><code>git init</code></pre>
+      <p>This initializes your local git repository. Remember: git runs on your computer; GitHub stores your code online.</p>
+    </section>
+    <section data-background="#dddddd">   
+          <p>Let's add your code to your local repository. In the terminal, type:</p>
+          <pre><code>git add .</code></pre>
+          <p>The <code>.</code> means all files in this directory. So, this command will get us ready to add all our files to our computer's repository.</p>
+          <p>Git has an intermediary stage before it saves any changes. This is called 'staging', and it allows you to make sure everything is correct, so you can commit (save) them.</p>
+        </section>
+        <section data-background="#dddddd"> 
+          <p>You're now ready to make your first commit! In the terminal, type:</p>
+          <pre><code>git commit -m "my first commit"</code></pre>
+          <p>This commits all of your files to your computer's (local) git repository. The words between the <code>"</code><code>"</code> is your commit message. This tells other people looking at your code what you are doing. You can be more descriptive in your commit messages to describe what you have done</p>
+        </section>  
+        <section data-background="#dddddd">             
+          <p>Now, you need to send the code to GitHub, so you can share it and collaborate on it if you want. In the terminal type:</p>
+          <pre><code>git remote add origin https://github.com/yourusername/yournewrepositoryname.git</code></pre>
+          <p>This makes a remote connection to the GitHub repository you've typed. We normally call this 'origin', as it's the original version.</p>
+        </section>  
+        <section data-background="#dddddd">
+          <p>Now the two repositories(your computer and Github) are connected, you need to push your computer's code to GitHub. In the terminal, type:</p>
+          <pre><code>git push -u origin master</code></pre>
+          <p><i>push</i> command uploads your code to Github in particular to the <i>master</i> branch.</p>
+          <p>Your code is now on GitHub! On the GitHub website, open up the repository you created.</p>
+        </section>      
+        <section data-background="#dddddd">
+          <h2>Congratulations! You've built your basic app.</h2>
+          <p>So, what next?</p>
+          <ul>
+            <li><a href="http://guides.railsgirls.com/commenting" target="_blank">Allow comments</a></li>
+            <li><a href="http://guides.railsgirls.com/devise" target="_blank">Add authentication</a></li>
+            <li><a href="http://guides.railsgirls.com/design" target="_blank">Improve your design</a></li>
+            <li><a href="http://guides.railsgirls.com/thumbnails" target="_blank">Resize images using Carrierwave</a> </li>
+          </ul>
+        </section>
     </div>
 </div>
 
