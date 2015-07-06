@@ -10,7 +10,7 @@ permalink: cloud9-guide
 
 Open your browser and in the address bar go to the [Github](https://github.com/) page and __signup__ for an account
 
-Then,int the address bar go to the cloud9 website [https://c9.io/](https://c9.io/)
+Then, in the address bar go to the cloud9 website [https://c9.io/](https://c9.io/)
 
 Click the __signup__ button, you can signup using your github/bitbucket account or you can enter a username, your email and a password
 
@@ -22,7 +22,7 @@ Follow the steps below to get started
 <img src="/images/c9/c9-create-workspace.png" alt="Workspace" width="200">
 
 ### 3. Select the __Ruby on Rails__ from the options provided
-<img src="/images/c9/c9-create-ror.png" alt="Workspace" width="600">
+<img src="/images/c9/c9-workspace-ror.png" alt="Workspace" width="600">
 
 ### 4. Name your project __railsgirls__
 
@@ -31,7 +31,7 @@ Follow the steps below to get started
 ### 6. After Cloud9 has finished creating the workspace, select it and click __Start editing__
 
 ## Workspace environment
-![Cloud 9](/images/c9/c9-project-workspace.png "C9 workspace")
+![Cloud 9](/images/c9/c9-project-workspace2.png "C9 workspace")
 
 
 ## Set up the text editor
@@ -39,7 +39,7 @@ Follow the steps below to get started
 The Ruby global convention is to use 2 spaces for indentation. Lets change the default editor to use 2 spaces.
 
 1. Click on the settings icon in the upper right side of the window. A preferences window will open and from here select __Code Editor (Ace)__ to edit the __Soft Tabs__ setting and reduce it to 2.
-![Cloud 9 editor](/images/c9/c9-setting.png "C9 editor")
+![Cloud 9 editor](/images/c9/c9-settings2.png "C9 editor")
 
 ## Viewing your project in the Browser
 
@@ -49,8 +49,15 @@ From the ruby-railsgirls terminal you need to start the rails server
 rails server -b $IP -p $PORT
 {% endhighlight %}
 
+or you can use the __Run Server__ button
+
+![Cloud 9 Rails Server](/images/c9/c9-run-server.png "C9 Run Server")
+
 Click on the share button in the top right window. From the __Share this workspace__ window click on the url in Application and select the open option
 
-<img src="/images/c9/c9-rails-server.png" alt="Workspace" width="600">
+<img src="/images/c9/c9-share-workspace.png" alt="Workspace" width="600">
 
 The Welcome Aboard Ruby page will be displayed
+
+<img src="/images/c9/c9-welcome.png" alt="Welcome" width="600">
+

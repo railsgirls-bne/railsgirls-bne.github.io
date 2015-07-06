@@ -69,7 +69,7 @@
             <h2>Get Ready</h2>
 
             <p> To build apps and other things with Ruby on Rails, you need to set up <strong>2 accounts</strong>,
-                namely <strong>GitHub</strong> and <strong>Nitrous.io</strong> .
+                namely <strong>GitHub</strong> and <strong>c9.io</strong> .
             </p>
 
             <p>We need somewhere for you to <i>write code</i> and <i>run a server</i> , and we need somewhere for you to
@@ -79,47 +79,27 @@
 
         <!-- Create project files and app directories -->
         <section class="title" data-background="#dddddd">
-            <h2>Setting up</h2>
+            <h2>Setting up with Cloud9</h2>
 
-            <p>First, we're going to create a folder to store our app.</p>
+            <p>Follow the link to open the cloud9 setup guide <a href="_posts/2015-06-21-cloud9.markdown">Click here</a></p>
         </section>
         <section data-background="#dddddd">
-            <p>In Nitrous, the boxes at the bottom of the page are your Terminal.</p>
+            <p>In Cloud9, the terminal window is at the bottom of your page.</p>
 
             <p>Your Terminal is used to write commands that control the server, <br>the files you're creating and your
                 database.</p>
         </section>
         <section data-background="#dddddd">
-            <p>We are going to create a folder to store our app in .</p>
+            <p>Navigating within the terminal window</p>
 
-            <p>In the terminal type:</p>
-            <pre><code>mkdir projects</code></pre>
-            <p>The 'mkdir' command means 'make directory'. So, we've made a directory called 'projects'.
-            </p>
+            <p>In the terminal:</p>
+
+            <p>The 'cd' command means 'change directory'.</p>
+
         </section>
-        <section data-background="#dddddd">
-            <p>Now, we need to access the directory we made.</p>
 
-            <p>In the terminal type:</p>
-            <pre><code>cd projects</code></pre>
-            <p>The 'cd' command means 'change directory'. We're now in the 'projects' directory.</p>
-
-            <p>The 'projects' directory is usually used to store all your different coding projects.</p>
-        </section>
-        <section data-background="#dddddd">
-            <p>We're going to make an app called Rails Girls.</p>
-
-            <p>In the terminal type:</p>
-            <pre><code>rails new railsgirls</code></pre>
-            <p>The 'rails new' command creates a new rails app. All the necessary files gets created for you here.</p>
-        </section>
         <section data-background="#dddddd">
             <section data-background="#dddddd">
-                <p>To access our app, we need to change directory again</p>
-
-                <p>In the terminal type:</p>
-                <pre><code>cd railsgirls</code></pre>
-                <p>We are now in the 'railsgirls' directory where our app resides </p>
 
                 <p>If you type this in the terminal</p>
                 <pre><code>ls</code></pre>
@@ -144,10 +124,10 @@
 
                 <p>In the terminal type:</p>
                 <pre><code>rails server</code></pre>
-                <p>Click on the <strong>Preview</strong> at the top of the Web IDE and select 'Port 3000'.
+                <p>Click on the <strong>Run Project</strong> at the top of the Cloud9 IDE.
                     This is to make sure that the server is running properly.
                 </p>
-                <img width="600" src="/images/nitrous-preview-tab.png" alt="Preview">
+                <img width="600" src="/images/c9/c9-run-server.png" alt="Preview">
 
                 <p><a href="#" class="navigate-down">What is a server?</a></p>
             </section>
@@ -226,14 +206,16 @@
 
             <p>In the terminal type:</p>
             <pre><code>rails server</code></pre>
+            <p>or use the 'Run Project' button at the top of the page of the Cloud9 IDE</p>
         </section>
 
         <section data-background="#dddddd">
             <section data-background="#dddddd">
                 <p>
-                    Click on the <strong>Preview</strong> again and select 'Port 3000'.
-                    The address in the browser will be yourappname.nitrousbox.com.
-                    Add '/ideas' to the end of the URL.
+                    Click on the <strong>Run Project</strong> button.
+                    Click on the <strong>Share</strong> button
+                    Under the 'links to share' section select application and click on the url
+                    Select <strong>Open</strong>
                     You'll now be able to see the basics of the app you're creating!
                     If you can't see your app, ask a coach for help.
                 </p>
@@ -343,7 +325,7 @@
         <section data-background="#dddddd">
             <p>
                 At the moment, the app doesn't look nice. Lets go on and add some CSS to pretty it up.
-                On the left panel of the editor in Nitrous.io, open the file
+                On the left panel of the editor in c9.io, open the file
                 <code>app/views/layouts/application.html.erb</code>. This is your default layout file.
             </p>
 
@@ -552,6 +534,7 @@
                         <li>DELETE</li>
                     </ul>
                 <p>Rails routing system ensures the app knows what to do when it receives each of those methods for any of the resources in your app.</p>
+                <p>In this application <strong>Idea</strong> is modelled as a resource. A resource is something that can be created, read, updated and deleted</p>
                 <p>For example, <code>GET /ideas/new</code> will give you the form for adding a new idea.</p>
                 <p><code>POST /ideas</code> will create a new idea.</p>
                 <p>Need more explanation on how routing works?:</p>

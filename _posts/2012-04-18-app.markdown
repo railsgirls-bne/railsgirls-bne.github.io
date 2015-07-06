@@ -40,6 +40,7 @@ permalink: app
 It is important that you select the instructions specific to your operating system - the commands you need to run on a Windows computer are slightly different to Mac or Linux. If you're having trouble check the Operating System switcher at the bottom of the commands. In case you're using a cloud service (e.g. nitrous), you need to run the Linux commands even if you are on a Windows computer.
 
 ## *1.*Creating the application
+## Skip this section if using Cloud9 and jump to 1b below
 
 We're going to create a new Rails app called *railsgirls*.
 
@@ -155,6 +156,9 @@ Hit `CTRL-C` in the terminal to quit the server.
 
 **Coach:** Explain what each command does. What was generated? What does the server do?
 
+## *1.*Creating the application with Cloud9
+
+Follow the steps outlined in the Rails Girls Cloud9 Setup Guide [Could9 Setup](/cloud9-guide)
 
 ## *2.*Create Idea scaffold
 
