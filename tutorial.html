@@ -581,10 +581,87 @@
                   # GET /ideas/new
                   # GET /ideas/new.json
                 </code></pre>
-                In this instance, <code>show</code> is the controller action that corresponds with the
+                <p> In this instance, <code>show</code> is the controller action that corresponds with the <strong>GET</strong> HTTP method. </code> </p>
+                </section>
+                <section data-background="#dddddd">
+                <p>To get a better picture of how each HTTP Method , path(address in the browser address bar) and controller action tie up together, the table below clearly illustrates it </p>
+                  <table class="reveal table">
+                    <thead class= "reveal table th">
+                      <tr>
+                          <td>HTTP Method</td>
+                          <td>Path</td>
+                          <td>Controller Action</td>
+                          <td>used for</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>GET</td>
+                            <td>/ideas</td>
+                            <td>index</td>
+                            <td>displaying a list of all ideas</td>
+                        </tr>
+                        <tr>
+                            <td>GET</td>
+                            <td>/ideas/new</td>
+                            <td>new</td>
+                            <td>returning an HTML form for creating a new idea</td>
+                        </tr>
+                        <tr>
+                            <td>POST</td>
+                            <td>/ideas</td>
+                            <td>create</td>
+                            <td>creating a new idea</td>
+                        </tr>
+                        <tr>
+                            <td>GET</td>
+                            <td>/photos/:id</td>
+                            <td>show</td>
+                            <td>displaying a specific photo</td>
+                        </tr>
+                        <tr>
+                            <td>GET</td>
+                            <td>/photos/:id/edit</td>
+                            <td>edit</td>
+                            <td>returning an HTML form for editing a specific photo</td>
+                        </tr>
+                        <tr>
+                            <td>PUT</td>
+                            <td>/photos/:id</td>
+                            <td>update</td>
+                            <td>updating a specific photo</td>
+                        </tr>
+                        <tr>
+                            <td>DELETE</td>
+                            <td>/photos/:id</td>
+                            <td>destroy</td>
+                            <td>deleting a specific photo</td>
+                        </tr>
+                    </tbody>
+                  </table>
                 </section>
             </section>
+            <section data-background="#dddddd">
+                <p>We are going to change some of the routes we have set up. When you open the <strong>localhost:3000</strong> page, it still has the Ruby 'Welcome Aboard' message. <br>We had to manually go to /index.</p>
+                <p>Open <code>config/routes.rb</code>. After the first line, add:</p>
+                <pre><code>root :to => redirect('/ideas')</code></pre>
+                <p>This changes the default page (root) that is returned when a browser requests your app to the /ideas page. Try it out now (don't forget to save your changes first, and <br>restart the server if you've stopped it).</p>
+            </section>
         </section>
+        <section data-background="#dddddd">
+          <p>Lastly, we are doing to add a static page to our app. This one is going to <br>provide information about the author of the app - you!</p>
+          <p>In the terminal, type:</p>
+          <pre><code>rails generate controller pages info</code></pre>
+        </section>
+
+        <section data-background="#dddddd">
+          <p>This created a new folder called 'pages', which you can find under <code>app/views</code>.</p>
+          <p>In that folder, you'll see a page called <code>info.html.erb</code>. Open it up.</p>
+          <p>You can customise the information in this page. <br>If you add /pages/info to your app URL now, you'll see this page. To see your new info page, take your browser to http://localhost:3000/pages/info.</p>
+        </section>
+      <section class="title">
+        <h2>Push your app to GitHub</h2>
+      </section>
 
     </div>
 </div>
