@@ -404,7 +404,7 @@ Test the change by opening the root path (that is, http://localhost:3000/) in yo
 Lets add a static page to our app that will hold information about the author of this application — you!
 
 {% highlight sh %}
-rails generate controller pages info
+rails generate controller Pages info
 {% endhighlight %}
 
 This command will create you a new folder under `app/views` called `/pages` and under that a file called `info.html.erb` which will be your info page.
