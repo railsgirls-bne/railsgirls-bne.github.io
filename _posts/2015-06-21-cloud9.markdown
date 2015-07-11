@@ -19,7 +19,7 @@ Follow the steps below to get started
 ### 1. click __Go to your Dashboard__
 
 ### 2. Select __Create New Workspace__
-<img src="/images/c9/c9-create-workspace2.png" alt="Workspace" width="200">
+<img src="/images/c9/c9-create-workspace.png" alt="Workspace" width="200">
 
 ### 3. Select the __Ruby on Rails__ from the options provided
 <img src="/images/c9/c9-workspace-ror1.png" alt="Workspace" width="600">
