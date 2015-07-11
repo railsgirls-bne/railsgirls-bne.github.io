@@ -19,10 +19,10 @@ Follow the steps below to get started
 ### 1. click __Go to your Dashboard__
 
 ### 2. Select __Create New Workspace__
-<img src="/images/c9/c9-create-workspace.png" alt="Workspace" width="200">
+<img src="/images/c9/c9-create-workspace2.png" alt="Workspace" width="200">
 
 ### 3. Select the __Ruby on Rails__ from the options provided
-<img src="/images/c9/c9-workspace-ror.png" alt="Workspace" width="600">
+<img src="/images/c9/c9-workspace-ror1.png" alt="Workspace" width="600">
 
 ### 4. Name your project __railsgirls__
 
@@ -31,7 +31,7 @@ Follow the steps below to get started
 ### 6. After Cloud9 has finished creating the workspace, select it and click __Start editing__
 
 ## Workspace environment
-![Cloud 9](/images/c9/c9-project-workspace2.png "C9 workspace")
+![Cloud 9](/images/c9/c9-project-workspace4.png "C9 workspace")
 
 
 ## Set up the text editor
@@ -39,7 +39,7 @@ Follow the steps below to get started
 The Ruby global convention is to use 2 spaces for indentation. Lets change the default editor to use 2 spaces.
 
 1. Click on the settings icon in the upper right side of the window. A preferences window will open and from here select __Code Editor (Ace)__ to edit the __Soft Tabs__ setting and reduce it to 2.
-![Cloud 9 editor](/images/c9/c9-settings2.png "C9 editor")
+![Cloud 9 editor](/images/c9/c9-settings4.png "C9 editor")
 
 ## Viewing your project in the Browser
 
