@@ -21,12 +21,12 @@ Follow the steps below to get started
 ### 2. Select __Create New Workspace__
 <img src="/images/c9/c9-new-workspace.png" alt="Workspace" width="600">
 
-### 3. Select the __Ruby on Rails__ from the options provided
-<img src="/images/c9/c9-new-workspace-ror.png" alt="Workspace" width="600">
+### 3. Select __Ruby__ from the options provided
 
 ### 4. Name your project __railsgirls__
+<img src="/images/c9/c9-new-workspace-ror.png" alt="Workspace" width="600">
 
-### 5. Click __Create__
+### 5. Click __Create Workspace__
 
 ### 6. After Cloud9 has finished creating the workspace, select it and click __Start editing__
 
