@@ -625,7 +625,7 @@
                 </section>
             </section>
             <section data-background="#dddddd">
-                <p>We are going to change some of the routes we have set up. When you open the <strong>localhost:3000</strong> page, it still has the Ruby 'Welcome Aboard' message. <br>We had to manually go to /index.</p>
+                <p>We are going to change some of the routes we have set up. When you open the <strong>localhost:3000</strong> page, it still has the Ruby 'Welcome Aboard' message. <br>We had to manually go to /ideas.</p>
                 <p>Open <code>config/routes.rb</code>. After the first line, add:</p>
                 <pre><code>root :to => redirect('/ideas')</code></pre>
                 <p>This changes the default page (root) that is returned when a browser requests your app to the /ideas page. Try it out now (don't forget to save your changes first, and <br>restart the server if you've stopped it).</p>
