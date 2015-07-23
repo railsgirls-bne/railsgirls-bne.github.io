@@ -8,54 +8,50 @@ permalink: cloud9-guide
 
 *Created by Sorcha Abel, [@sabel25](https://twitter.com/sabel25)*
 
-Open your browser and in the address bar go to the [Github](https://github.com/) page and __signup__ for an account
+Sign up for a [Github](https://github.com/) account.
 
-Then, in the address bar go to the cloud9 website [https://c9.io/](https://c9.io/)
+Then, go to the [cloud9 website](https://c9.io/).
 
-Click the __signup__ button, you can signup using your github/bitbucket account or you can enter a username, your email and a password
+Click the __signup__ button. Signup using the github account you just created.
 
-Follow the steps below to get started
+<img src="/images/c9/c9-signup-with-github.png">
 
-### 1. click __Go to your Dashboard__
+Once you have signed up, you will be shown your dashboard. __Create a New workspace__ by clicking the green plus icon.
 
-### 2. Select __Create New Workspace__
-<img src="/images/c9/c9-new-workspace.png" alt="Workspace" width="600">
+<img src="/images/c9/c9-create-workspace.png">
 
-### 3. Select __Ruby__ from the options provided
+Name your new workspace _railsgirls_, and make sure you are creating a Ruby workspace. Then click 'Create workspace'.
 
-### 4. Name your project __railsgirls__
-<img src="/images/c9/c9-new-workspace-ror.png" alt="Workspace" width="600">
+<img src="/images/c9/c9-create-workspace-2.png">
 
-### 5. Click __Create Workspace__
-
-### 6. After Cloud9 has finished creating the workspace, select it and click __Start editing__
+You will then be taken directly to your new workspace.
 
 ## Workspace environment
-![Cloud 9](/images/c9/c9-project-workspace4.png "C9 workspace")
 
+<img src="/images/c9/c9-project-workspace-annotated.png">
+
+The workspace is made up of a few important areas.
+
+- The file explorer and editor are where we will be spending a lot of time. Choose files to edit using the explorer. They will open in a new tab in the file editor.
+- Run Project Button. We will use this to start and stop our Rails application.
+- The Terminal is used to enter commands to our application.
 
 ## Set up the text editor
 
 The Ruby global convention is to use 2 spaces for indentation. Lets change the default editor to use 2 spaces.
 
-1. Click on the settings icon in the upper right side of the window. A preferences window will open and from here select __Code Editor (Ace)__ to edit the __Soft Tabs__ setting and reduce it to 2.
-![Cloud 9 editor](/images/c9/c9-settings4.png "C9 editor")
+Click on the settings icon in the upper right side of the window. A preferences window will open edit the __Soft Tabs__ setting to reduce it to 2.
+![Cloud 9 editor](/images/c9/c9-settings.png "C9 editor")
 
 ## Viewing your project in the Browser
 
-From the ruby-railsgirls terminal you need to start the rails server
-
-{% highlight sh %}
-rails server -b $IP -p $PORT
-{% endhighlight %}
-
-or you can use the __Run Server__ button
+From the ruby-railsgirls terminal you need to start the rails server. Click the 'Run Project' button.
 
 ![Cloud 9 Rails Server](/images/c9/c9-run-server.png "C9 Run Server")
 
 Click on the share button in the top right window. From the __Share this workspace__ window click on the url in Application and select the open option
 
-<img src="/images/c9/c9-share-workspace.png" alt="Workspace" width="600">
+<img src="/images/c9/c9-share-workspace.png">
 
 The Welcome Aboard Ruby page will be displayed
 
