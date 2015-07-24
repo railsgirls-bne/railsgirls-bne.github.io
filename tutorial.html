@@ -21,6 +21,12 @@
     <!-- Code syntax highlighting -->
     <link rel="stylesheet" href="lib/css/zenburn.css">
 
+    <style type="text/css">
+      .slides section p {
+        text-align: left;
+      }
+    </style>
+
     <!-- Printing and PDF exports -->
     <script>
         var link = document.createElement('link');
@@ -313,17 +319,21 @@
         </section>
 
         <section data-background="#dddddd">
+          <p>
             In this tutorial, you will come across <code><%= RUBY CODE HERE %></code>, whereby the <code>=</code> comes
             after the <code><%</code> which means the contents written in ruby code will be executed and rendered on the
             page.
             For instance, if you want to show the number of ideas in your app, the code to render the number will be:
             <code>There are <%= Idea.count %> ideas </code>
+          </p>
         </section>
 
         <section data-background="#dddddd">
+          <p>
             The next piece of this puzzle that makes the website pretty is CSS(Cascading Style Sheets). As before, HTML
             keeps track
             of the <i>contents</i> of the website. CSS keeps track of how the page <i>looks</i>.
+          </p>
         </section>
 
         <section data-background="#dddddd">
@@ -346,12 +356,14 @@
         </section>
 
         <section data-background="#dddddd">
+          <p>
             The <code>rel="stylesheet"</code> tells us the type of link,in this case a link relation. This basically
             tells the browser there is an
             external hyperlink to refer to. The <code>href</code> contains the address to the css file which is
             <code>//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.css</code> and
             <code>//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap-theme.css</code>.
             Here, we are using the style sheet called Bootstrap which is made by the people from Twitter.
+          </p>
         </section>
 
         <section data-background="#dddddd">
