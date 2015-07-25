@@ -27,6 +27,7 @@ Then we type the following command in the terminal while in our project director
 
 {% highlight sh %}
 bundle install
+rails generate rspec:install
 {% endhighlight %}
 
 This will create two files, rails-helper.rb and spec_helper.rb in the spec directory for you. All tests will be stored in this directory inside your project.
