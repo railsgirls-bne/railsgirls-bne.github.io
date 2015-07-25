@@ -643,7 +643,7 @@ th { border-bottom: 1px solid #DDD; }
                 </section>
             </section>
             <section data-background="#dddddd">
-                <p>We are going to change some of the routes we have set up. When you open the <strong>localhost:3000</strong> page, it still has the Ruby 'Welcome Aboard' message. <br>We had to manually go to /ideas.</p>
+                <p>We are going to change some of the routes we have set up. When you open the application it still has the Ruby 'Welcome Aboard' message. <br>We had to manually go to /ideas.</p>
                 <p>Open <code>config/routes.rb</code>. After the first line, add:</p>
                 <pre><code>root :to => redirect('/ideas')</code></pre>
                 <p>This changes the default page (root) that is returned when a browser requests your app to the /ideas page. Try it out now (don't forget to save your changes first, and <br>restart the server if you've stopped it).</p>
@@ -658,7 +658,7 @@ th { border-bottom: 1px solid #DDD; }
         <section data-background="#dddddd">
           <p>This created a new folder called 'pages', which you can find under <code>app/views</code>.</p>
           <p>In that folder, you'll see a page called <code>info.html.erb</code>. Open it up.</p>
-          <p>You can customise the information in this page. <br>If you add /pages/info to your app URL now, you'll see this page. To see your new info page, take your browser to http://localhost:3000/pages/info.</p>
+          <p>You can customise the information in this page. <br>If you add /pages/info to your application's URL now, you'll see this page.</p>
         </section>
       <section data-background="#dddddd">
         <h2>Push your app to GitHub</h2>
