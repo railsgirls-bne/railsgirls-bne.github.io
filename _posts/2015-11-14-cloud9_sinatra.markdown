@@ -28,7 +28,7 @@ You will then be taken directly to your new workspace.
 
 # Workspace environment
 
-<img src="/images/c9_sinatra/c9_new_workspace3.png">
+<img src="/images/c9_sinatra/c9_workspace_final.png">
 
 The workspace is made up of a few important areas.
 
