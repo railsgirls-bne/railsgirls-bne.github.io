@@ -6,7 +6,7 @@
 
     <title>Rails Girls Brisbane - Tutorial</title>
 
-    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="description" content="Rails Girls Brisbane tutorial">
     <meta name="author" content="RailsGirls Brisbane">
 
     <meta name="apple-mobile-web-app-capable" content="yes"/>
@@ -20,6 +20,12 @@
 
     <!-- Code syntax highlighting -->
     <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <style type="text/css">
+      .slides section p {
+        text-align: left;
+      }
+    </style>
 
     <!-- Printing and PDF exports -->
     <script>
@@ -45,6 +51,8 @@
             <h1>Build your Web App!</h1>
 
             <p>Get excited and find out how easy it is to build a web app!</p>
+            
+            <p> Use the <strong>right arrow</strong> to go to the next step.</p>
 
             <p>
                 <small>Created by RailsGirls team</a> / <a href="http://twitter.com/railsgirlsbne">@railsgirlsbne</a>
@@ -55,7 +63,7 @@
         <section data-background="#dddddd">
             <h2>Instructions on using this guide</h2>
 
-            <p> Use the <strong>right arrow</strong> to go to the next step.
+            <p>
                 In some sections, you'll have the option of reading more information. Use the <strong>down
                     arrow</strong> to read this, and when you're finished, use the <strong>right arrow</strong> to move
                 on to the next step.
@@ -212,10 +220,14 @@
         <section data-background="#dddddd">
             <section data-background="#dddddd">
                 <p>
-                    Click on the <strong>Run Project</strong> button.
-                    Click on the <strong>Share</strong> button
-                    Under the 'links to share' section select application and click on the url
-                    Select <strong>Open</strong>
+                    Click on the <strong>Share</strong> button.
+                </p>
+                <p>
+                    Under the 'links to share' section select application and click on the url.
+                    Select <strong>Open</strong>.
+                </p>
+                <p> Add '/ideas' to the end of the url.</p>
+                <p>
                     You'll now be able to see the basics of the app you're creating!
                     If you can't see your app, ask a coach for help.
                 </p>
@@ -309,17 +321,21 @@
         </section>
 
         <section data-background="#dddddd">
+          <p>
             In this tutorial, you will come across <code><%= RUBY CODE HERE %></code>, whereby the <code>=</code> comes
             after the <code><%</code> which means the contents written in ruby code will be executed and rendered on the
             page.
             For instance, if you want to show the number of ideas in your app, the code to render the number will be:
-            <code>There are <%= @idea.count %> ideas </code>
+            <code>There are <%= Idea.count %> ideas </code>
+          </p>
         </section>
 
         <section data-background="#dddddd">
+          <p>
             The next piece of this puzzle that makes the website pretty is CSS(Cascading Style Sheets). As before, HTML
             keeps track
             of the <i>contents</i> of the website. CSS keeps track of how the page <i>looks</i>.
+          </p>
         </section>
 
         <section data-background="#dddddd">
@@ -335,18 +351,21 @@
                 Add these lines of code above this line.
             </p>
             <pre><code>
-                <link rel="stylesheet" href="//railsgirls.com/assets/bootstrap.css"/>
-                <link rel="stylesheet" href="//railsgirls.com/assets/bootstrap-theme.css"/>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.css"/>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap-theme.css"/>
             </code></pre>
+            <p>Make sure you save the file by using the menu bar File -> Save.</p>
         </section>
 
         <section data-background="#dddddd">
+          <p>
             The <code>rel="stylesheet"</code> tells us the type of link,in this case a link relation. This basically
             tells the browser there is an
             external hyperlink to refer to. The <code>href</code> contains the address to the css file which is
-            <code>//railsgirls.com/assets/bootstrap.css</code> and
-            <code>//railsgirls.com/assets/bootstrap-theme.css</code>.
+            <code>//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.css</code> and
+            <code>//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap-theme.css</code>.
             Here, we are using the style sheet called Bootstrap which is made by the people from Twitter.
+          </p>
         </section>
 
         <section data-background="#dddddd">
@@ -369,48 +388,49 @@
                 around. We also want to have a footer at the bottom of the page. <br>In the same file, under <code>&lt;body&gt;</code>
                 add:</p>
 					<pre><code class=" hljs xml">
-                        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-                            <div class="container">
-                                <div class="navbar-header">
-                                    <button type="button" class="navbar-toggle" data-toggle="collapse"
-                                            data-target=".navbar-collapse">
-                                        <span class="sr-only">Toggle navigation</span>
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                    </button>
-                                    <a class="navbar-brand" href="/">The Idea app</a>
-                                </div>
-                                <div class="collapse navbar-collapse">
-                                    <ul class="nav navbar-nav">
-                                        <li class="active"><a href="/ideas">Ideas</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </nav>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">The Idea app</a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/ideas">Ideas</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
                     </code></pre>
         </section>
 
         <section data-background="#dddddd">
             <p>Let's add the footer too. Before <code>&lt;/body&gt;</code>, add:</p>
                 <pre><code class=" hljs xml">
-                    <footer>
-                        <div class="container">
-                            Rails Girls 2015
-                        </div>
-                    </footer>
-                    <script src="//railsgirls.com/assets/bootstrap.js"></script>
+<footer>
+    <div class="container">
+        Rails Girls 2015
+    </div>
+</footer>
+<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.js"></script>
                 </code></pre>
         </section>
 
         <section data-background="#dddddd">
             <p>Finally, we're going to make some changes to the way our ideas display. We want to space them out a bit. Open <code>app/assets/stylesheets/application.css</code> <br>and at the bottom, add:
+            </p>
             <pre><code>
-                body { padding-top: 100px; }
-                footer { margin-top: 100px; }
-                table, td, th { vertical-align: middle; border: none; }
-                th { border-bottom: 1px solid #DDD; }</code></pre>
-        <p>Make sure you save the file by using the menu bar File -> Save.</p>
+body { padding-top: 100px; }
+footer { margin-top: 100px; }
+table, td, th { vertical-align: middle; border: none; }
+th { border-bottom: 1px solid #DDD; }
+            </code></pre>
         </section>
 
         <section data-background="#dddddd">
@@ -625,7 +645,7 @@
                 </section>
             </section>
             <section data-background="#dddddd">
-                <p>We are going to change some of the routes we have set up. When you open the <strong>localhost:3000</strong> page, it still has the Ruby 'Welcome Aboard' message. <br>We had to manually go to /index.</p>
+                <p>We are going to change some of the routes we have set up. When you open the application it still has the Ruby 'Welcome Aboard' message. <br>We had to manually go to /ideas.</p>
                 <p>Open <code>config/routes.rb</code>. After the first line, add:</p>
                 <pre><code>root :to => redirect('/ideas')</code></pre>
                 <p>This changes the default page (root) that is returned when a browser requests your app to the /ideas page. Try it out now (don't forget to save your changes first, and <br>restart the server if you've stopped it).</p>
@@ -640,11 +660,11 @@
         <section data-background="#dddddd">
           <p>This created a new folder called 'pages', which you can find under <code>app/views</code>.</p>
           <p>In that folder, you'll see a page called <code>info.html.erb</code>. Open it up.</p>
-          <p>You can customise the information in this page. <br>If you add /pages/info to your app URL now, you'll see this page. To see your new info page, take your browser to http://localhost:3000/pages/info.</p>
+          <p>You can customise the information in this page. <br>If you add /pages/info to your application's URL now, you'll see this page.</p>
         </section>
       <section data-background="#dddddd">
         <h2>Push your app to GitHub</h2>
-        <center> <img src="images/octocat.png" width="200" "box-shadow: 0 0 0px;"></center>
+        <center> <img src="images/Octocat.png" width="200" "box-shadow: 0 0 0px;"></center>
       </section>
       <section data-background="#dddddd">                   
         <p>Earlier, you created a GitHub account.</p>
@@ -652,22 +672,18 @@
     </section>
     <section data-background="#dddddd"> 
         <p>Open the GitHub website and log in.</p>
-        <p>Click the <a href="https://github.com/new" target="_blank"><img src="images/newrepo.png" width="100"></a> button.</p>            
+        <p>Click the <a href="https://github.com/new" target="_blank"><img src="images/newrepo.png" width="100"></a> button.</p>
     </section>
     <section data-background="#dddddd">
         <p>Give the repository a name, such as rails-girls.</p>
         <p>You can also add a description.</p>
-    </section>
-    <section data-background="#dddddd">                         
-    <p>Choose the 'Public Repository' option and make sure you tick the 'Initialize this repository with a README' box.</p>
+        <p>Choose the 'Public Repository' option and make sure you untick the 'Initialize this repository with a README' box.</p>
+        <p>Finish creating the repository by clicking 'Create repository'.</p>
     </section>
     <section data-background="#dddddd">
-      <p>This creates a new repository (a place to store your app). It then initializes the repository, which allows you to record revisions of the project, and finally, it creates a README document(to document what your project is about).</p>
-    </section>
-    <section data-background="#dddddd">   
       <p>Go back to Cloud9. Make sure you are still in your project directory.</p>
       <p>You can check this by looking at the terminal. It should show something like this:</p>
-      <pre><code>your_username@railsgirls:~/projects/railsgirls $</code></pre>
+      <pre><code>your_username@railsgirls:~/workspace $</code></pre>
       <p>If you are not, use the <code>cd</code> command you learned earlier to change back into that directory.</p>
     </section>
     <section data-background="#dddddd">
@@ -701,6 +717,7 @@
           <h2>Congratulations! You've built your basic app.</h2>
           <p>So, what next?</p>
           <ul>
+            <li><a href="http://guides.railsgirls.com/heroku" target="_blank">Deploy to Heroku</a></li>
             <li><a href="http://guides.railsgirls.com/commenting" target="_blank">Allow comments</a></li>
             <li><a href="http://guides.railsgirls.com/devise" target="_blank">Add authentication</a></li>
             <li><a href="http://guides.railsgirls.com/design" target="_blank">Improve your design</a></li>

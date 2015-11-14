@@ -151,6 +151,7 @@ body {
   color: #DCDCDC; }
 
 .reveal table {
+  font-size: 75%;
   margin: auto;
   border-collapse: collapse;
   border-spacing: 0; }
