@@ -27,13 +27,15 @@ gem install thin
 gem install shotgun
 {% endhighlight %}
 
-The first gem allows us to use the sinatra DSL (Domain Specific Language) in our app
+The first gem `sinatra` allows us to use the sinatra DSL (Domain Specific Language) in our app
+
 Thin is a fast web server
+
 Shotgun is development server that reloads our app code on each request so we don't need to restart the server to see our changes
 
 ## *3.*Create a Gemfile
 
-We need to manually create a Gemfile for our app. This can be done from the terminal window or the cloud9 file explorer window. In cloud9 you can right click and create new file/folder. We will use the terminal
+We need to manually create a Gemfile for our app. This can be done from the terminal window or the cloud9 file explorer window. In cloud9 you can right click and create new file/folder. In the examples that follow we use the terminal window
 {% highlight sh %}
 touch Gemfile
 {% endhighlight %}
@@ -56,9 +58,13 @@ end
 
 We have included three news gems to our project.
 **sqlite3** will be the database for the app
+
 **activerecord** is the interface the app will use to communicate with the database
+
 **sinatra-activerecord** is a bridge that lets us use Active Record
+
 **tux** lets us interact with the db via the command line
+
 
 ## *4.*Project Structure
 
@@ -85,7 +91,7 @@ You have just create a big part of our apps structure
 
 1. models (database communication)
 2. views (what the end user sees)
-3 controllers (lots of routes for our app)
+3. controllers (lots of routes for our app)
 
 From the terminal window you need to move up one level of the project structure and into the root of the project
 
@@ -102,7 +108,7 @@ touch application.rb
 touch database.yml
 {% endhighlight %}
 
-From the terminal window you need to move up one level of the project structure and into the root of the project. From here create another folder called db. This will store information about our sqlite3 database including migrations.
+From the terminal window you need to move up one level of the project structure and into the root of the project. From here create another folder called db. This will store information about our sqlite3 database including our database migrations.
 {% highlight sh %}
 cd
 mkdir db
@@ -134,9 +140,13 @@ set :erb, :layout => :'layouts/application'
 
 The first four lines above explained
 __require 'bundler__ works to automatically discover the Gemfile
+
 __Bundler.require__ then loads into the project all the gems you have specified in your Gemfile
+
 __$: << File.expand_path('../', __FILE__)__ adds the whole project to $LOAD_PATH which really just means sinatra can find all the files you’ve added to this project
+
 __Dir['./app/**/*.rb'].sort.each { |file| require file }__ here we are explicitly requiring each file in our model, views and controllers.
+
 Even though we haven't set them up yet, we already know the project is going to need these files.
 The last 2 lines of the application.rb set the root of the project and point where erb files (our views) will load from.
 
@@ -220,7 +230,7 @@ end
 {% endhighlight %}
 
 ## *8.* Routes
-Finally its time to create routes. From the controllers folder create a file called ideas_controller.rb
+Finally its time to create routes. From the controllers folder create a file called `ideas_controller.rb`
 
 {% highlight sh %}
   get '/' do
@@ -353,7 +363,7 @@ Enter the following html/erb code
 
 Generally speaking each route will have a corresponding view. Lets create a new idea page
 
-Open the ideas_controller file and insert the following
+Open the `ideas_controller.rb` file and insert the following
 
 {% highlight sh %}
 %w(/new /ideas/new).each do |path|
@@ -395,7 +405,7 @@ render the `new.erb` page on the browser. From here the user will input the idea
 
 
 We now have to create a route that will know how to save the data to the database.
-Navigate to the ideas_controller.rb and enter the following route that will allow us to do just that.
+Navigate to the `ideas_controller.rb` and enter the following route that will allow us to do just that.
 
 {% highlight sh %}
 post '/ideas' do
@@ -435,7 +445,7 @@ You should now see the ideas app running in the browser. ctrl + c will terminate
 
 Next route is a one that will allow us to edit a previous post and save it to our sqlite database
 
-Navigate to the ideas_controller.rb and enter the following route
+Navigate to the `ideas_controller.rb` and enter the following route
 {% highlight sh %}
 post '/ideas' do
   @idea = Idea.new(params[:idea])
@@ -460,7 +470,7 @@ Lets check the progress again in the browser, ensure your server is running by e
 
 The next route in our application will allow us to retrieve just one idea from our database.
 
-Navigate again to our ideas_controller.rb file and enter the following route
+Navigate again to our `ideas_controller.rb` file and enter the following route
 
 {% highlight sh %}
 *Here we are getting the individual page of the post with this ID.*
@@ -526,7 +536,7 @@ a file called `edit.erb` with the following
 </form>
 {% endhighlight %}
 
-From our form action we know to create another route to update the database with the new data. Navigate back into the ideas_controller.rb and
+From our form action we know to create another route to update the database with the new data. Navigate back into the `ideas_controller.rb` and
 input the following
 
 {% highlight sh %}
@@ -557,7 +567,7 @@ end
 
 ### *11c* Deleting an Idea
 
-Finally to delete an idea we need to create another route. Again navigate to the ideas_controller.rb file and add the following
+Finally to delete an idea we need to create another route. Again navigate to the `ideas_controller.rb` file and add the following
 
 {% highlight sh %}
 
