@@ -45,4 +45,14 @@ Click on the settings icon in the upper right side of the window. A preferences 
 
 # Next Steps
 
-You are now ready to start building your sinatra app, click here to open the next guide
+You are now ready to start building your sinatra app but first a few tips.
+
+1. You must save your work each time you make edits. Do this by using either `file -> save` from the menubar or `ctrl+s`
+2. To stop the sinatra server use `ctrl+c'
+3. To run the sinatra server type the following into the terminal window.
+
+{% highlight sh %}
+ruby application.rb -p $PORT -o $IP
+{% endhighlight %}
+
+These will be covered in the next guide, click here to open it
