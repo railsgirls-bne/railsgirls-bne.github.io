@@ -248,9 +248,11 @@ end
 Finally its time to create routes. From the controllers folder create a file called `ideas_controller.rb` (you can use the terminal window or cloud9 file explore window)
 
 {% highlight sh %}
-  get '/' do
-    @ideas = Idea.all
-    erb :'ideas/index'
+  %w(/ /ideas).each do |path|
+    get path do
+      @ideas = Idea.all
+      erb :'ideas/index'
+    end
   end
 {% endhighlight %}
 
@@ -363,7 +365,8 @@ Enter the following html/erb code
 
 ### *9a.* Preview in a browser
 
-Note you need to be back in the root of your project to start the server. Use `cd ..` from your terminal window continually until you return to your workspace. Don't worry if you go back to far, simply `cd workspace` will bring you back to where you should be. Ask an instructor if unsure
+Note you need to be back in the root of your project to start the server. Use `cd ..` from your terminal window continually until you return to your workspace. Don't worry if you go back to far, simply `cd workspace` will bring you back to where you should be. Ask an instructor if unsure.
+
 From the terminal window run the following
 
 {% highlight sh %}
@@ -374,7 +377,7 @@ From the cloud 9 ide click the share button on the right hand upper window. The 
 
 <img src="/images/c9_sinatra/c9_browser.png">
 
-You should now see the ideas app running in the browser. `ctrl + c` will terminate the server
+You should now see the ideas app running in the browser. `ctrl+c` will terminate the server
 
 ## *10.* New Route and View
 
@@ -426,18 +429,21 @@ Navigate to the `ideas_controller.rb` and enter the following route that will al
 
 {% highlight sh %}
 post '/ideas' do
-  @idea = Idea.new(params[:idea])
-
-  @filename     = params[:idea][:picture][:filename]
-  @idea.picture = @filename
-  file          = params[:idea][:picture][:tempfile]
-
-
-  File.open("./files/#{@filename}", 'wb') do |f|
-    f.write(file.read)
-  end
-  if @idea.save
-    redirect "/ideas"
+  if params[:idea]
+    @idea         = Idea.new(params[:idea])
+    if params[:idea][:picture] && params[:idea][:picture][:filename] && params[:idea][:picture][:tempfile]
+      @filename     = params[:idea][:picture][:filename]
+      directory     = ('a'..'z').to_a.shuffle[0, 8].join
+      @idea.picture = "#{directory}/#{@filename}"
+      file          = params[:idea][:picture][:tempfile]
+      Dir.mkdir("./files/#{directory}")
+      FileUtils.copy_file(file.path,"files/#{@idea.picture}")
+    end
+    if @idea.save
+      redirect '/ideas'
+    else
+      erb :'ideas/new'
+    end
   else
     erb :'ideas/new'
   end
@@ -459,31 +465,6 @@ From the cloud 9 ide click the share button on the right hand upper window. The 
 You should now see the ideas app running in the browser. ctrl + c will terminate the server
 
 ## *11* More routes
-
-Next route is a one that will allow us to edit a previous post and save it to our sqlite database
-
-Navigate to the `ideas_controller.rb` and enter the following route
-{% highlight sh %}
-post '/ideas' do
-  @idea = Idea.new(params[:idea])
-  @filename     = params[:idea][:picture][:filename]
-  @idea.picture = @filename
-  file          = params[:idea][:picture][:tempfile]
-
-  File.open("./files/#{@filename}", 'wb') do |f|
-    f.write(file.read)
-  end
-  if @idea.save
-    redirect "/ideas"
-  else
-    erb :'ideas/new'
-  end
-end
-{% endhighlight %}
-
-Lets check the progress again in the browser, ensure your server is running by entering `ruby application.rb -p $PORT -o $IP` in the terminal window
-
-### *11a* Retrieving one Idea
 
 The next route in our application will allow us to retrieve just one idea from our database.
 
@@ -515,6 +496,48 @@ Similar to before this route is calling `erb :'ideas/show'` so lets create that 
   <%= @idea.picture if @idea.picture.present? %>
 </p>
 <p> <%= delete_idea_button(@idea.id) %></p>
+{% endhighlight %}
+
+
+### *11a* Delete routes
+
+Lets add the code to delete an idea from our app
+
+Navigate to the `ideas_controller.rb` and enter the following helper route
+
+{% highlight sh %}
+helpers do
+  def delete_idea_button(idea_id)
+    erb :'ideas/_delete_idea_button', locals: { idea_id: idea_id }
+  end
+end
+{% endhighlight %}
+
+
+Next we need to create the view that route calls (`ideas/_delete_idea_button`). Lets do that now. Navigate to the views folder and create a new file called `_delete_idea_button.erb`. Be sure to include the underscore.
+
+Open the newly created file and enter
+
+{% highlight sh %}
+<form action="/ideas/<%= idea_id %>" method="post">
+  <input type="hidden" name="_method" value="delete" />
+  <input type="submit" value="Delete Idea" />
+</form>
+{% endhighlight %}
+
+Finally we need to create the route that will do the actual deleting. Return to the `ideas_controller.rb` file and enter the following
+
+{% highlight sh %}
+delete '/ideas/:id' do
+  @idea = Idea.find(params[:id]).destroy
+  redirect '/ideas'
+end
+{% endhighlight %}
+
+Lets preview our changes in the browser. From the terminal window run the following
+
+{% highlight sh %}
+ruby application.rb -p $PORT -o $IP
 {% endhighlight %}
 
 ### *11b* Updating that one Idea
