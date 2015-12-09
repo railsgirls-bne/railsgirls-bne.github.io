@@ -83,6 +83,8 @@ The next few instructions will focus on file and folder creation. Pay particular
 
 This section will concentrate on creating files and folders via the terminal window. You can however also create all files and folders by right clicking in the cloud9 explorer window. If you feel comfortable with file and folder creation follow the structure in the image below and skip to section 5.
 
+<img src="/images/sinatra_visual_tree.png">
+
 From the terminal create a folder called app (Note you can )
 
 {% highlight sh %}
