@@ -85,7 +85,7 @@ This section will concentrate on creating files and folders via the terminal win
 
 <img src="/images/sinatra_visual_tree.png">
 
-From the terminal create a folder called app (Note you can )
+From the terminal create a folder called `app`
 
 {% highlight sh %}
 mkdir app
