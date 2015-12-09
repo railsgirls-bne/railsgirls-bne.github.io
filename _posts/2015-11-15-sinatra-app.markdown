@@ -162,7 +162,7 @@ __Dir['./app/**/*.rb'].sort.each { |file| require file }__ here we are explicitl
 Even though we haven't set them up yet, we already know the project is going to need these files.
 The last 2 lines of the application.rb (`set :root, Dir['./app'], set :erb, :layout => :'layouts/application'`)set the root of the project and point where erb files (our views) will load from.
 
-### *.5a* Rakefile
+### *5a.* Rakefile
 
 We need to set up our Rake file so we can run our helper tasks
 {% highlight sh %}
@@ -260,7 +260,7 @@ Finally its time to create routes. From the controllers folder create a file cal
 
 Now that we have created our route we need to create a corresponding index page to display it. Create a folder for `ideas` in the apps/views/ directory (from terminal window `mkdir ideas` or use the cloud9 file explorer window). Then create a file called `index.erb`
 
-### *.8a* Views
+### *8a.* Views
 Type or paste the following into the index.erb file you just created
 
 {% highlight sh %}
@@ -466,7 +466,7 @@ From the cloud 9 ide click the share button on the right hand upper window. The 
 
 You should now see the ideas app running in the browser. ctrl + c will terminate the server
 
-## *11* More routes
+## *11.* More routes
 
 The next route in our application will allow us to retrieve just one idea from our database.
 
@@ -501,7 +501,7 @@ Similar to before this route is calling `erb :'ideas/show'` so lets create that 
 {% endhighlight %}
 
 
-### *11a* Delete routes
+### *11a.* Delete routes
 
 Lets add the code to delete an idea from our app
 
@@ -542,7 +542,7 @@ Lets preview our changes in the browser. From the terminal window run the follow
 ruby application.rb -p $PORT -o $IP
 {% endhighlight %}
 
-### *11b* Updating that one Idea
+### *11b.* Updating that one Idea
 
 We are almost done! Next we want to retrieve a single idea and update it. Lets create a new route.
 
@@ -606,11 +606,11 @@ end
 
 {% endhighlight %}
 
-## *12* Heroku
+## *12.* Heroku
 
 Following the heroku guide [Pushing to Heroku](/heroku)
 
-## *13* Github
+## *13.* Github
 
 Finally we should push all our code to github.
 
@@ -630,3 +630,10 @@ They will be similar to below. DO NOT copy the lines below. You must push to you
 git remote add origin https://github.com/YourName/project_name.git
 git push -u origin master
 {% endhighlight %}
+
+
+## *14.* The End
+
+Congratulations you have just completed your first sinatra app
+
+
