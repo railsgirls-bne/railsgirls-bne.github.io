@@ -542,7 +542,7 @@ ruby application.rb -p $PORT -o $IP
 
 ### *11b* Updating that one Idea
 
-Once we have successfully retrieved a record from the database we will next want to create a route that will update it.
+We are almost done! Next we want to retrieve a single idea and update it. Lets create a new route.
 
 {% highlight sh %}
 get '/ideas/:id/edit' do
@@ -581,7 +581,6 @@ input the following
 
 {% highlight sh %}
 put '/ideas/:id' do
-
   if params[:idea].try(:[], :picture)
     file      = params[:idea][:picture][:tempfile]
     @filename = params[:idea][:picture][:filename]
@@ -592,7 +591,6 @@ put '/ideas/:id' do
   if @idea.update_attributes(params[:idea])
     if @filename
       @idea.picture = @filename
-      p "the sorcha filename is #{@filename}"
       @idea.save
       File.open("./files/#{@filename}", 'wb') do |f|
         f.write(file.read)
@@ -603,23 +601,30 @@ put '/ideas/:id' do
     erb :'ideas/edit'
   end
 end
+
 {% endhighlight %}
 
-### *11c* Deleting an Idea
+## *12* Heroku
 
-Finally to delete an idea we need to create another route. Again navigate to the `ideas_controller.rb` file and add the following
+Following the heroku guide [Pushing to Heroku](/heroku)
+
+## *13* Github
+
+Finally we should push all our code to github.
+
+Log onto Github and create a new repository
+
+<img src="/images/github_new_repo.png">
+
+Give your repo a title and a description
+
+<img src="/images/github_create_repo.png">
+
+Follow the instructions on github under the heading `…or push an existing repository from the command line`
+
+They will be similar to below. DO NOT copy the lines below. You must push to your own newly created repo
 
 {% highlight sh %}
-
-delete '/ideas/:id' do
-  @idea = Idea.find(params[:id]).destroy
-  redirect '/ideas'
-end
-
-
-helpers do
-  def delete_idea_button(idea_id)
-    erb :'ideas/_delete_idea_button', locals: { idea_id: idea_id }
-  end
-end
+git remote add origin https://github.com/YourName/project_name.git
+git push -u origin master
 {% endhighlight %}
