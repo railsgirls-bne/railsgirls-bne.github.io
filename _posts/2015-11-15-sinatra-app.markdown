@@ -657,6 +657,12 @@ table, td, th { vertical-align: middle; border: none; color: brown; }
 th { border-bottom: 1px solid #DDD; }
 {% endhighlight %}
 
+Lets preview our changes in the browser. From the terminal window run the following
+
+{% highlight sh %}
+ruby config/application.rb -p $PORT -o $IP
+{% endhighlight %}
+
 ## *13.* Heroku
 
 Following the heroku guide [Pushing to Heroku](/heroku)
