@@ -63,12 +63,13 @@ bundle install
 
 ### Quick Overview of the gems
 
-We have included three news gems to our project.
+We have included three news gems to our project;
+
 **sqlite3** will be the database for the app
 
 **activerecord** is the interface the app will use to communicate with the database
 
-**sinatra-activerecord** is a bridge that lets us use Active Record
+**sinatra-activerecord** is a bridge that lets us use Active Record in a sinatra app
 
 **tux** lets us interact with the db via the command line
 
@@ -110,9 +111,10 @@ From the terminal window you need to move up one level of the project structure 
 cd ..
 {% endhighlight %}
 
-Next we will create a folder called config. Once done we will create a file called application.rb inside the newly created config folder. This is the file that's going to load all the files our app needs
+Next we will create a folder called config. Once done, we will create a file called application.rb inside the newly created config folder. This is the file that's going to load all the files our app needs
 
 {% highlight sh %}
+mkdir files
 mkdir config
 cd config
 touch application.rb
@@ -147,10 +149,12 @@ Bundler.require
 $: << File.expand_path('../', __FILE__)
 Dir['./app/**/*.rb'].sort.each { |file| require file }
 set :root, Dir['./app']
+set :public_folder, Proc.new { File.join(root, 'assets') }
 set :erb, :layout => :'layouts/application'
 {% endhighlight %}
 
-The first four lines above explained
+Lets examine the first four lines above in a bit more detail;
+
 __require 'bundler'__ works to automatically discover the Gemfile
 
 __Bundler.require__ then loads into the project all the gems you have specified in your Gemfile
@@ -160,7 +164,7 @@ __$: << File.expand_path('../', __FILE__)__ adds the whole project to $LOAD_PATH
 __Dir['./app/**/*.rb'].sort.each { |file| require file }__ here we are explicitly requiring each file in our model, views and controllers.
 
 Even though we haven't set them up yet, we already know the project is going to need these files.
-The last 2 lines of the application.rb (`set :root, Dir['./app'], set :erb, :layout => :'layouts/application'`)set the root of the project and point where erb files (our views) will load from.
+The last 3 lines of the application.rb set the root of the project and inform the app where the erb files and css files are located.
 
 ### *5a.* Rakefile
 
@@ -383,7 +387,7 @@ You should now see the ideas app running in the browser. `ctrl+c` will terminate
 
 ## *10.* New Route and View
 
-Generally speaking each route will have a corresponding view. Lets create a new idea route and view
+Generally speaking each route will have a corresponding view. Lets create a `new` idea route and view
 
 Open the `ideas_controller.rb` file and insert the following
 
@@ -421,12 +425,12 @@ Navigate to the views -> ideas folder and create a new file called `new.erb`
 
 {% endhighlight %}
 
-Lets take a moment to examine what we have just done. Our first step was to create a route for the new action. This route
+Lets take a moment to examine what we have just done. Our first step was to create a route for the `new` action. This route
 is called when we want to create a new idea and save it to our database. As you can see from the controller `erb :'ideas/new'` will
 render the `new.erb` page on the browser. From here the user will input the idea and click the submit button.
 
 
-We now have to create a route that will know how to save the data to the database.
+We now have to create a route that will know how to save the data to the database (which is what happens when you click the submit button).
 Navigate to the `ideas_controller.rb` and enter the following route that will allow us to do just that.
 
 {% highlight sh %}
@@ -435,10 +439,8 @@ post '/ideas' do
     @idea         = Idea.new(params[:idea])
     if params[:idea][:picture] && params[:idea][:picture][:filename] && params[:idea][:picture][:tempfile]
       @filename     = params[:idea][:picture][:filename]
-      directory     = ('a'..'z').to_a.shuffle[0, 8].join
-      @idea.picture = "#{directory}/#{@filename}"
+      @idea.picture = @filename
       file          = params[:idea][:picture][:tempfile]
-      Dir.mkdir("./files/#{directory}")
       FileUtils.copy_file(file.path,"files/#{@idea.picture}")
     end
     if @idea.save
@@ -457,7 +459,7 @@ end
 From the terminal window run the following
 
 {% highlight sh %}
-ruby application.rb -p $PORT -o $IP
+ruby config/application.rb -p $PORT -o $IP
 {% endhighlight %}
 
 From the cloud 9 ide click the share button on the right hand upper window. The select the copy option and paste the url into the browser window
@@ -473,7 +475,7 @@ The next route in our application will allow us to retrieve just one idea from o
 Navigate again to our `ideas_controller.rb` file and enter the following route
 
 {% highlight sh %}
-*Here we are getting the individual page of the post with this ID.*
+
 get '/ideas/:id' do
   @idea     = Idea.find(params[:id])
   erb :'ideas/show'
@@ -516,7 +518,7 @@ end
 {% endhighlight %}
 
 
-Next we need to create the view that route calls (`ideas/_delete_idea_button`). Lets do that now. Navigate to the views folder and create a new file called `_delete_idea_button.erb`. Be sure to include the underscore.
+Next we need to create the view that route calls (`ideas/_delete_idea_button`). Lets do that now. Navigate to the `views -> ideas` folder and create a new file called `_delete_idea_button.erb`. Be sure to include the underscore.
 
 Open the newly created file and enter
 
@@ -539,7 +541,7 @@ end
 Lets preview our changes in the browser. From the terminal window run the following
 
 {% highlight sh %}
-ruby application.rb -p $PORT -o $IP
+ruby config/application.rb -p $PORT -o $IP
 {% endhighlight %}
 
 ### *11b.* Updating that one Idea
@@ -606,23 +608,71 @@ end
 
 {% endhighlight %}
 
-## *12.* Heroku
+Lets preview our changes in the browser. From the terminal window run the following
+
+{% highlight sh %}
+ruby config/application.rb -p $PORT -o $IP
+{% endhighlight %}
+
+We have left out an important route for our app, managing the files we uploaded. To keep things simple lets create a new controller that will deal with the files in our app
+
+Navigate to the `apps -> controllers` view and create a new controller called `files_controller.rb`. Input the following routes
+
+{% highlight sh %}
+get '/files/:filename/download' do |filename|
+  send_file "./files/#{filename}", :filename => filename, :type => 'Application/octet-stream'
+end
+
+get '/files/:filename' do |filename|
+  send_file "./files/#{filename}"
+end
+{% endhighlight %}
+
+Lets try to download or view our files in the browser. From the terminal window run the following
+
+{% highlight sh %}
+ruby config/application.rb -p $PORT -o $IP
+{% endhighlight %}
+
+## *12.* CSS
+
+Lets add some css to our app.
+
+Using the terminal window `cd` into the app folder and then do the following (again you can use the cloud9 file explore window to create these folders)
+
+{% highlight sh %}
+cd app
+mkdir assets
+cd assets
+mkdir css
+touch application.css
+{% endhighlight %}
+
+Lets open our newly created `application.css` file and add the following
+
+{% highlight sh %}
+
+{% endhighlight %}
+
+## *13.* Heroku
 
 Following the heroku guide [Pushing to Heroku](/heroku)
 
-## *13.* Github
+## *14.* Github
 
-Finally we should push all our code to github.
+Finally we should push all our code to Github.
 
 Log onto Github and create a new repository
 
 <img src="/images/github_new_repo.png">
 
+
 Give your repo a title and a description
+
 
 <img src="/images/github_create_repo.png">
 
-Follow the instructions on github under the heading `…or push an existing repository from the command line`
+Follow the instructions on Github under the heading `…or push an existing repository from the command line`
 
 They will be similar to below. DO NOT copy the lines below. You must push to your own newly created repo
 
@@ -632,8 +682,8 @@ git push -u origin master
 {% endhighlight %}
 
 
-## *14.* The End
+## *15.* The End
 
-Congratulations you have just completed your first sinatra app
+Every app should be accompanied by a README.md document. Edit this file with details about your app and push this update to Github (use the steps outlined above)
 
-
+Congratulations you have just completed your first sinatra app!
