@@ -651,7 +651,10 @@ touch application.css
 Lets open our newly created `application.css` file and add the following
 
 {% highlight sh %}
-
+body { padding-top: 100px; }
+footer { margin-top: 100px; }
+table, td, th { vertical-align: middle; border: none; color: brown; }
+th { border-bottom: 1px solid #DDD; }
 {% endhighlight %}
 
 ## *13.* Heroku
