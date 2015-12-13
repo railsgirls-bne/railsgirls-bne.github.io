@@ -1,18 +1,18 @@
 ---
 layout: default
 title: Ruby Girls Cloud9 Sinatra App
-permalink: sinatra-app-guide
+permalink: Sinatra-app-guide
 ---
 
 # Ruby Girls Sinatra App Guide
 
 *Created by Sorcha Abel, [@sabel25](https://twitter.com/sabel25)*
 
-## What is Sinatra?????
-<img src="/images/sinatrawiki.png">
+## What is Sinatra?
+<img src="/images/Sinatrawiki.png">
 
 
-## Getting Started
+# Getting Started
 
 ## *1.*Creating the application with Cloud9
 
@@ -20,42 +20,49 @@ Follow the steps outlined in the Ruby Girls Cloud9 Sinatra Setup Guide [Could9 S
 
 ## *2.*Locate the terminal window in Cloud9
 
-Enter the following commands in the terminal window
+There are three gems we will need to install before we can create a Sinatra project.
+
+To install these gems, enter the following commands in the terminal window:
 {% highlight sh %}
 gem install sinatra
 gem install thin
 gem install shotgun
 {% endhighlight %}
 
-The first gem `sinatra` allows us to use the sinatra DSL (Domain Specific Language) in our app
+The first gem `sinatra` allows us to use the Sinatra DSL (Domain Specific Language) in our app.
 
-`Thin` is a fast web server
+`Thin` is a lightweight and fast web server whose job is to serve up web pages as they are requested.
 
-`Shotgun` is development server that reloads our app code on each request so we don't need to restart the server to see our changes
+`Shotgun` is development server that reloads our application code with each request. This means we don't need to restart the server in order to see our changes.
 
 ## *3.*Create a Gemfile
 
-We need to manually create a Gemfile for our app. This can be done from the terminal window or the cloud9 file explorer window. In cloud9 you can right click and create new file/folder. In the examples that follow we use the terminal window
+We need to manually create a Gemfile for our app. This can be done from the terminal window or the Cloud9 file explorer window.
+
+To use the Cloud9 explorer window, right mouse-click and select `New file`. Rename this file from `Untitled` to `Gemfile`.
+
+In the examples that follow we use the terminal window.
 {% highlight sh %}
 touch Gemfile
 {% endhighlight %}
-A Gemfile will now appear in the Cloud9 file explorer window. Double click to open it and input the following gems
+A Gemfile will now appear in the Cloud9 file explorer window. Double click to open it and type in the following code which specifies which gems we want included in our application:
 
 {% highlight sh %}
 source 'https://rubygems.org'
 
-gem "sinatra"
+gem "Sinatra"
 gem "sqlite3"
 gem "activerecord"
-gem "sinatra-activerecord"
+gem "Sinatra-activerecord"
 group :development do
     gem "shotgun"
     gem "tux"
 end
 {% endhighlight %}
 
-Save the Gemfile (`cmd + s`) or menu bar `file -> save`.
-Any time you edit a Gemfile you must run the following commant in the terminal window
+Save the Gemfile (`cmd + s` or menu options `file -> save`).
+
+Any time you edit a Gemfile you must install the new gems. To do so, run the following command in the terminal window:
 
 {% highlight sh %}
 bundle install
@@ -63,55 +70,53 @@ bundle install
 
 ### Quick Overview of the gems
 
-We have included three news gems to our project;
+We have included three news gems to our project:
 
-**sqlite3** will be the database for the app
+**sqlite3** is the database we will be using for this application.
 
-**activerecord** is the interface the app will use to communicate with the database
+**activerecord** is the interface the application uses to communicate with the database.
 
-**sinatra-activerecord** is a bridge that lets us use Active Record in a sinatra app
+**Sinatra-activerecord** is a bridge that allows us use Active Record in a Sinatra application.
 
-**tux** lets us interact with the db via the command line
+**tux** allows us to interact with the database through the command line.
 
 
 ## *4.*Project Structure
 
-Sinatra doesn’t impose any structure on your project (which is both a blessing and a curse). The entire structure of the project is in your hands however it is this flexibility that can cause you headaches. The structure outlined in this ruby girls app is a pattern that can work well for many of your future sinatra apps.
+Sinatra doesn’t impose any structure on your project (which can be both a blessing and a curse). The entire structure of the project is in your hands and this flexibility can cause you headaches. The structure outlined in this app is a pattern that can work well for many of your future Sinatra apps.
 
-The next few instructions will focus on file and folder creation. Pay particular attention to where you create files/folders. Ask an instructor if you are unsure
+In the next section we will focus on file and folder creation. Pay particular attention to where you create files/folders. Ask an instructor if you are unsure.
 
 ### *4a.* File/Folder Creation
 
-This section will concentrate on creating files and folders via the terminal window. You can however also create all files and folders by right clicking in the cloud9 explorer window. If you feel comfortable with file and folder creation follow the structure in the image below and skip to section 5.
+The instructions given will show you how to create files and folders through the terminal window. You can however create all files and folders by right clicking in the Cloud9 explorer window as we did above. If you feel comfortable with file and folder creation follow the structure in the image below and skip to section 5.
 
-<img src="/images/sinatra_visual_tree.png">
-
-From the terminal create a folder called `app`
+From the terminal create a folder called `app` by executing the following command:
 
 {% highlight sh %}
 mkdir app
 {% endhighlight %}
 
-and inside the app folder create 3 new subfolders
+Change to the `app` folder and create three subfolders:
 
 {% highlight sh %}
 cd app
 mkdir models views controllers
 {% endhighlight %}
 
-You have just create a big part of our apps structure
+You have just create a major component of our application's structure:
 
 1. models (database communication)
 2. views (what the end user sees)
 3. controllers (lots of routes for our app)
 
-From the terminal window you need to move up one level of the project structure and into the root of the project
+From the terminal window, move up one level of the project structure and into the root of the project:
 
 {% highlight sh %}
 cd ..
 {% endhighlight %}
 
-Next we will create a folder called config. Once done, we will create a file called application.rb inside the newly created config folder. This is the file that's going to load all the files our app needs
+Next we will create a folder called `config`. Then we will create a file called `application.rb` inside the newly created `config` folder. This is the file that will load all the files needed by our application. Finally we will create a file called `database.yml` which will manage our database connections.
 
 {% highlight sh %}
 mkdir files
@@ -121,27 +126,31 @@ touch application.rb
 touch database.yml
 {% endhighlight %}
 
-From the terminal window you need to move up one level of the project structure and into the root of the project. From here create another folder called db. This will store information about our sqlite3 database including our database migrations.
+From the terminal window, move up one level of the project structure and into the root of the project. From here create another folder called `db`. This will store information about our sqlite3 database including our database migrations.
 {% highlight sh %}
 cd ..
 mkdir db
 {% endhighlight %}
 
-We are almost there. The final step in our skeleton structure for our app is to create a config.ru file in the root of the project. The config.ru file is a convention that some deployment procedures and tools (like shotgun, tux, and Heroku) look for
+We are almost there. The final step in our skeleton structure for our application is to create a `config.ru` file in the root of the project. The `config.ru` file is a convention that is required by certain deployment procedures and tools (like shotgun, tux, and Heroku).
 
 {% highlight sh %}
 touch config.ru
 touch Rakefile
 {% endhighlight %}
 
-Congratulations you may not think it yet but you have just created a sound structure for a sinatra app that you can reuse time and time again
+Congratulations! You may not realise it yet but you have just created a solid basic structure for a Sinatra app that you can reuse time and time again.
+
+By the time our application is complete, it should look something like the folder structure below:
+
+<img src="/images/sinatra_visual_tree.png">
 
 ## *5.* Setup Coding
 
-We are now ready to start some development work.
+We are now ready to begin developing our application.
 
-The first step in our sinatra application is setting up the application.rb file. Double click on the file to open it (you will find it under the config folder). Take some time to understand what we are about to put into this file.
-Note you must save all files in cloud9 (`cmd + s` or `menu bar`)
+The first step in our Sinatra application is setting up the `application.rb` file. Double click on the file to open it (you will find it under the `config` folder). Take some time to understand what we are about to put into this file.
+Note you must save all files in cloud9 (`cmd + s` or menu options `file -> save`)
 
 {% highlight sh %}
 require 'bundler'
@@ -153,35 +162,35 @@ set :public_folder, Proc.new { File.join(root, 'assets') }
 set :erb, :layout => :'layouts/application'
 {% endhighlight %}
 
-Lets examine the first four lines above in a bit more detail;
+Lets examine the first four lines in a bit more detail:
 
-__require 'bundler'__ works to automatically discover the Gemfile
+__require 'bundler'__ enables our application to automatically discover the Gemfile.
 
-__Bundler.require__ then loads into the project all the gems you have specified in your Gemfile
+__Bundler.require__ loads into the project all the gems that are specified in the Gemfile.
 
-__$: << File.expand_path('../', __FILE__)__ adds the whole project to $LOAD_PATH which really just means sinatra can find all the files you’ve added to this project
+__$: << File.expand_path('../', __FILE__)__ adds the entire project to $LOAD_PATH. This allows Sinatra to find all the files you’ve added to the project.
 
-__Dir['./app/**/*.rb'].sort.each { |file| require file }__ here we are explicitly requiring each file in our model, views and controllers.
+__Dir['./app/**/*.rb'].sort.each { |file| require file }__ This line explicitly requires each file found in our model, view and controller folders.
 
-Even though we haven't set them up yet, we already know the project is going to need these files.
-The last 3 lines of the application.rb set the root of the project and inform the app where the erb files and css files are located.
+Even though we haven't set them up yet, we know the project is going to need these files.
+The last three lines of `application.rb` set the root of the project and tell the application where the erb (embedded Ruby) files and CSS files are located.
 
 ### *5a.* Rakefile
 
-We need to set up our Rake file so we can run our helper tasks
+We need to set up our Rake file so we can run our helper tasks:
 {% highlight sh %}
 require './config/application'
 require 'sinatra/activerecord/rake'
 {% endhighlight %}
 
 
-from the terminal window run
+From the terminal window run:
 {% highlight sh %}
 bundle install
 {% endhighlight %}
 
-### *.5b* database.yml
-The final step in our setup is this file. Open the config folder and double click to open the file. Copy and paste the lines below. It's our sqlite database setup.
+### *5b.* database.yml
+The final step in our setup is this file. Open the config folder and double click to open the file. Copy and paste the lines below. This is our sqlite database setup and is needed for connecting to the database.
 
 {% highlight sh %}
 ---
@@ -695,4 +704,4 @@ git push -u origin master
 
 Every app should be accompanied by a README.md document. Edit this file with details about your app and push this update to Github (use the steps outlined above)
 
-Congratulations you have just completed your first sinatra app!
+Congratulations you have just completed your first Sinatra app!
