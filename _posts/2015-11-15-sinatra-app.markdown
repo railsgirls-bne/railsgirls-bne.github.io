@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Ruby Girls Cloud9 Sinatra App
-permalink: Sinatra-app-guide
+permalink: sinatra-app-guide
 ---
 
 # Ruby Girls Sinatra App Guide
@@ -9,7 +9,7 @@ permalink: Sinatra-app-guide
 *Created by Sorcha Abel, [@sabel25](https://twitter.com/sabel25)*
 
 ## What is Sinatra?
-<img src="/images/Sinatrawiki.png">
+<img src="/images/sinatrawiki.png">
 
 
 # Getting Started
@@ -50,10 +50,10 @@ A Gemfile will now appear in the Cloud9 file explorer window. Double click to op
 {% highlight sh %}
 source 'https://rubygems.org'
 
-gem "Sinatra"
+gem "sinatra"
 gem "sqlite3"
 gem "activerecord"
-gem "Sinatra-activerecord"
+gem "sinatra-activerecord"
 group :development do
     gem "shotgun"
     gem "tux"
@@ -190,7 +190,7 @@ bundle install
 {% endhighlight %}
 
 ### *5b.* database.yml
-The final step in our setup is this file. Open the config folder and double click to open the file. Copy and paste the lines below. This is our sqlite database setup and is needed for connecting to the database.
+The final step in our setup is this file. Open the config folder and double click to open the file. Copy and paste the lines below. This is our sqlite database setup and is required for connecting to the database.
 
 {% highlight sh %}
 ---
