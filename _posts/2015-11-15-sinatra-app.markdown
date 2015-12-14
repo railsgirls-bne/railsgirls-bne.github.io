@@ -76,7 +76,7 @@ We have included three news gems to our project:
 
 **activerecord** is the interface the application uses to communicate with the database.
 
-**Sinatra-activerecord** is a bridge that allows us use Active Record in a Sinatra application.
+**sinatra-activerecord** is a bridge that allows us use Active Record in a Sinatra application.
 
 **tux** allows us to interact with the database through the command line.
 
