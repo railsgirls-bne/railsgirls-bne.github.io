@@ -116,7 +116,7 @@ From the terminal window, move up one level of the project structure and into th
 cd ..
 {% endhighlight %}
 
-Frist we will create a folder called `files`. This folder will contain lots of files. `*** Come back to this and add detail ***` Next we will create a folder called `config`. Then we will create a file called `application.rb` inside the newly created `config` folder. `application.rb` is the file that will load all the files needed by our application. Finally we will create a file called `database.yml` that will manage our database connections.
+First we will create a folder called `files`. This folder will contain the files that we upload from our app. Next we will create a folder called `config`. Then we will create a file called `application.rb` inside the newly created `config` folder. `application.rb` is the file that will load all the files needed by our application. Finally we will create a file called `database.yml` that will manage our database connections.
 
 {% highlight sh %}
 mkdir files
