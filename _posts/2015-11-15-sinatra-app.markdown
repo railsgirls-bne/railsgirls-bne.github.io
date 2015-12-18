@@ -83,7 +83,7 @@ We have included three news gems to our project:
 
 ## *4.*Project Structure
 
-Sinatra doesn’t impose any structure on your project (which can be both a blessing and a curse). The entire structure of the project is in your hands and this flexibility can cause you headaches. The structure outlined in this app is a pattern that can work well for many of your future Sinatra apps.
+Sinatra doesn’t impose any structure on your project (which can be both a blessing and a curse). The entire structure of the project is in your hands and this flexibility can cause headaches. The structure outlined in this app is a pattern that can work well for many of your future Sinatra apps.
 
 In the next section we will focus on file and folder creation. Pay particular attention to where you create files/folders. Ask an instructor if you are unsure.
 
@@ -108,7 +108,7 @@ You have just create a major component of our application's structure:
 
 1. models (database communication)
 2. views (what the end user sees)
-3. controllers (lots of routes for our app)
+3. controllers (lots of routes for our application)
 
 From the terminal window, move up one level of the project structure and into the root of the project:
 
@@ -116,7 +116,7 @@ From the terminal window, move up one level of the project structure and into th
 cd ..
 {% endhighlight %}
 
-Next we will create a folder called `config`. Then we will create a file called `application.rb` inside the newly created `config` folder. This is the file that will load all the files needed by our application. Finally we will create a file called `database.yml` which will manage our database connections.
+Frist we will create a folder called `files`. This folder will contain lots of files. `*** Come back to this and add detail ***` Next we will create a folder called `config`. Then we will create a file called `application.rb` inside the newly created `config` folder. `application.rb` is the file that will load all the files needed by our application. Finally we will create a file called `database.yml` that will manage our database connections.
 
 {% highlight sh %}
 mkdir files
@@ -141,7 +141,7 @@ touch Rakefile
 
 Congratulations! You may not realise it yet but you have just created a solid basic structure for a Sinatra app that you can reuse time and time again.
 
-By the time our application is complete, it should look something like the folder structure below:
+By the time our application is complete, it should look similar to the folder structure below:
 
 <img src="/images/sinatra_visual_tree.png">
 
@@ -149,7 +149,7 @@ By the time our application is complete, it should look something like the folde
 
 We are now ready to begin developing our application.
 
-The first step in our Sinatra application is setting up the `application.rb` file. Double click on the file to open it (you will find it under the `config` folder). Take some time to understand what we are about to put into this file.
+The first step is to set up the `application.rb` file. Double click on the file to open it (you will find it under the `config` folder). Take some time to understand what we are about to put into this file.
 Note you must save all files in cloud9 (`cmd + s` or menu options `file -> save`)
 
 {% highlight sh %}
@@ -164,33 +164,33 @@ set :erb, :layout => :'layouts/application'
 
 Lets examine the first four lines in a bit more detail:
 
-__require 'bundler'__ enables our application to automatically discover the Gemfile.
+**require 'bundler'** enables our application to automatically discover the Gemfile.
 
-__Bundler.require__ loads into the project all the gems that are specified in the Gemfile.
+**Bundler.require** loads into the project all the gems that are specified in the Gemfile.
 
-__$: << File.expand_path('../', __FILE__)__ adds the entire project to $LOAD_PATH. This allows Sinatra to find all the files you’ve added to the project.
+**$: << File.expand_path('../', __FILE__)** adds the entire project to $LOAD_PATH. This allows Sinatra to find all the files you’ve added to the project.
 
-__Dir['./app/**/*.rb'].sort.each { |file| require file }__ This line explicitly requires each file found in our model, view and controller folders.
+**Dir['./app/**/*.rb'].sort.each { |file| require file }** This line explicitly requires each file found in our model, view and controller folders.
 
 Even though we haven't set them up yet, we know the project is going to need these files.
-The last three lines of `application.rb` set the root of the project and tell the application where the erb (embedded Ruby) files and CSS files are located.
+The last three lines of `application.rb` sets the root of the project and tells the application where the erb (embedded Ruby) files and CSS files are located.
 
 ### *5a.* Rakefile
 
-We need to set up our Rake file so we can run our helper tasks:
+We need to set up our Rake file so we can run our helper tasks. Open the file `Rakefile` and add the following code:
 {% highlight sh %}
 require './config/application'
 require 'sinatra/activerecord/rake'
 {% endhighlight %}
 
 
-From the terminal window run:
+Then to make those files available in the current environment, navigate to the terminal window and run:
 {% highlight sh %}
 bundle install
 {% endhighlight %}
 
 ### *5b.* database.yml
-The final step in our setup is this file. Open the config folder and double click to open the file. Copy and paste the lines below. This is our sqlite database setup and is required for connecting to the database.
+The final step in our setup is the `database.yml` file. This file will contain our sqlite database setup and is required for connecting to the database. Open the config folder and double click to open the file. Copy and paste the lines below.
 
 {% highlight sh %}
 ---
@@ -213,12 +213,13 @@ test:
 {% endhighlight %}
 
 ## *6.* Migrations
-From the terminal window run
+
+Just like we did in the original Rails Girls, we need to create an `ideas` table so we can save our ideas. From the terminal window run
 {% highlight sh %}
 rake db:create_migration NAME=create_ideas
 {% endhighlight %}
 
-A file will have been created in the db folder, double click to open it and enter the following. This is similar to the scaffold command you ran in rails girls
+A migration file will have been created in the `db/migrate` folder. It will be called `create_ideas.rb` and be prefixed with a unique id including the date and time. Double-click to open it and enter the following. This is similar to the scaffold command you ran in Rails Girls.
 
 {% highlight sh %}
 class CreateIdeas < ActiveRecord::Migration
@@ -238,20 +239,22 @@ class CreateIdeas < ActiveRecord::Migration
 end
 {% endhighlight %}
 
-Everytime we create a migration we must run it. Open the terminal window and type
+Each time we create a migration, it needs to be run so that the changes get applied to the database. Open the terminal window and type:
 
 {% highlight sh %}
 bundle exec rake db:migrate
 {% endhighlight %}
 
+This will create the `ideas` table. You can see it in the schema file, `db/schema.rb`.
+
 ## *7.* Project Code
-We have just created our idea table by running the migration, so lets now create our corresponding model. Navigate to the app -> model folder and then create the model `idea.rb` file (right click in cloud9 file explorer window or use the terminal window). We will use the terminal window
+We have just created the ideas table by running the migration, so let's now create the corresponding model. Navigate to the `app/model` folder and create the `idea.rb` file (right click in cloud9 file explorer window or use the terminal window). We will use the terminal window.
 
 {% highlight sh %}
 touch idea.rb
 {% endhighlight %}
 
-Double click to open the file and input in the following code
+Double click to open the file and enter the following code:
 
 {% highlight sh %}
 class Idea < ActiveRecord::Base
@@ -259,8 +262,10 @@ class Idea < ActiveRecord::Base
 end
 {% endhighlight %}
 
+This is just an empty file at this stage, we will add code to it later on.
+
 ## *8.* Routes
-Finally its time to create routes. From the controllers folder create a file called `ideas_controller.rb` (you can use the terminal window or cloud9 file explore window)
+Finally it is time to create routes. Routes are simply the rules that tell your application which code to run for a given URL. From the `controllers` folder, create a file called `ideas_controller.rb` (you can use the terminal window or cloud9 file explore window)
 
 {% highlight sh %}
   %w(/ /ideas).each do |path|
@@ -271,7 +276,7 @@ Finally its time to create routes. From the controllers folder create a file cal
   end
 {% endhighlight %}
 
-Now that we have created our route we need to create a corresponding index page to display it. Create a folder for `ideas` in the apps/views/ directory (from terminal window `mkdir ideas` or use the cloud9 file explorer window). Then create a file called `index.erb`
+Now that we have created our route we need to create a corresponding index page to display it. Create a folder for `ideas` in the `apps/views/` directory (from terminal window `mkdir ideas` or use the cloud9 file explorer window). Then create a file called `index.erb`.
 
 ### *8a.* Views
 Type or paste the following into the index.erb file you just created
@@ -309,11 +314,11 @@ Type or paste the following into the index.erb file you just created
 
 ## *9.* Improving our design
 
-Next we should create an application.erb file where we can set our headers and footers and adhere to the DRY (Don't Repeat Yourself) principle of ruby programming
+Although our application currently has only one page, it will eventually have many pages. To give it a consistent look and feel, we will want to have the same header and footer on each page. Instead of copying and pasting the header and footer onto each page, and having to edit each page if we want to make a change, we will create one file that will contain all the common page content. This is an example of adhering to the DRY (Don't Repeat Yourself) principle of Ruby programming.
 
-Create a subfolder of views and call it `layouts`. Then create a file in the layout folder and call it application.erb
+Create a subfolder of `views` folder and call it `layouts`. Then create a file in the `layout` folder and call it `application.erb`.
 
-Enter the following html/erb code
+Enter the following html/erb code:
 {% highlight sh %}
 <!DOCTYPE html>
 <html>
@@ -380,19 +385,19 @@ Enter the following html/erb code
 
 ### *9a.* Preview in a browser
 
-Note you need to be back in the root of your project to start the server. Use `cd ..` from your terminal window continually until you return to your workspace. Don't worry if you go back to far, simply `cd workspace` will bring you back to where you should be. Ask an instructor if unsure.
+In order to start the server, you need to be in the root directory of your project. Use `cd ..` repeatedly from your terminal window until you return to your workspace. Don't worry if you go back too far, simply `cd workspace` will bring you back to where you should be. Ask an instructor if unsure.
 
-From the terminal window run the following
+From the terminal window run the following to start to start the server:
 
 {% highlight sh %}
 ruby config/application.rb -p $PORT -o $IP
 {% endhighlight %}
 
-From the cloud 9 ide click the share button on the right hand upper window. The select the copy option and paste the url into the browser window
+From the cloud 9 IDE click the `share` button on the right hand upper window. The select the `copy` option and paste the url into the browser window.
 
 <img src="/images/c9_sinatra/c9_browser.png">
 
-You should now see the ideas app running in the browser. `ctrl+c` will terminate the server
+You should now see the ideas app running in the browser! `ctrl+c` will terminate the server.
 
 ## *10.* New Route and View
 
