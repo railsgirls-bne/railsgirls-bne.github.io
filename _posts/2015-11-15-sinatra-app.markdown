@@ -401,9 +401,9 @@ You should now see the ideas app running in the browser! `ctrl+c` will terminate
 
 ## *10.* New Route and View
 
-Generally speaking each route will have a corresponding view. Lets create a `new` idea route and view
+Generally speaking each route will have a corresponding view. Lets create a route and a view for when we want to create a new idea.
 
-Open the `ideas_controller.rb` file and insert the following
+Open the `ideas_controller.rb` file and insert the following:
 
 {% highlight sh %}
 %w(/new /ideas/new).each do |path|
@@ -415,9 +415,9 @@ Open the `ideas_controller.rb` file and insert the following
 end
 {% endhighlight %}
 
-Once done we need to create the new erb/html page
+Now we need to create the HTML page to allow our users to add a new idea.
 
-Navigate to the views -> ideas folder and create a new file called `new.erb`
+Navigate to the `views/ideas` folder and create a new file called `new.erb`. Add the following code:
 
 {% highlight sh %}
 <h1><%=@title %></h1>
@@ -439,13 +439,13 @@ Navigate to the views -> ideas folder and create a new file called `new.erb`
 
 {% endhighlight %}
 
-Lets take a moment to examine what we have just done. Our first step was to create a route for the `new` action. This route
-is called when we want to create a new idea and save it to our database. As you can see from the controller `erb :'ideas/new'` will
-render the `new.erb` page on the browser. From here the user will input the idea and click the submit button.
+Let's pause for a moment to review what we have just done. Our first step was to create a route for the `new` action. We did that in the `ideas_controller.rb` file.
 
+First, we set up two variables that will be used by the `new` HTML page, `@title` and `@idea`. `@title` is just the text that appears at the top of the web page. `@idea` is a variable that will hold all the data we will enter into our HTML page and eventually insert in to the database.
 
-We now have to create a route that will know how to save the data to the database (which is what happens when you click the submit button).
-Navigate to the `ideas_controller.rb` and enter the following route that will allow us to do just that.
+Finally, with the line `erb :'ideas/new'` we defined a route that will link the URL `ideas/new` to the "New Idea" web page.
+
+So we have a route that will allow users to enter a new idea but we have no way yet of allowing them to save that idea to the database. If you add the following code to `ideas_controller.rb`, we will be able to do just that.
 
 {% highlight sh %}
 post '/ideas' do
@@ -470,33 +470,33 @@ end
 
 
 ### *10a.* Preview in a browser
-From the terminal window run the following
+From the terminal window run the following to start to start the server:
 
 {% highlight sh %}
 ruby config/application.rb -p $PORT -o $IP
 {% endhighlight %}
 
-From the cloud 9 ide click the share button on the right hand upper window. The select the copy option and paste the url into the browser window
+From the Cloud 9 IDE click the `share` button on the right hand upper window. The select the `copy` option and paste the URL into the browser window.
 
 <img src="/images/c9_sinatra/c9_browser.png">
 
-You should now see the ideas app running in the browser. ctrl + c will terminate the server
+You should now see the ideas app running in the browser. ctrl + c will terminate the server.
 
 ## *11.* More routes
 
-The next route in our application will allow us to retrieve just one idea from our database.
+So now we can add an idea in our app and save it to the database. But what about retrieving an idea from the database? The next route in our application will allow us to retrieve just one idea from our database.
 
-Navigate again to our `ideas_controller.rb` file and enter the following route
+Navigate to `ideas_controller.rb` and enter the following route:
 
 {% highlight sh %}
 
 get '/ideas/:id' do
-  @idea     = Idea.find(params[:id])
+  @idea = Idea.find(params[:id])
   erb :'ideas/show'
 end
 {% endhighlight %}
 
-Similar to before this route is calling `erb :'ideas/show'` so lets create that file now. Navigate to the views -> ideas folder and create a file called `show.erb`
+Similar to before this route is calling `erb :'ideas/show'` so let's create that file now. Navigate to the `views/ideas` folder and create a file called `show.erb`. Add the following code:
 
 {% highlight sh %}
 <p>
@@ -519,9 +519,9 @@ Similar to before this route is calling `erb :'ideas/show'` so lets create that 
 
 ### *11a.* Delete routes
 
-Lets add the code to delete an idea from our app
+But what if we want to delete an idea that we have previously added?
 
-Navigate to the `ideas_controller.rb` and enter the following helper route
+Navigate to `ideas_controller.rb` and enter the following code:
 
 {% highlight sh %}
 helpers do
@@ -531,10 +531,11 @@ helpers do
 end
 {% endhighlight %}
 
+This is called a helper route. It is referring to a view called `ideas/_delete_idea_button` so let's create that.
 
-Next we need to create the view that route calls (`ideas/_delete_idea_button`). Lets do that now. Navigate to the `views -> ideas` folder and create a new file called `_delete_idea_button.erb`. Be sure to include the underscore.
+Navigate to the `views/ideas` folder and create a new file called `_delete_idea_button.erb`. Be sure to include the underscore.
 
-Open the newly created file and enter
+Open the newly created file and enter the following code:
 
 {% highlight sh %}
 <form action="/ideas/<%= idea_id %>" method="post">
@@ -552,7 +553,7 @@ delete '/ideas/:id' do
 end
 {% endhighlight %}
 
-Lets preview our changes in the browser. From the terminal window run the following
+Lets preview our changes in the browser. From the terminal window run the following to start to start the server:
 
 {% highlight sh %}
 ruby config/application.rb -p $PORT -o $IP
@@ -560,7 +561,7 @@ ruby config/application.rb -p $PORT -o $IP
 
 ### *11b.* Updating that one Idea
 
-We are almost done! Next we want to retrieve a single idea and update it. Lets create a new route.
+We are almost done! The final piece of database functionality it to retrieve a single idea and update it. As we did in the previous steps, let's start by creating a new route. Add the following code to `ideas_controller.rb`:
 
 {% highlight sh %}
 get '/ideas/:id/edit' do
@@ -569,8 +570,8 @@ get '/ideas/:id/edit' do
 end
 {% endhighlight %}
 
-Again we see the route towards the end of the route it calls a view `erb :'ideas/edit'`. Lets create it, navigate to views -> ideas and create
-a file called `edit.erb` with the following
+Again we see the route is calling a view `erb :'ideas/edit'`. Lets create it by navigating to `views/ideas` and creating
+a file called `edit.erb` with the following code:
 
 {% highlight sh %}
 
@@ -594,8 +595,7 @@ a file called `edit.erb` with the following
 </form>
 {% endhighlight %}
 
-From our form action we know to create another route to update the database with the new data. Navigate back into the `ideas_controller.rb` and
-input the following
+As with the `new` action above, we know we will need to create a second route to update the database with the new data. Navigate back into `ideas_controller.rb` and add the following code:
 
 {% highlight sh %}
 put '/ideas/:id' do
@@ -622,15 +622,15 @@ end
 
 {% endhighlight %}
 
-Lets preview our changes in the browser. From the terminal window run the following
+Lets preview our changes in the browser. From the terminal window run the following to start to start the server:
 
 {% highlight sh %}
 ruby config/application.rb -p $PORT -o $IP
 {% endhighlight %}
 
-We have left out an important route for our app, managing the files we uploaded. To keep things simple lets create a new controller that will deal with the files in our app
+We have left out an important route for our app: managing the files we uploaded. To keep things simple let's create a new controller that will deal with the files in our app.
 
-Navigate to the `app -> controllers` view and create a new controller called `files_controller.rb`. Input the following routes
+Navigate to the `app/controllers` folder and create a new controller called `files_controller.rb`. Add the following code to create the required routes:
 
 {% highlight sh %}
 get '/files/:filename/download' do |filename|
@@ -642,7 +642,7 @@ get '/files/:filename' do |filename|
 end
 {% endhighlight %}
 
-Lets try to download or view our files in the browser. From the terminal window run the following
+Let's try to download or view our files in the browser. From the terminal window run the following to start to start the server:
 
 {% highlight sh %}
 ruby config/application.rb -p $PORT -o $IP
@@ -652,7 +652,7 @@ ruby config/application.rb -p $PORT -o $IP
 
 Lets add some css to our app.
 
-Using the terminal window `cd` into the app folder and then do the following (again you can use the cloud9 file explore window to create these folders)
+Using the terminal window `cd` into the app folder and then do the following (again you can use the Cloud9 file explore window to create these folders)
 
 {% highlight sh %}
 cd app
@@ -662,7 +662,7 @@ mkdir css
 touch application.css
 {% endhighlight %}
 
-Lets open our newly created `application.css` file and add the following
+Lets open our newly created `application.css` file and add the following code:
 
 {% highlight sh %}
 body { padding-top: 100px; }
@@ -671,7 +671,7 @@ table, td, th { vertical-align: middle; border: none; color: brown; }
 th { border-bottom: 1px solid #DDD; }
 {% endhighlight %}
 
-Lets preview our changes in the browser. From the terminal window run the following
+Let's preview our changes in the browser. From the terminal window run the following to start to start the server:
 
 {% highlight sh %}
 ruby config/application.rb -p $PORT -o $IP
@@ -689,9 +689,7 @@ Log onto Github and create a new repository
 
 <img src="/images/github_new_repo.png">
 
-
 Give your repo a title and a description
-
 
 <img src="/images/github_create_repo.png">
 
