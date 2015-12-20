@@ -16,7 +16,7 @@ permalink: sinatra-app-guide
 
 ## *1.*Creating the application with Cloud9
 
-Follow the steps outlined in the Ruby Girls Cloud9 Sinatra Setup Guide [Could9 Setup](/cloud9-sinatra-guide)
+Follow the steps outlined in the Ruby Girls Cloud9 Sinatra Setup Guide [Cloud9 Setup](/cloud9-sinatra-guide)
 
 ## *2.*Locate the terminal window in Cloud9
 
@@ -33,7 +33,7 @@ The first gem `sinatra` allows us to use the Sinatra DSL (Domain Specific Langua
 
 `Thin` is a lightweight and fast web server whose job is to serve up web pages as they are requested.
 
-`Shotgun` is development server that reloads our application code with each request. This means we don't need to restart the server in order to see our changes.
+`Shotgun` is a development server that reloads our application code with each request. This means we don't need to restart the server in order to see our changes.
 
 ## *3.*Create a Gemfile
 
@@ -170,7 +170,7 @@ Lets examine the first four lines in a bit more detail:
 
 **$: << File.expand_path('../', __FILE__)** adds the entire project to $LOAD_PATH. This allows Sinatra to find all the files you’ve added to the project.
 
-**Dir['./app/**/*.rb'].sort.each { |file| require file }** This line explicitly requires each file found in our model, view and controller folders.
+**Dir['./app/\*\*/*.rb'].sort.each { |file| require file }** This line explicitly requires each file found in our model, view and controller folders.
 
 Even though we haven't set them up yet, we know the project is going to need these files.
 The last three lines of `application.rb` sets the root of the project and tells the application where the erb (embedded Ruby) files and CSS files are located.
@@ -248,7 +248,7 @@ bundle exec rake db:migrate
 This will create the `ideas` table. You can see it in the schema file, `db/schema.rb`.
 
 ## *7.* Project Code
-We have just created the ideas table by running the migration, so let's now create the corresponding model. Navigate to the `app/model` folder and create the `idea.rb` file (right click in cloud9 file explorer window or use the terminal window). We will use the terminal window.
+We have just created the ideas table by running the migration, so let's now create the corresponding model. Navigate to the `app/models` folder and create the `idea.rb` file (right click in cloud9 file explorer window or use the terminal window). We will use the terminal window.
 
 {% highlight sh %}
 touch idea.rb
@@ -387,7 +387,7 @@ Enter the following html/erb code:
 
 In order to start the server, you need to be in the root directory of your project. Use `cd ..` repeatedly from your terminal window until you return to your workspace. Don't worry if you go back too far, simply `cd workspace` will bring you back to where you should be. Ask an instructor if unsure.
 
-From the terminal window run the following to start to start the server:
+From the terminal window run the following to start the server:
 
 {% highlight sh %}
 ruby config/application.rb -p $PORT -o $IP
@@ -630,7 +630,7 @@ ruby config/application.rb -p $PORT -o $IP
 
 We have left out an important route for our app, managing the files we uploaded. To keep things simple lets create a new controller that will deal with the files in our app
 
-Navigate to the `apps -> controllers` view and create a new controller called `files_controller.rb`. Input the following routes
+Navigate to the `app -> controllers` view and create a new controller called `files_controller.rb`. Input the following routes
 
 {% highlight sh %}
 get '/files/:filename/download' do |filename|
