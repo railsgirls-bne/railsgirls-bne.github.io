@@ -445,7 +445,6 @@ First, we set up two variables that will be used by the `new` HTML page, `@title
 
 Finally, with the line `erb :'ideas/new'` we defined a route that will link the URL `ideas/new` to the "New Idea" web page.
 
-So we have a route that will allow users to enter a new idea but we have no way yet of allowing them to save that idea to the database. If you add the following code to `ideas_controller.rb`, we will be able to do just that.
 
 {% highlight sh %}
 post '/ideas' do
