@@ -14,6 +14,8 @@ Then, go to the [cloud9 website](https://c9.io/).
 
 Click the __signup__ button. Signup using the github account you just created.
 
+Note the screenshots below were taken in December 2015. The website may have been updated since. Please ask an instructor if you are unsure.
+
 <img src="/images/c9/c9-signup-with-github.png">
 
 Once you have signed up, you will be shown your dashboard. __Create a New workspace__ by clicking the plus icon.
