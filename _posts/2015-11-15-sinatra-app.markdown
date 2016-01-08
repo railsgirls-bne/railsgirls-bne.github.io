@@ -22,18 +22,12 @@ Follow the steps outlined in the Ruby Girls Cloud9 Sinatra Setup Guide [Cloud9 S
 
 There are three gems we will need to install before we can create a Sinatra project.
 
-To install these gems, enter the following commands in the terminal window:
+To install this gem, enter the following commands in the terminal window:
 {% highlight sh %}
 gem install sinatra
-gem install thin
-gem install shotgun
 {% endhighlight %}
 
-The first gem `sinatra` allows us to use the Sinatra DSL (Domain Specific Language) in our app.
-
-`Thin` is a lightweight and fast web server whose job is to serve up web pages as they are requested.
-
-`Shotgun` is a development server that reloads our application code with each request. This means we don't need to restart the server in order to see our changes.
+The  gem `sinatra` allows us to use the Sinatra DSL (Domain Specific Language) in our app.
 
 ## *3.*Create a Gemfile
 
@@ -304,7 +298,6 @@ Type or paste the following into the index.erb file you just created
         <td><a href="/ideas/<%= idea.id %>">Show</a></td>
         <td><% if idea.picture %><a href="/files/<%= idea.picture %>">View Picture</a><% end %></td>
         <td><% if idea.picture %><a href="/files/<%= idea.picture %>/download">Download Picture</a><% end %></td>
-        <!--<td><a href=""<%#= delete_idea_button(idea.id) %>-->
       </tr>
   <% end %>
   </tbody>
