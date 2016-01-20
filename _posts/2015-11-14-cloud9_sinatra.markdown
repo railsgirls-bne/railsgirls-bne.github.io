@@ -49,7 +49,7 @@ Click on the settings icon in the upper right side of the window. A preferences 
 
 You are now ready to start building your sinatra app but first a few tips.
 
-1. You must save your work each time you make edits. Do this by using either `file -> save` from the menubar or `ctrl+s`
+1. You must save your work each time you make edits. Do this by using either `file -> save` from the menubar or `ctrl+s`(Windows and Linux), `command ⌘+s`(Mac)
 2. To stop the sinatra server use `ctrl+c`
 3. To run the sinatra server type the following into the terminal window.
 
