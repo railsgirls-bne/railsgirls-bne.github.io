@@ -41,7 +41,7 @@ While you are developing your app, you should be committing your changes and pus
 
 We'll start by initialising git within our app and adding the current files.
 
-- [ ] Run the git initialiser
+- [ ] Run the git initialiser. To do this simply enter the command below into the terminal window in Cloud9
 
 {% highlight sh %}
 git init
@@ -84,7 +84,7 @@ git push origin master
 
 # Start Coding
 
-## *1.* Create a Gemfile
+## *4.* Create a Gemfile
 
 There are a few gems we will need to install before we can start coding. The easiest way to install gems is by using the [bundler](http://bundler.io) gem, which is already installed on Cloud9. If the `bundle` command is not available to you, make sure to run `gem install bundler` first.
 
@@ -162,13 +162,13 @@ git push origin master
 **shotgun** will reload our app, so we don't have to stop and start the server whenever a minor change is made.
 
 
-## *2.* Project Structure
+## *5.* Project Structure
 
 Sinatra doesn’t impose any structure on your project (which can be both a blessing and a curse). The entire structure of the project is in your hands and this flexibility can cause headaches. The structure outlined in this app is a pattern that can work well for many of your future Sinatra apps.
 
 In the next section we will focus on file and folder creation. Pay particular attention to where you create files/folders. Ask an instructor if you are unsure.
 
-### *2a.* File/Folder Creation
+### *5a.* File/Folder Creation
 
 The instructions given will show you how to create files and folders through the terminal window. You can however create all files and folders by right clicking in the Cloud9 explorer window as we did above. If you feel comfortable with file and folder creation follow the structure in the image below and skip to the next section.
 
@@ -226,7 +226,7 @@ By the time our application is complete, it should look similar to the folder st
 
 <img src="/images/sinatra_visual_tree.png">
 
-### *2b.* Commit the skeleton to git
+### *5b.* Commit the skeleton to git
 
 If you wish to commit this skeleton folder structure to git, you may notice that the empty folders we created aren't being committed; git will only remember files, not folders. To make git remember our structure, you must create a file inside each empty folder. The convention is to create a file called `.keep`. The dot at the start of the name means that your computers operating system should ignore them.
 
@@ -243,11 +243,7 @@ git commit -m "folder structure"
 git push origin master
 {% endhighlight %}
 
-## *3.* Configure the App
-
-We are now ready to begin developing our application.
-
-### *3b.* Sinatra
+## *6.* Configure the App
 
 The first step is to set up the `application.rb` file. Double click on the file to open it (you will find it under the `config` folder). Take some time to understand what we are about to put into this file.
 Note you must save all files in cloud9 (`command ⌘ + s`(mac), `control + s`(windows and linux) or menu options `File -> Save`)
@@ -278,7 +274,7 @@ Lets examine the first four lines in a bit more detail:
 Even though we haven't set them up yet, we know the project is going to need these files.
 The last three lines of `application.rb` sets the root of the project and tells the application where the erb (embedded Ruby) files and CSS files are located.
 
-### *3b.* Rake
+### *6a.* Rake
 
 We need to set up our Rake file so we can run our helper tasks. Open the file `Rakefile` and add the following code:
 {% highlight sh %}
@@ -286,7 +282,7 @@ require './config/application'
 require 'sinatra/activerecord/rake'
 {% endhighlight %}
 
-### *3c.* ActiveRecord
+### *6b.* ActiveRecord
 The final step in our setup is the `database.yml` file. This file will contain our sqlite database configuration and is required for connecting to the database. Open the config folder and double click to open the file. Copy and paste the lines below.
 
 {% highlight sh %}
@@ -308,7 +304,7 @@ test:
   database: db/test.sqlite3
 {% endhighlight %}
 
-### *3c.* Commit your setup
+### *6c.* Commit your setup
 
 {% highlight sh %}
 git add .
@@ -316,7 +312,7 @@ git commit -m "Setup and configuration"
 git push origin master
 {% endhighlight %}
 
-## *6.* Migrations
+## *7.* Migrations
 
 Just like we did in the original Rails Girls, we need to create an `ideas` table so we can save our ideas. From the terminal window run:
 {% highlight sh %}
@@ -347,7 +343,7 @@ bundle exec rake db:migrate
 
 This will create the `ideas` table inside the `db/development.sqlite3` database. You can see it in the schema file, `db/schema.rb`.
 
-### *3c.* Commit your migration and schema, Ignore the database
+### *7a.* Commit your migration and schema, Ignore the database
 
 Because our database might contain sensitive or private data, we do not want to commit it to `git`. `git` will ignore any files listed in a `.gitignore` file.
 
@@ -372,7 +368,7 @@ git commit -m "database migration and .gitignore"
 git push origin master
 {% endhighlight %}
 
-## *4.* Project Code
+## *8.* Project Code
 We have just created the ideas table by running the migration, so let's now create the corresponding model. Navigate to the `app/models` folder and create the `idea.rb` file (right click in cloud9 file explorer window or use the terminal window). We will use the terminal window.
 
 {% highlight sh %}
@@ -389,7 +385,7 @@ end
 
 This is just an empty file at this stage, we will add code to it later on.
 
-## *5.* Routes
+## *9.* Routes
 Finally it is time to create routes. Routes are simply the rules that tell your application which code to run for a given URL. From the `controllers` folder, create a file called `ideas_controller.rb` (you can use the terminal window or cloud9 file explorer)
 
 {% highlight sh %}
@@ -403,7 +399,7 @@ end
 
 Now that we have created our route we need to create a corresponding index page to display it. Create a folder for `ideas` in the `app/views/` directory (from terminal window `mkdir app/views/ideas` or use the cloud9 file explorer window). Then create a file called `index.erb`.
 
-### *6.* Views
+## *10.* Views
 Type or paste the following into the `index.erb` file you just created
 
 {% highlight sh %}
@@ -436,14 +432,14 @@ Type or paste the following into the `index.erb` file you just created
 <br>
 {% endhighlight %}
 
-### *4a.* Commit your ideas model, controller and view
+### *10a.* Commit your ideas model, controller and view
 {% highlight sh %}
 git add .
 git commit -m "Ideas model, controller and view"
 git push origin master
 {% endhighlight %}
 
-## *5.* Improving our design
+## *11.* Improving our design
 
 Although our application currently has only one page, it will eventually have many pages. To give it a consistent look and feel, we will want to have the same header and footer on each page. Instead of copying and pasting the header and footer onto each page, and having to edit each page if we want to make a change, we will create one file that will contain all the common page content. This is an example of adhering to the DRY (Don't Repeat Yourself) principle of Ruby programming.
 
@@ -512,14 +508,14 @@ Enter the following html/erb code:
 </html>
 {% endhighlight %}
 
-### *5a.* Commit your layout
+### *11a.* Commit your layout
 {% highlight sh %}
 git add .
 git commit -m "Application layout view"
 git push origin master
 {% endhighlight %}
 
-## *6.* Preview in a browser
+## *12.* Preview in a browser
 
 In order to start the server, you need to be in the root directory of your project. Use `cd ..` repeatedly from your terminal window until you return to your workspace. Don't worry if you go back too far, simply `cd workspace` will bring you back to where you should be. Ask an instructor if unsure.
 
@@ -535,7 +531,7 @@ From the cloud 9 IDE click the `share` button on the right hand upper window. Th
 
 You should now see the ideas app running in the browser! `ctrl+c` will terminate the server. At this stage there is a small style issue with your app, it doesn't display as well as it should. We will cover this in a following section.
 
-## *7.* New Route and View
+## *13.* New Route and View
 
 Generally speaking each route will have a corresponding view. Lets create a route and a view for when we want to create a new idea.
 
@@ -607,7 +603,7 @@ end
 {% endhighlight %}
 
 
-### *8.* Preview in a browser
+### *13a.* Preview in a browser
 From the terminal window run the following to start to start the server:
 
 {% highlight sh %}
@@ -620,7 +616,7 @@ From the Cloud 9 IDE click the `share` button on the right hand upper window. Th
 
 You should now see the ideas app running in the browser. ctrl + c will terminate the server.
 
-## *9.* More routes
+## *14.* More routes
 
 So now we can add an idea in our app and save it to the database. But what about retrieving an idea from the database? The next route in our application will allow us to retrieve just one idea from our database.
 
@@ -656,7 +652,7 @@ Similar to before this route is calling `erb :'ideas/show'` so let's create that
 {% endhighlight %}
 
 
-### *10.* Delete routes
+## *15.* Delete routes
 
 But what if we want to delete an idea that we have previously added?
 
@@ -698,7 +694,7 @@ Lets preview our changes in the browser. From the terminal window run the follow
 ruby config/application.rb -p $PORT -o $IP
 {% endhighlight %}
 
-### *11.* Updating an Idea
+## *16.* Updating an Idea
 
 We are almost done! The final piece of database functionality it to retrieve a single idea and update it. As we did in the previous steps, let's start by creating a new route. Add the following code to `ideas_controller.rb`:
 
@@ -789,7 +785,7 @@ Let's try to download or view our files in the browser. From the terminal window
 ruby config/application.rb -p $PORT -o $IP
 {% endhighlight %}
 
-## *12.* CSS
+## *17.* CSS
 
 Lets add some css to our app.
 
@@ -816,12 +812,10 @@ Let's preview our changes in the browser. From the terminal window run the follo
 ruby config/application.rb -p $PORT -o $IP
 {% endhighlight %}
 
-## *13.* Heroku
+## *18.* Heroku
 
 Follow the heroku guide: [Pushing to Heroku](/heroku)
 
-## *14.* Fin (The End)
-
-Last bit of house keeping to do is to update the `README` and commit the final app to GitHub. Edit the `REAADME.md` with details about your app and push this update to GitHub (use the steps outlined above).
+## *19.* The End
 
 Congratulations you have just completed your first Sinatra app!
