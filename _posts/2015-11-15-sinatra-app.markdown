@@ -353,7 +353,7 @@ touch .gitignore
 {% endhighlight %}
 
 Cloud9 will sometimes hide files starting with a dot, but we need to see it.
-Click the "cog" icon in the upper right corner of the file explorer and select `Show hidden files`.
+Click the "cog" icon in the upper right corner of the file explorer to open the Cloud9 preferences tab. Under `User Settings` select `Tree & Navigate` and removed the `.*` from the `hidden file patterns` options. If unsure ask an instructor.
 
 Open the `.gitignore` file and enter the following, to ignore all sqlite3 databases.
 {% highlight sh %}
