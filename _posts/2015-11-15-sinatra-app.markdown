@@ -397,7 +397,9 @@ Finally it is time to create routes. Routes are simply the rules that tell your 
 end
 {% endhighlight %}
 
-Now that we have created our route we need to create a corresponding index page to display it. Create a folder for `ideas` in the `app/views/` directory (from terminal window `mkdir app/views/ideas` or use the cloud9 file explorer window). Then create a file called `index.erb`.
+This route will map the URL `ideas/index` to a listing of all ideas. We have just told Sinatra to look in the ideas folder for an html file called `index.erb` (it has a `.erb` suffix rather than `.html` because it contains embedded Ruby as well as html).
+
+So! Now that we have created our route we need to create a corresponding index page to display it. Create a folder for `ideas` in the `app/views/` directory (from terminal window `mkdir app/views/ideas` or use the cloud9 file explorer window). Then create a file called `index.erb`.
 
 ## *10.* Views
 Type or paste the following into the `index.erb` file you just created
@@ -525,7 +527,7 @@ From the terminal window run the following to start the server:
 ruby config/application.rb -p $PORT -o $IP
 {% endhighlight %}
 
-From the cloud 9 IDE click the `share` button on the right hand upper window. Then select the `copy` option and paste the url into the browser window.
+From the cloud 9 IDE click the `share` button on the right hand upper window. From the second option (`Application:`), click on the link and select the `copy` option. Then navigate to your browser and paste the url into the browser window.
 
 <img src="/images/c9_sinatra/c9_browser.png">
 
@@ -533,9 +535,9 @@ You should now see the ideas app running in the browser! `ctrl+c` will terminate
 
 ## *13.* New Route and View
 
-Generally speaking each route will have a corresponding view. Lets create a route and a view for when we want to create a new idea.
+Generally speaking each route will have a corresponding view. Let's create a route and a view for when we are ready to create a new idea.
 
-Open the `ideas_controller.rb` file and insert the following:
+Open the `ideas_controller.rb` file and add the following code after the last line:
 
 {% highlight sh %}
 %w(/new /ideas/new).each do |path|
@@ -610,7 +612,7 @@ From the terminal window run the following to start to start the server:
 ruby config/application.rb -p $PORT -o $IP
 {% endhighlight %}
 
-From the Cloud 9 IDE click the `share` button on the right hand upper window. The select the `copy` option and paste the URL into the browser window.
+From the Cloud 9 IDE click the `share` button on the right hand upper window. From the second option (`Application:`), click on the link and select the `copy` option. Then navigate to your browser and paste the url into the browser window.
 
 <img src="/images/c9_sinatra/c9_browser.png">
 
@@ -654,7 +656,7 @@ Similar to before this route is calling `erb :'ideas/show'` so let's create that
 
 ## *15.* Delete routes
 
-But what if we want to delete an idea that we have previously added?
+So now we can view a list of all our ideas, we can create a new idea, and we can view a single idea. But what if we want to delete an idea that we have previously added?
 
 Navigate to `ideas_controller.rb` and enter the following code:
 
@@ -694,6 +696,8 @@ Lets preview our changes in the browser. From the terminal window run the follow
 ruby config/application.rb -p $PORT -o $IP
 {% endhighlight %}
 
+Note that to delete an idea, you must first open the idea (click on `Show`). From there you should see the `Delete` button.
+
 ## *16.* Updating an Idea
 
 We are almost done! The final piece of database functionality it to retrieve a single idea and update it. As we did in the previous steps, let's start by creating a new route. Add the following code to `ideas_controller.rb`:
@@ -708,8 +712,7 @@ end
 Again we see the route is calling a view `erb :'ideas/edit'`. Let's create it by navigating to `views/ideas` and creating a file called `edit.erb` with the following code:
 
 {% highlight sh %}
-
-<h1>Edit Post</h1>
+<h1>Edit Idea</h1>
 <form action="/ideas/<%= @idea.id %>" method="post" enctype="multipart/form-data">
   <input type="hidden" name="_method" value="put" />
 
@@ -756,7 +759,6 @@ put '/ideas/:id' do
     erb :'ideas/edit'
   end
 end
-
 {% endhighlight %}
 
 Lets preview our changes in the browser. From the terminal window run the following to start to start the server:
