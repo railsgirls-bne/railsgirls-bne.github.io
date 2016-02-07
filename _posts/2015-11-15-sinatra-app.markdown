@@ -263,13 +263,13 @@ set :erb, :layout => :'layouts/application'
 
 Lets examine the first four lines in a bit more detail:
 
-**require 'bundler'** enables our application to automatically discover the `Gemfile`.
+`require 'bundler'` enables our application to automatically discover the `Gemfile`.
 
-**Bundler.require** loads into the project all the gems that are specified in the `Gemfile`.
+`Bundler.require` loads into the project all the gems that are specified in the `Gemfile`.
 
-**$: << File.expand_path('../', __FILE__)** adds the entire project to $LOAD_PATH. This allows Sinatra to find all the files you’ve added to the project.
+`$: << File.expand_path('../', __FILE__)` adds the entire project to $LOAD_PATH. This allows Sinatra to find all the files you’ve added to the project.
 
-**Dir['./app/\*\*/*.rb'].sort.each { |file| require file }** This line explicitly requires each file found in our model, view and controller folders.
+`Dir['./app/\*\*/*.rb'].sort.each { |file| require file }` This line explicitly requires each file found in our model, view and controller folders.
 
 Even though we haven't set them up yet, we know the project is going to need these files.
 The last three lines of `application.rb` sets the root of the project and tells the application where the erb (embedded Ruby) files and CSS files are located.
