@@ -606,7 +606,7 @@ end
 
 
 ### *13a.* Preview in a browser
-From the terminal window run the following to start to start the server:
+From the terminal window run the following to start the server:
 
 {% highlight sh %}
 ruby config/application.rb -p $PORT -o $IP
@@ -761,7 +761,7 @@ put '/ideas/:id' do
 end
 {% endhighlight %}
 
-Lets preview our changes in the browser. From the terminal window run the following to start to start the server:
+Lets preview our changes in the browser. From the terminal window run the following to start the server:
 
 {% highlight sh %}
 ruby config/application.rb -p $PORT -o $IP
@@ -781,7 +781,7 @@ get '/files/:filename' do |filename|
 end
 {% endhighlight %}
 
-Let's try to download or view our files in the browser. From the terminal window run the following to start to start the server:
+Let's try to download or view our files in the browser. From the terminal window run the following to start the server:
 
 {% highlight sh %}
 ruby config/application.rb -p $PORT -o $IP
@@ -808,7 +808,7 @@ table, td, th { vertical-align: middle; border: none; color: brown; }
 th { border-bottom: 1px solid #DDD; }
 {% endhighlight %}
 
-Let's preview our changes in the browser. From the terminal window run the following to start to start the server:
+Let's preview our changes in the browser. From the terminal window run the following to start the server:
 
 {% highlight sh %}
 ruby config/application.rb -p $PORT -o $IP
