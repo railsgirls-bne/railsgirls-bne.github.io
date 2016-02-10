@@ -319,7 +319,7 @@ Just like we did in the original Rails Girls, we need to create an `ideas` table
 rake db:create_migration NAME=create_ideas
 {% endhighlight %}
 
-A migration file will have been created in the `db/migrate` folder. It will be called `create_ideas.rb` and be prefixed with a unique id including the date and time. Double-click to open it and enter the following. This is similar to the scaffold command you ran in Rails Girls.
+A migration file will have been created in the `db/migrate` folder. The name of the file is of the form `YYYYMMDDHHMMSS_create_ideas.rb`. The timestamp determines which migration should be run and in what order. Double-click to open it and enter the following. This is similar to the scaffold command you ran in Rails Girls.
 
 {% highlight sh %}
 class CreateIdeas < ActiveRecord::Migration
