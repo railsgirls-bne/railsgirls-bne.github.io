@@ -17,6 +17,22 @@ permalink: sinatra-app-guide
 
 Follow the steps outlined in the Ruby Girls Cloud9 Sinatra Setup Guide [Cloud9 Setup](/cloud9-sinatra-guide)
 
+Make sure to add your SSH key before you get started.
+
+Click on the settings icon in the top right and select SSH Keys in the side menu
+
+Copy your SSH key
+
+Go to your Github and click on settings in the top right drop down menu
+
+Select SSH key on the side menu
+
+Click "New SSH Key"
+
+Give your SSH key a name like Cloud9
+
+Paste the SSH key you copied into the Key section and click Add SSH key
+
 ## *2.* Write a description for your application
 
 Cloud9 automatically creates a file called `REAMDME.md`. The `.md` extension means that this is a MarkDown file.
