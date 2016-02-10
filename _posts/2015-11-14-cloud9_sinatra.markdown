@@ -54,7 +54,7 @@ You are now ready to start building your sinatra app but first a few tips.
 3. To run the sinatra server type the following into the terminal window.
 
 {% highlight sh %}
-ruby application.rb -p $PORT -o $IP
+ruby config/application.rb -p $PORT -o $IP
 {% endhighlight %}
 
 These will be covered in the next guide, click to open it [sinatra app guide](/sinatra-app-guide)

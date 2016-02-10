@@ -35,9 +35,7 @@
     <script src="lib/js/html5shiv.js"></script>
     <![endif]-->
   </head>
-
   <body>
-
   <div class="reveal">
       <!-- Introduction -->
       <div class="slides">
@@ -48,7 +46,7 @@
 
           <p>
             <small>Daphne Rouw </br>
-             <i class="fa fa-twitter">@daphsta</i>      
+             <i class="fa fa-twitter">@daphsta</i>
            </small>
          </p>
        </section>
@@ -89,13 +87,13 @@
 
     <section data-transition="slide-in">
       <h2>Render views</h2>
-      <p>Determines which page to show on browser <code>ideas/index.html.erb</code></p>
+      <p>Determines which page to show on browser <pre>ideas/index.html.erb</pre></p>
     </section>
 
     <section data-transition="slide-in">
       <h2>Recap</h2>
       <ul>
-        <li>URL entered in browser will be checked if a corresponding entry exists in <code>config/routes.rb</code></li>
+        <li>URL entered in browser will be checked if a corresponding entry exists in <pre>config/routes.rb</pre></li>
         <li>If there is a match in the routes, the request goes to corresponding action in the controller</li>
         <li>Action renders a corresponding view</li>
       </ul>
@@ -121,9 +119,9 @@
     <section data-transition="slide-in">
       <h2>Matching HTTP method to a resource</h2>
       <p>A HTTP method is matched to a resourece </p>
-      <p> GET /ideas/new render a form to create a new idea </p>
-      <p> POST /ideas will create a new idea and saves in the database</p>
-      <p> GET /ideas/1 display a specific idea </p>
+      <p> <code>GET /ideas/new </code>render a form to create a new idea</p>
+      <p> <code>POST /ideas </code>will create a new idea and saves in the database</p>
+      <p> <code>GET /ideas/1</code> display a specific idea </p>
     </section>
 
     <section data-transition="slide-in">
@@ -198,7 +196,32 @@
     </ul>
   </section>
 
-</div>
+  <section data-transition="slide-in">
+    <h2>Controller</h2>
+    <ul>
+      <li>Rails executes a corresponding controller</li>
+      <pre><code>class IdeasController < ApplicationController</code></pre>
+      <li>Every controller contains a few actions , eg:
+      <pre><code>def index; end </code></pre> is an action that queries data from database and passes it on to the view
+    </ul>
+  </section>
+
+  <section data-transition="slide-in">
+    <h2>Inside a controller</h2>
+    <ul>
+      <li>Sets an instance variable denoted by an @. <code>Idea</code> is an ActiveRecord model that connects to the database</li>
+      <pre><code>@ideas = Idea.all</code></pre>
+      <li>Renders a html file in a view</li>
+      <pre><code>
+        respond_to do |format|
+          format.html
+          format.json { render json: @idea }
+        end
+      </code></pre> points to a html file with the same name,<pre>app/views/ideas/index.html.erb</pre>
+    </ul>
+  </section>
+  </div>
+  </div>
 </div>
 
 <script src="lib/js/head.min.js"></script>
