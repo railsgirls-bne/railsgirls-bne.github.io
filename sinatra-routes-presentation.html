@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Rails Girls Brisbane - Routes in Sinatra</title>
+
+    <meta name="description" content="Rails Girls Brisbane tutorial">
+    <meta name="author" content="RailsGirls Brisbane">
+
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/beige.css" id="theme">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!--[if lt IE 9]>
+      <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+      <!-- Introduction -->
+      <div class="slides">
+        <section data-transition="slide-in">
+          <h1>Routes</h1>
+
+          <p>Connecting URL to your code</p>
+
+          <p>
+          <small>Daphne Rouw </br>
+            <i class="fa fa-twitter">@daphsta</i>
+          </small>
+          </p>
+        </section>
+
+        <section data-transition="slide-in">
+          <h2>Type in a URL</h2>
+          <p> <code>http://sinatra.c9.io/ideas</code> </p>
+          <p> Brings up the file <pre>app/views/ideas/index.erb</pre>
+          </p>
+        </section>
+        <section data-transition="slide-in">
+          <h2>How does Sinatra know?</h2>
+          <p>Map <pre>http://localhost:3000/ideas</pre> to <pre>app/views/ideas/index.erb</pre></p>
+        </section>
+
+        <section data-transition="slide-in">
+          <h2>Routes</h2>
+          <p>A system called routing in Sinatra, matches HTTP requests from browser to the app</p>
+        </section>
+
+        <section data-transition="slide-in">
+          <h2>Request from browser </h2>
+          <p>Requests made from browser (by typing in a URL) would have a HTTP method defined so that the app knows what actions to perform</p>
+        </section>
+
+        <section data-transition="slide-in">
+          <h2>Routes in Sinatra app</h2>
+          <p>This request is received by the routing system and refers to
+          <pre>app/controllers/ideas_controller.rb</pre>file.
+          The routing system looks for:
+          </p>
+          <ul>
+            <li>a matching HTTP method <pre><code>GET, POST, PUT, PATCH</code></pre></li>
+              <li>parameters if any eg: <pre><code>/ideas/:id</code></pre></li> params[:id] to access :id
+          </ul>
+        </section>
+
+        <section data-transition="slide-in">
+          <h2>Route Block</h2>
+          <p> Route accepts a block which sets an instance variable and view to render </p>
+          <pre><code>
+            get '/ideas' do
+              @ideas = Idea.all
+              erb: 'ideas/index'
+            end
+        </pre></code>
+        <ul>
+          <li> Matches GET /ideas route</li>
+          <li>Sets <code>@ideas</code> by getting all records from <code>ideas</code> table via <code>Idea</code> ActiveRecord model</li>
+          <li><code>erb:</code> determines view page to render <code>ideas/index.erb</code></li>
+        </ul>
+        </section>
+
+        <section data-transition="slide-in">
+          <h2>Recap</h2>
+          <ul>
+            <li>URL entered in browser will be checked if a corresponding entry exists in <code>app/controlleres/ideas_controllers.rb</code></li>
+            <li>If there is a match in the routes, the request executes the block of code to query from database</li>
+            <li>It renders the specified view</li>
+          </ul>
+        </section>
+
+        <section data-transition="slide-in">
+          <h2>HTTP methods</h2>
+          <p>There are 4 HTTP methods (main 4 we will be using): </p>
+          <ul>
+            <li>GET</li>
+            <li>PUT</li>
+            <li>POST</li>
+            <li>DELETE</li>
+          </ul>
+        </section>
+
+        <section data-transition="slide-in">
+          <h2>Matching HTTP method to an action</h2>
+          <p><pre><code>GET /ideas/new</code></pre> to create a new idea </p>
+          <p><pre><code>POST /ideas</code></pre> will create a new idea and saves in the database</p>
+          <p><pre><code>GET /ideas/:id</code></pre> display a specific idea </p>
+        </section>
+
+        <section data-transition="slide-in">
+          <h2>Recap</h2>
+          <ul>
+            <li>In Sinatra, routing is more explicit compared to Rails</li>
+            <li>HTTP methods are matched <pre><code>GET /idea/:id</code></pre></li>
+              <li>A block of code containing data stored in an instance variable and view to render is executed</li>
+              <pre><code>
+                get '/idea/:id' do
+                  @ideas = Idea.all
+                  erb: 'ideas/index'
+                end
+            </pre></code>
+          </ul>
+        </section>
+
+      </div>
+    </div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+        {
+          src: 'lib/js/classList.js', condition: function () {
+            return !document.body.classList;
+          }
+        },
+        {
+          src: 'plugin/markdown/marked.js', condition: function () {
+            return !!document.querySelector('[data-markdown]');
+          }
+        },
+        {
+          src: 'plugin/markdown/markdown.js', condition: function () {
+            return !!document.querySelector('[data-markdown]');
+          }
+        },
+        {
+          src: 'plugin/highlight/highlight.js', async: true, condition: function () {
+            return !!document.querySelector('pre code');
+          }, callback: function () {
+            hljs.initHighlightingOnLoad();
+          }
+        },
+        {src: 'plugin/zoom-js/zoom.js', async: true},
+        {src: 'plugin/notes/notes.js', async: true}
+        ]
+      });
+
+</script>
+
+</body>
+</html>
