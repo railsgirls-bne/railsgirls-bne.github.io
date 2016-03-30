@@ -73,6 +73,8 @@ class Idea < ActiveRecord::Base
 end
 {% endhighlight %}
 
+Save the `idea.rb` (`command ⌘ + s`(mac), `control + s`(windows and linux) or use the menu option `File -> Save`).
+
 We are now ready to start testing our app!
 
 # Setting up our spec_helper file
@@ -82,7 +84,6 @@ Navigate to the newly created `spec_helper.rb` file inside the spec folder and t
 
 require_relative '../config/application'
 
-#rspec
 require 'rack/test'
 require 'rspec'
 
@@ -97,16 +98,18 @@ RSpec.configure { |c| c.include RSpecMixin }
 RSpec.configure { |c| c.profile_examples = true }
 {% endhighlight %}
 
-So lets take a moment to understand what we have just typed
+Save the `spec_helper.rb` (`command ⌘ + s`(mac), `control + s`(windows and linux) or use the menu option `File -> Save`).
 
-The first line; `require_relative '../config/application’` # this is including your whole sinatra app into the test suite!! Go take another look at the config/application.rb file and see how it requires the whole project
+Lets take a moment to understand what we have just typed
+
+The first line; `require_relative '../config/application’` this is including your whole sinatra app into the test suite!! Go take another look at the config/application.rb file and see how it requires the whole project
 
 The next 2 lines require the gems we added to our Gemfile. We have already covered their purpose.
 
 The line following sets the RACK_ENV environment variable, which Sinatra checks when setting its environment. This is a very important step
 as it ensures the tests all run against your test database (and not development one). Take a moment to absorb this, imagine what
-would happen if every time we ran our tests they ran against your dev database. For example in our tests we delete all records
-from our test database. Imagine if this happened to all your development data. To avoid that headache ensure you never forget to set
+would happen if every time we ran our tests they ran against your dev database. For example in the tests we are about to create we delete all records
+from our test database as a clean up. Imagine if this happened to all your development data. To avoid that headache ensure you never forget to set
 the RACK_ENV variable
 
 `ENV['RACK_ENV'] = 'test'`
@@ -126,8 +129,9 @@ Create a new file inside the spec folder called sinatra_helper.rb. Open it and t
 require 'spec_helper'
 {% endhighlight %}
 
-We are now ready to create some tests!
+Save the `sinatra_helper.rb` (`command ⌘ + s`(mac), `control + s`(windows and linux) or use the menu option `File -> Save`).
 
+We are now ready to create some tests!
 
 From the terminal window, ensure you are in the spec folder and create a new folder called `app` move up one level of the project structure and into the root of the project. From here create another folder called `db`. This will store information about our sqlite3 database including our database migrations.
 {% highlight sh %}
@@ -181,6 +185,8 @@ RSpec.describe Idea do
 end
 {% endhighlight %}
 
+Save the `idea_spec.rb` (`command ⌘ + s`(mac), `control + s`(windows and linux) or use the menu option `File -> Save`).
+
 A few points to note. We require the `sinatra_helper` file. This is the file with all the setup we created above.
 
 Also in the first `RSpec.describe` block we are referencing the Idea class name. When we use a Class name in the describe block, we can make use of the built in `described_class` method. In this case `described_class` refers to the Idea model class.
@@ -201,7 +207,7 @@ bundle exec rspec spec/app/models/idea_spec.rb
 ## Committing to git
 {% highlight sh %}
 git add .
-git commit -m "Setup and configuration"
+git commit -m "model tests"
 git push origin master
 {% endhighlight %}
 
