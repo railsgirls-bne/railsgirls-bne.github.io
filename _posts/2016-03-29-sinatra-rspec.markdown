@@ -7,7 +7,7 @@ permalink: sinatra-rspec-guide
 # Rails Girls Next - Testing with Rspec
 *Created by Sorcha Abel, [@sabel25](https://twitter.com/sabel25)*
 
-# Unit Tests
+## Unit Tests
 Unit testing is the practice of testing the components of your program automatically by defining inputs to each component and checking the outputs.
 
 Unit tests are necessary because they help prove that your code actually works. It allows you to refactor with confidence, running tests that pass
