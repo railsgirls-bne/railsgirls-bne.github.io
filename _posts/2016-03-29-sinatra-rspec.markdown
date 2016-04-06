@@ -8,17 +8,17 @@ permalink: sinatra-rspec-guide
 *Created by Sorcha Abel, [@sabel25](https://twitter.com/sabel25)*
 
 ## Unit Tests
-Unit testing is the practice of testing the components of your program automatically by defining inputs to each component and checking the outputs.
+Unit testing is the practice of testing the components of your program automatically, we do this by defining inputs to each component and then checking the outputs with code.
 
-Unit tests are necessary because they help prove that your code actually works. It allows you to refactor with confidence, running tests that pass
+They are so helpful because they help prove that your code actually works. They also allow you to refactor with confidence, running tests (specs) that pass
 before and after refactorings helps prove your code still works as expected.
 
-Unless you want to spend all your waking hours running tests manually, you need a test framework.
+Without a testing framework you could spend every waking hour running your tests manually!
 
 ## What is Rspec?
-Unless you want to spend all your waking hours running tests manually, you need a test framework.
-Rspec is a gem and also a framework that provides a powerful DSL allowing us to unit test our app. In this guide we will
-be creating unit tests for our Idea model and controller.
+
+Rspec is a framework that provides a powerful DSL allowing us to unit test our app automatically. In this guide we will
+be creating unit tests (also known as specs) for our Idea model and controller.
 
 The tests we will write for our model will concentrate primarily on validation.
 For our controller testing we will focus on the simulating the app requests and assert expectations about the responses.
