@@ -10,8 +10,10 @@ permalink: sinatra-rspec-guide
 
 ## What is Rspec?
 Rspec is both a gem and a framework that provides a powerful DSL that allows us to unit test our app. In this guide we will
-be creating unit tests for our Idea model and controller. The model testing will focus on validation and the controller testing
-will focus on the simulating the app requests and assert expectations about the responses.
+be creating unit tests for our Idea model and controller.
+
+The tests we will write for our model will concentrate primarily on validation.
+For our controller testing we will focus on the simulating the app requests and assert expectations about the responses.
 
 # Setup
 
@@ -63,9 +65,9 @@ Running the above command will create an `spec` folder with 2 new files.
 
 ## *1c.* Adding validation to our model
 
-Before we commence with writing of our new unit tests lets first create some validation in for our Idea model
+Before we commence with the writing of our new unit tests lets first create some validation in for our Idea model
 
-Navigate to the app/models/Idea.rb file and insert the following lines so that your Idea.rb file resembles below
+Navigate to the app/models/idea.rb file and insert the following lines so that your Idea.rb file resembles below
 
 {% highlight sh %}
 class Idea < ActiveRecord::Base
@@ -74,6 +76,14 @@ end
 {% endhighlight %}
 
 Save the `idea.rb` (`command ⌘ + s`(mac), `control + s`(windows and linux) or use the menu option `File -> Save`).
+
+Commit the updated `idea.rb` to git:
+
+{% highlight sh %}
+git add Gemfile
+git commit -m "updated Gemfile"
+git push origin master
+{% endhighlight %}
 
 We are now ready to start testing our app!
 
@@ -91,7 +101,9 @@ ENV['RACK_ENV'] = 'test'
 
 module RSpecMixin
   include Rack::Test::Methods
-  def app() Sinatra::Application end
+  def app()
+    Sinatra::Application
+  end
 end
 
 RSpec.configure { |c| c.include RSpecMixin }
@@ -102,27 +114,30 @@ Save the `spec_helper.rb` (`command ⌘ + s`(mac), `control + s`(windows and lin
 
 Lets take a moment to understand what we have just typed
 
-The first line; `require_relative '../config/application’` this is including your whole sinatra app into the test suite!! Go take another look at the config/application.rb file and see how it requires the whole project
+The first line; `require_relative '../config/application’` is including your whole sinatra app into the test suite!!
+Take another look at the config/application.rb file we created as part of our sinatra app earlier, it requires the whole project.
 
-The next 2 lines require the gems we added to our Gemfile. We have already covered their purpose.
+The next 2 lines require the gems we added to our Gemfile. Their purpose is described above.
 
 The line following sets the RACK_ENV environment variable, which Sinatra checks when setting its environment. This is a very important step
 as it ensures the tests all run against your test database (and not development one). Take a moment to absorb this, imagine what
-would happen if every time we ran our tests they ran against your dev database. For example in the tests we are about to create we delete all records
-from our test database as a clean up. Imagine if this happened to all your development data. To avoid that headache ensure you never forget to set
-the RACK_ENV variable
+would happen if every time we ran our tests they ran against your development database. In general a development environment will mimic production
+and therefore will contain a lot of important data.
+
+In the tests we are about to create we delete all records from our test database as a clean up.
 
 `ENV['RACK_ENV'] = 'test'`
 
-The next step is to create a module that will include the Rack::Test methods that Rspec needs. The Rack::Test::Methods module includes a variety of
-helper methods for simulating requests against an application (we define the application inside the contained app method) and asserting expectations about the response.
+The next step is to create a module that will include the Rack::Test methods that Rspec can use. The Rack::Test::Methods module includes a variety of
+helper methods that all us to simulate requests against the application (we defined the app inside the module) and assert expectations about the response.
 
 Finally we are configuring RSpec to include the module ensuring it has access to all the helper methods.
-The `profile_examples` will cause RSpec to inform you of your slowest tests. Its good practise to use this line, slow tests can be an indication of slow production performance.
+
+The `profile_examples` will cause RSpec to inform you of your slowest tests. Its good practise to use this, slow tests can be an indication of slow production performance.
 
 # Spec Folder Structure
 
-We have just added validation to our model and specified that a valid record must have a value assigned to the name attribute. Lets test that now
+Earlier we added validation to our model and specified that a valid record must have a value assigned to the name attribute. Lets test that now
 
 Create a new file inside the spec folder called sinatra_helper.rb. Open it and type the following
 {% highlight sh %}
@@ -133,7 +148,8 @@ Save the `sinatra_helper.rb` (`command ⌘ + s`(mac), `control + s`(windows and 
 
 We are now ready to create some tests!
 
-From the terminal window, ensure you are in the spec folder and create a new folder called `app` move up one level of the project structure and into the root of the project. From here create another folder called `db`. This will store information about our sqlite3 database including our database migrations.
+From the terminal window, ensure you are in the spec folder and create a new folder called `app`
+
 {% highlight sh %}
 cd ..
 mkdir app
@@ -187,17 +203,19 @@ end
 
 Save the `idea_spec.rb` (`command ⌘ + s`(mac), `control + s`(windows and linux) or use the menu option `File -> Save`).
 
-A few points to note. We require the `sinatra_helper` file. This is the file with all the setup we created above.
+A few points to note;
+
+We required the `sinatra_helper` file. This is the file with all the setup we created above.
 
 Also in the first `RSpec.describe` block we are referencing the Idea class name. When we use a Class name in the describe block, we can make use of the built in `described_class` method. In this case `described_class` refers to the Idea model class.
 
 We have created 2 explicit tests, one with a name and one without. As we earlier added validation to our model we can expect the test with a name to be valid and a test without a name to not be valid.
 
-Take some time to get familiar with the RSpec tests. You can see we are explicitly setting model values. It is considered by many best practise in tests is to be as explicit as possible. In fact it's the one place in ruby where the DRY principle doesn't apply.
+Take some time to get familiar with the RSpec tests. You can see we are explicitly setting model values. It is considered by many best practise to be as explicit as possible in your tests . In fact it's the one place in ruby where the DRY principle doesn't apply.
 
 
 ## Run the test
-NB always run your tests from the root of your project and not from within the spec folder
+**NB always run your tests from the root of your project and not from within the spec folder**
 
 Using the terminal type the following
 {% highlight sh %}
@@ -220,7 +238,7 @@ git push origin master
 
 # Testing the Controller
 
-So far we have tested validation and while that is very important we still have much more to test in order to get good coverage
+So far we have tested validation and while that is very important we still have much more to test in order to get good 'test coverage'
 
 From your terminal window navigate to the spec/app/controllers directory and create a ideas_controller_spec.rb file
 
@@ -229,8 +247,8 @@ cd ~/workspace/spec/app/controllers/
 touch ideas_controller_spec.rb
 {% endhighlight %}
 
-Open the newly created file so we can start writing our tests. One of the first things we will do is a clean up of our database. Remember at the start of this
-guide  we discussed the importance of setting the RACK_ENV environment variable (`ENV['RACK_ENV'] = 'test'`) in our spec_helper.rb file. You can see now first hand why this is so.
+Open the newly created file so we can start writing our tests. One of the first things we will do is a clean up of our test database. Remember at the start of this
+guide we discussed the importance of setting the RACK_ENV environment variable (`ENV['RACK_ENV'] = 'test'`) in our spec_helper.rb file. You can see now first hand why this is so.
 The code below is deleting everything from our test database before we run any tests. And this is a good thing! We want to know exactly what
 we are testing and the easiest way to do this is to know exactly what data we are testing against, no more and no less.
 
@@ -251,10 +269,10 @@ Save the `ideas_controller_spec.rb` (`command ⌘ + s`(mac), `control + s`(windo
 
 ## database.yml
 
-At this point its easy to get confused between your test database, your development database and of course production database. Where do all these databases live?
-The answer, like most thing, is easy when you know where to look.
+At this point its easy to get confused between your test database, your development database and of course production database. Where are all these databases configured???
+The answer, like most things, is easy when you know where to look.
 
-In the previous guide **Rails Girls Sinatra App Guide** [Cloud9 Setup](/sinatra-app-guide) we created our database.yml file with the following details
+In the previous guide **Rails Girls Sinatra App Guide** [Sinatra App Guide](/sinatra-app-guide) we created our database.yml file with the following details
 {% highlight sh %}
 ---
 sqlite: &sqlite
@@ -294,21 +312,160 @@ let(:empty_params) { {} }
 {% endhighlight %}
 
 
-Lets explain the above code in a bit more detail. We use `let` to define a memoized helper method. This means that `valid_params` and
+Lets explain the above code in a bit more detail. We use `let` to set values that our tests will use. Let defines a `memoized helper method`. This means that `valid_params` and
 `empty_params` will be cached across multiple calls in the same example (in RSpec an example is one describe block!). Basically we are
 making our tests very explicit, its easy for us to see at a glance what values are being tested.
 
-Note that let is lazy-evaluated: that means it is not evaluated until the first time it is called.
+Note that `let` is lazy-evaluated: that means it is not evaluated until the first time it is called. So values only get computed if they are going to be used.
 
-Our set up is now done, we have used the let statement to define our params and we have deleted any data in our test database. Lets create our first test
+Our set up is now done, we have used the `let` statement to define our params and we have deleted any data in our test database. Lets create our first controller test
 
 {% highlight sh %}
 describe 'get / and /ideas' do
     it 'allows access' do
       %w(/ /ideas).each do |path|
         get path
-        expect(last_response).to be_ok #last response is a Rack::MockResponse instance with information on the response generated by the application.Rack::MockResponse provides useful helpers for testing your apps.
+        expect(last_response).to be_ok
       end
     end
   end
 {% endhighlight %}
+
+Throughout out specs you will see calls to `get`, `put`, `delete` and `post` methods. They simulate a request to our app and we usually follow the request with an assertion against the resulting response (that's the expect bit above!).
+
+It is Rack::Test that is giving us such easy access to these methods, we simply use them. Remember we added the `rack-test` gem to our Gemfile at the start of this guide.
+
+Save the `ideas_controller_spec.rb` (`command ⌘ + s`(mac), `control + s`(windows and linux) or use the menu option `File -> Save`).
+
+Commit the updated `ideas_controller_spec.rb` to git:
+
+{% highlight sh %}
+git add Gemfile
+git commit -m "controller tests"
+git push origin master
+{% endhighlight %}
+
+## Additional Controller Tests
+
+Lets add the following specs to give us more test coverage. Again we will explain the more *interesting* snippets at the end
+
+{% highlight sh %}
+describe 'get /new /ideas/new' do
+    it 'allows access' do
+      %w(/new /ideas/new).each do |path|
+        get path
+        expect(last_response).to be_ok
+      end
+    end
+  end
+
+  describe 'post /ideas' do
+    context 'with invalid params' do
+      it 'responds with an error' do
+        post '/ideas', empty_params
+        expect(last_response).to_not be_ok
+        expect(last_response.status).to eq(500)
+        expect(Idea.count).to eq(0)
+      end
+    end
+
+    context 'with valid params' do
+      after(:each) do
+        Idea.delete_all
+      end
+
+      redirect '/ideas'
+
+      it 'creates the post' do
+        post '/ideas', valid_params
+        expect(last_response.status).to eq(302)
+        expect(Idea.count).to eq(1)
+        expect(Idea.last.name).to eq(valid_params[:idea][:name])
+        expect(Idea.last.description).to eq(valid_params[:idea][:description])
+        expect(Idea.last.picture.include?(valid_params[:idea][:picture].original_filename)).to be_truthy
+
+      end
+    end
+
+  end
+
+  describe 'get /ideas/:id' do
+    it 'allows access' do
+      post '/ideas', valid_params
+      get "/ideas/#{Idea.last.id}"
+      expect(last_response).to be_ok
+    end
+  end
+
+  describe 'get /ideas/:id/edit' do
+    it 'allows access' do
+      post '/ideas', valid_params
+      get "/ideas/#{Idea.last.id}/edit"
+      expect(last_response).to be_ok
+    end
+  end
+
+  describe 'put /ideas/:id' do
+    it 'allows access' do
+      post '/ideas', valid_params
+      put "/ideas/#{Idea.last.id}", valid_params
+      expect(last_response.status).to eq(302)
+    end
+  end
+
+  describe 'delete /ideas/:id' do
+    it 'allows access' do
+      post '/ideas', valid_params
+      delete "/ideas/#{Idea.last.id}"
+      expect(last_response.status).to eq(302)
+    end
+  end
+
+
+end
+{% endhighlight %}
+
+Lets explain some parts. In our `context 'with valid params' do` we checked if the response status was 302. A response status of 302 is simply a redirect.
+Remember back in our controller if the post was successfully saved we did this;
+
+{% highlight sh %}
+if @idea.save
+   redirect '/ideas'
+   ...
+ {% endhighlight %}
+
+In our `context 'with invalid params' do` we checked if the response status was 500.
+This means the server encountered an unexpected condition (in this case invalid data) which prevented it from fulfilling the request (i.e saving the record).
+
+The final interesting test code is
+{% highlight sh %}
+expect(Idea.last.picture.include?(valid_params[:idea][:picture].original_filename)).to be_truthy
+{% endhighlight %}
+
+The test passes if expectation is truthy (not nil or false). So what we are saying here is that we expect the picture attribute to pass if the value is anything but nil or false.
+This gives our test more flexibity then using the `be_true` matcher which will test for an exact value.  
+
+
+Commit the updated `ideas_controller_spec.rb` to git:
+
+{% highlight sh %}
+git add Gemfile
+git commit -m "morecontroller tests"
+git push origin master
+{% endhighlight %}
+
+# THE END
+Congrats you have finished testing your sinatra app with RSpec. You can use this guide as a helper for your next set of tests. Its is
+based on best practice contains a lot of explanations.
+
+# Next Steps
+
+Keep in touch!! We love to hear from you.
+
+Follow us on twitter
+**Sorcha [@sabel25](https://twitter.com/sabel25)**
+**Rachelle [@rachelleonrails](https://twitter.com/rachelleonrails)**
+**Rails Girls Brisbane [@railsgirlsbne](https://twitter.com/railsgirlsbne)**
+
+Read the Rails Girls Brisbane blog [http://railsgirlsbrisbane.github.io/](http://railsgirlsbrisbane.github.io/)
+
