@@ -5,11 +5,19 @@ permalink: sinatra-rspec-guide
 ---
 
 # Rails Girls Next - Testing with Rspec
-
 *Created by Sorcha Abel, [@sabel25](https://twitter.com/sabel25)*
 
+# Unit Tests
+Unit testing is the practice of testing the components of your program automatically by defining inputs to each component and checking the outputs.
+
+Unit tests are necessary because they help prove that your code actually works. It allows you to refactor with confidence, running tests that pass
+before and after refactorings helps prove your code still works as expected.
+
+Unless you want to spend all your waking hours running tests manually, you need a test framework.
+
 ## What is Rspec?
-Rspec is both a gem and a framework that provides a powerful DSL that allows us to unit test our app. In this guide we will
+Unless you want to spend all your waking hours running tests manually, you need a test framework.
+Rspec is a gem and also a framework that provides a powerful DSL allowing us to unit test our app. In this guide we will
 be creating unit tests for our Idea model and controller.
 
 The tests we will write for our model will concentrate primarily on validation.
@@ -443,7 +451,7 @@ expect(Idea.last.picture.include?(valid_params[:idea][:picture].original_filenam
 {% endhighlight %}
 
 The test passes if expectation is truthy (not nil or false). So what we are saying here is that we expect the picture attribute to pass if the value is anything but nil or false.
-This gives our test more flexibity then using the `be_true` matcher which will test for an exact value.  
+This gives our test more flexibity then using the `be_true` matcher which will test for an exact value.
 
 
 Commit the updated `ideas_controller_spec.rb` to git:
