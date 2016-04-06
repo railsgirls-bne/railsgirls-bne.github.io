@@ -17,7 +17,7 @@ Without a testing framework you could spend every waking hour running your tests
 
 ## What is Rspec?
 
-Rspec is a framework that provides a powerful DSL allowing us to unit test our app automatically. In this guide we will
+Rspec is a framework that provides a powerful DSL allowing us to unit test our app. In this guide we will
 be creating unit tests (also known as specs) for our Idea model and controller.
 
 The tests we will write for our model will concentrate primarily on validation.
@@ -451,7 +451,7 @@ expect(Idea.last.picture.include?(valid_params[:idea][:picture].original_filenam
 {% endhighlight %}
 
 The test passes if expectation is truthy (not nil or false). So what we are saying here is that we expect the picture attribute to pass if the value is anything but nil or false.
-This gives our test more flexibity then using the `be_true` matcher which will test for an exact value.
+This gives our test more flexibility then using the `be_true` matcher which will test for an exact value.
 
 
 Commit the updated `ideas_controller_spec.rb` to git:
@@ -462,11 +462,11 @@ git commit -m "morecontroller tests"
 git push origin master
 {% endhighlight %}
 
-# THE END
+## THE END
 Congrats you have finished testing your sinatra app with RSpec. You can use this guide as a helper for your next set of tests. Its is
 based on best practice contains a lot of explanations.
 
-# Next Steps
+## Next Steps
 
 Keep in touch!! We love to hear from you.
 
