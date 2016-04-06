@@ -4,7 +4,7 @@ title: Ruby Girls Cloud9 Sinatra App
 permalink: sinatra-app-guide
 ---
 
-# Ruby Girls Sinatra App Guide
+# Rails Girls Sinatra App Guide
 
 *Created by Sorcha Abel, [@sabel25](https://twitter.com/sabel25)*
 
@@ -821,3 +821,15 @@ Follow the heroku guide: [Pushing to Heroku](/heroku)
 ## *19.* The End
 
 Congratulations you have just completed your first Sinatra app!
+
+
+# Next Steps
+
+Keep in touch!! We love to hear from you.
+
+Follow us on twitter
+**Sorcha [@sabel25](https://twitter.com/sabel25)**
+**Rachelle [@rachelleonrails](https://twitter.com/rachelleonrails)**
+**Rails Girls Brisbane [@railsgirlsbne](https://twitter.com/railsgirlsbne)**
+
+Read the Rails Girls Brisbane blog [http://railsgirlsbrisbane.github.io/](http://railsgirlsbrisbane.github.io/)
