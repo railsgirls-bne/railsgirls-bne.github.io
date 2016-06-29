@@ -6,7 +6,7 @@ permalink: sinatra-app-guide
 
 # Rails Girls Sinatra App Guide
 
-*Created by Sorcha Abel, [@sabel25](https://twitter.com/sabel25)*
+*Created by Sorcha Abel, <a href="https://twitter.com/sabel25" class="twitter-follow-button" data-show-count="false">Follow @sabel25</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script> *
 
 ## What is Sinatra?
 <img src="/images/sinatrawiki.png">
@@ -399,7 +399,7 @@ end
 
 This route will map the URL `ideas/index` to a listing of all ideas. We have just told Sinatra to look in the ideas folder for an html file called `index.erb` (it has a `.erb` suffix rather than `.html` because it contains embedded Ruby as well as html).
 
-So! Now that we have created our route we need to create a corresponding index page to display it. Create a folder for `ideas` in the `app/views/` directory (from terminal window `mkdir app/views/ideas` or use the cloud9 file explorer window). Then create a file called `index.erb`.
+Now that we have created our route we need to create a corresponding index page to display it. Create a folder for `ideas` in the `app/views/` directory (from terminal window `mkdir app/views/ideas` or use the cloud9 file explorer window). Then create a file called `index.erb`.
 
 ## *10.* Views
 Type or paste the following into the `index.erb` file you just created
@@ -828,8 +828,12 @@ Congratulations you have just completed your first Sinatra app!
 Keep in touch!! We love to hear from you.
 
 Follow us on twitter
-**Sorcha [@sabel25](https://twitter.com/sabel25)**
+**Sorcha ** <a href="https://twitter.com/sabel25" class="twitter-follow-button" data-show-count="false">Follow @sabel25</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 **Rachelle [@rachelleonrails](https://twitter.com/rachelleonrails)**
-**Rails Girls Brisbane [@railsgirlsbne](https://twitter.com/railsgirlsbne)**
+**Rails Girls Brisbane ** <a href="https://twitter.com/railsgirlsbne" class="twitter-follow-button" data-show-count="false">Follow @railsgirlsbne</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
 Read the Rails Girls Brisbane blog [http://railsgirlsbrisbane.github.io/](http://railsgirlsbrisbane.github.io/)
+
+Email us: <a href="mailto:railsgirlsbne@gmail.com?Subject=Hello%20RailsGirls" target="_top">Rails Girls Brisbane</a>
+
+Join our Facebook Group: <a href="https://www.facebook.com/groups/462831463794656/">Rails Girls BNE Group</a>
