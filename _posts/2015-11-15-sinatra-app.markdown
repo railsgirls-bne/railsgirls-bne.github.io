@@ -110,7 +110,7 @@ gem "activerecord"
 gem "sinatra-activerecord"
 
 group :development do
-  gem "shotgun"
+  gem "sinatra-contrib"
   gem "tux"
 end
 {% endhighlight %}
@@ -159,7 +159,7 @@ git push origin master
 
 **tux** allows us to interact with the database through the command line.
 
-**shotgun** will reload our app, so we don't have to stop and start the server whenever a minor change is made.
+**sinatra-contrib** will reload our app, so we don't have to stop and start the server whenever a minor change is made.
 
 
 ## *5.* Project Structure
