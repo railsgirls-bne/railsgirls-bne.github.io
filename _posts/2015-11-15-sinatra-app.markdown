@@ -268,6 +268,8 @@ Lets examine the first four lines in a bit more detail:
 `Bundler.require` loads into the project all the gems that are specified in the `Gemfile`.
 
 `$: << File.expand_path('../', __FILE__)` adds the entire project to $LOAD_PATH. This allows Sinatra to find all the files you’ve added to the project.
+For more on $LOAD_PATH read the [Rails Girls Brisbane blog post](http://railsgirlsbrisbane.github.io/load_path_blog)
+
 
 `Dir['./app/\*\*/*.rb'].sort.each { |file| require file }` This line explicitly requires each file found in our model, view and controller folders.
 
