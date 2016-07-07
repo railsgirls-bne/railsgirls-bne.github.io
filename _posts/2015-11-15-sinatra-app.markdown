@@ -271,7 +271,7 @@ Lets examine the first four lines in a bit more detail:
 For more on $LOAD_PATH read the [Rails Girls Brisbane blog post](http://railsgirlsbrisbane.github.io/load_path_blog)
 
 
-`Dir['./app/\*\*/*.rb'].sort.each { |file| require file }` This line explicitly requires each file found in our model, view and controller folders.
+Dir['./app/\*\*/\*.rb'].sort.each { \|file\| require file } This line explicitly requires each file found in our model, view and controller folders.
 
 Even though we haven't set them up yet, we know the project is going to need these files.
 The last three lines of `application.rb` sets the root of the project and tells the application where the erb (embedded Ruby) files and CSS files are located.
@@ -445,7 +445,8 @@ git push origin master
 
 ## *11.* Improving our design
 
-Although our application currently has only one page, it will eventually have many pages. To give it a consistent look and feel, we will want to have the same header and footer on each page. Instead of copying and pasting the header and footer onto each page, and having to edit each page if we want to make a change, we will create one file that will contain all the common page content. This is an example of adhering to the DRY (Don't Repeat Yourself) principle of Ruby programming.
+Although our application currently has only one page, it will eventually have many pages. To give it a consistent look and feel, we will want to have the same header and footer on each page. Instead of copying and pasting the header and footer onto each page,
+and having to edit each page if we want to make a change, we will create one file that will contain all the common page content. This is an example of adhering to the DRY (Don't Repeat Yourself) principle of Ruby programming.
 
 Create a subfolder of `views` folder and call it `layouts`. Then create a file in the `layouts` folder and call it `application.erb`.
 
