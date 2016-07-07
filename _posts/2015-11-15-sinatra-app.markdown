@@ -819,7 +819,15 @@ ruby config/application.rb -p $PORT -o $IP
 
 ## *18.* Heroku
 
-Follow the heroku guide: [Pushing to Heroku](/heroku)
+Before we can push to Heroku we need to do some tweaking. We created a config.ru file in the root of the project at the start.
+When we deploy, Heroku will look for this file. Lets update it now with the following
+
+{% highlight sh %}
+require ‘./config/application'
+run Sinatra::Application
+{% endhighlight %}
+
+We are now ready to follow the heroku guide: [Pushing to Heroku](/heroku)
 
 ## *19.* The End
 
