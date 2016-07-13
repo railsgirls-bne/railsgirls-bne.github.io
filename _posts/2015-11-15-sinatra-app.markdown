@@ -86,7 +86,8 @@ git push origin master
 
 ## *4.* Create a Gemfile
 
-There are a few gems we will need to install before we can start coding. The easiest way to install gems is by using the [bundler](http://bundler.io) gem, which is already installed on Cloud9. If the `bundle` command is not available to you, make sure to run `gem install bundler` first.
+There are a few gems we will need to install before we can start coding. The easiest way to install gems is by using the [bundler](http://bundler.io) gem.
+Simply run `gem install bundler` before proceeding.
 
 Bundler uses a `Gemfile` to record which gems our app needs.
 We need to manually create this `Gemfile` for our app. This can be done from the terminal window or the Cloud9 file explorer window.
