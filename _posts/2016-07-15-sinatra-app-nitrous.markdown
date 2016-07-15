@@ -21,8 +21,8 @@ Follow the steps outlined in the Ruby Girls Nitrous Sinatra Setup Guide [Nitrous
 
 ## *2.* Write a description for your application
 
-Nitrous automatically creates a `code` directory on creation of a new workspace. We will Use the terminal window to create a new sub directory called `railsgirls`.
-To do move your cursor to the terminal window (it's located at the bottom of the nitrous workspace) and follow the steps below.
+Nitrous automatically creates a `code` directory on creation of a new workspace. We will use the terminal window to create a new sub directory called `railsgirls`.
+Simply move your cursor to the terminal window (it's located at the bottom of the nitrous workspace) and follow the steps below.
 
 {% highlight sh %}
 mkdir code/railsgirls
@@ -30,16 +30,16 @@ touch code/railsgirls/README.md
 cd code/railsgirls
 {% endhighlight %}
 
-If a any point you are unsure of which folder you are in when inside the terminal window, simply type `pwd` to find out which directory you are in. Alternatively ask a mentor if unsure.
+If at any point you are unsure of which folder you are in (when inside the terminal window}, simply type `pwd` and the directory you are currently in will be displayed. Alternatively ask a mentor if unsure.
 
 Note you must save all files in nitrous (`command ⌘ + s`(mac), `control + s`(windows and linux) or menu options `File -> Save`)
 
 Lets open the README.md file we just created in the steps above. The `.md` extension means that this is a MarkDown file.
 A readme file is useful for documenting what your application does, and how a developer can setup their environment to develop or run your application.
 
-- [ ] Double click the `README.md` in the nitrous file explorer to open it.
-- [ ] Replace the contents of the file with your description.
-- [ ] Save the file.
+- Double click the `README.md` in the nitrous file explorer to open it.
+- Replace the contents of the file with your description.
+- Save the file.
 
 eg.
 ```
@@ -55,13 +55,13 @@ While you are developing your app, you should be committing your changes and pus
 
 We'll start by initialising git within our app and adding the current files.
 
-- [ ] Run the git initialiser. To do this simply enter the command below into the terminal window in nitrous
+- Run the git initialiser. To do this simply enter the command below into the terminal window in nitrous
 
 {% highlight sh %}
 git init
 {% endhighlight %}
 
-- [ ] Commit the app to git
+- Commit the app to git
 
 {% highlight sh %}
 git add .
@@ -280,6 +280,7 @@ configure :development do
   set :bind, '0.0.0.0'
   set :port, 3000
 end
+
 {% endhighlight %}
 
 Lets examine the first four lines in a bit more detail:
