@@ -1,62 +1,51 @@
 ---
 layout: default
-title: Rails Girls Cloud9 Setup Guide
-permalink: cloud9-guide
+title: Rails Girls Nitrous Setup Guide
+permalink: nitrous-rails-guide
 ---
 
-# Rails Girls Cloud9 Setup Guide
+# Rails Girls Nitrous Setup Guide
 
-*Created by Sorcha Abel <a href="https://twitter.com/sabel25" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @sabel25</a>
-                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+*Created by Sorcha Abel <a href="https://twitter.com/sabel25" class="twitter-follow-button" data-show-count="false">Follow @sabel25</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script> and Rachelle LeQuesne <a href="https://twitter.com/RachelleOnRails" class="twitter-follow-button" data-show-count="false">Follow @RachelleOnRails</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
 Sign up for a [Github](https://github.com/) account.
 
-Then, go to the [cloud9 website](https://c9.io/).
+Then, go to the [nitrous website](https://nitrous.io/) and sign up.
 
-Click the __signup__ button. Signup using the github account you just created.
+Click the __signup__ github icon (it's the very bottom of the screen). You will be signing up using the github account you just created.
 
-<img src="/images/c9/c9-signup-with-github.png">
+<img src="/images/nitrous_signup.png">
 
-Once you have signed up, you will be shown your dashboard. __Create a New workspace__ by clicking the green plus icon.
+### Sign Up Next Step
+Once you have signed up, you will be shown your dashboard. Start a new workspace by clicking on the `PLUS symbol (+)` icon.
+Below is only a sample of how your workspace will look. Yours will NOT be the same
 
-<img src="/images/c9/c9-create-workspace.png">
+<img src="/images/nitrous_startproject.png">
 
-Name your new workspace _railsgirls_, and make sure you are creating a Ruby workspace. Then click 'Create workspace'.
+### Sign Up Next Step
 
-<img src="/images/c9/c9-create-workspace-2.png">
+Name your new workspace _railsgirls_, and make sure you are creating a Ruby on Rails workspace. Then click 'Create Workspace'.
+
+<img src="/images/nitrous_step1.png">
+
+### Sign Up Next Step
+
+You will see the image below when your workspace is ready.
+
+<img src="/images/nitrous_projectready_step2.png">
 
 You will then be taken directly to your new workspace.
 
 ## Workspace environment
 
-<img src="/images/c9/c9-project-workspace-annotated.png">
+<img src="/images/nitrous_IDE.png">
 
 The workspace is made up of a few important areas.
 
 - The file explorer and editor are where we will be spending a lot of time. Choose files to edit using the explorer. They will open in a new tab in the file editor.
-- Run Project Button. We will use this to start and stop our Rails application.
+- Preview Menu. We will use this to start and stop our Rails application.
 - The Terminal is used to enter commands to our application.
 
-## Set up the text editor
-
-The Ruby global convention is to use 2 spaces for indentation. Lets change the default editor to use 2 spaces.
-
-Click on the settings icon in the upper right side of the window. A preferences window will open edit the __Soft Tabs__ setting to reduce it to 2.
-![Cloud 9 editor](/images/c9/c9-settings.png "C9 editor")
-
-## Viewing your project in the Browser
-
-From the ruby-railsgirls terminal you need to start the rails server. Click the 'Run Project' button.
-
-![Cloud 9 Rails Server](/images/c9/c9-run-server.png "C9 Run Server")
-
-Click on the share button in the top right window. From the __Share this workspace__ window click on the url in Application and select the open option
-
-<img src="/images/c9/c9-share-workspace.png">
-
-The Welcome Aboard Ruby page will be displayed
-
-<img src="/images/c9/c9-welcome.png" alt="Welcome" width="600">
 
 # Keep in touch
 
