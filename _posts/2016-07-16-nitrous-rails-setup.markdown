@@ -46,6 +46,13 @@ The workspace is made up of a few important areas.
 - Preview Menu. We will use this to start and stop our Rails application.
 - The Terminal is used to enter commands to our application.
 
+## Logging out of Nitrous
+
+It is very important to log out of Nitrous. As a free member you get 50 hours a month. Therefore failing to sign out may result in your hours being used up. Click `Log Out` as shown on the image below.
+
+<img src="/images/nitrous_logout.png">
+
+
 
 # Keep in touch
 
