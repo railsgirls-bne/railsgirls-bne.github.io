@@ -1,0 +1,795 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Rails Girls Brisbane 2016- Tutorial</title>
+
+    <meta name="description" content="Rails Girls Brisbane tutorial">
+    <meta name="author" content="RailsGirls Brisbane">
+
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/white.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <style type="text/css">
+      .slides section p {
+        text-align: left;
+      }
+    </style>
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<div class="reveal">
+
+    <!-- Introduction -->
+    <div class="slides">
+        <section data-background="#dddddd">
+            <h1>Build your Web App!</h1>
+
+            <p>Get excited and find out how easy it is to build a web app!</p>
+            
+            <p> Use the <strong>right arrow</strong> to go to the next step.</p>
+
+            <p>
+                <small>Created by RailsGirls team</a> / <a href="http://twitter.com/railsgirlsbne">@railsgirlsbne</a>
+                </small>
+            </p>
+        </section>
+        <!-- Instructions on using this guide -->
+        <section data-background="#dddddd">
+            <h2>Instructions on using this guide</h2>
+
+            <p>
+                In some sections, you'll have the option of reading more information. Use the <strong>down
+                    arrow</strong> to read this, and when you're finished, use the <strong>right arrow</strong> to move
+                on to the next step.
+                If you get lost, hit the escape key <strong>(ESC)</strong> to see an overview of the course,
+                or ask a coach for help.
+            </p>
+        </section>
+        <!--Getting started -->
+
+        <section data-background="#dddddd">
+            <h2>Get Ready</h2>
+
+            <p> To build apps and other things with Ruby on Rails, you need to set up <strong>2 accounts</strong>,
+                namely <strong>GitHub</strong> and <strong>nitrous.io</strong> .
+            </p>
+
+            <p>We need somewhere for you to <i>write code</i> and <i>run a server</i> , and we need somewhere for you to
+                <i>store and share your code</i> so you can work with other people.
+            </p>
+        </section>
+
+        <!-- Create project files and app directories -->
+        <section class="title" data-background="#dddddd">
+            <h2>Setting up with Nitrous</h2>
+
+            <p>Follow the link to open the nitrous setup guide <a href="nitrous-rails-guide">Click here</a></p>
+        </section>
+        <section data-background="#dddddd">
+            <p>In Nitrous, the terminal window is at the bottom of your page.</p>
+
+            <p>Your Terminal is used to write commands that control the server, <br>the files you're creating and your
+                database.</p>
+        </section>
+        <section data-background="#dddddd">
+            <p>Navigating within the terminal window</p>
+
+            <p>In the terminal:</p>
+
+            <p>The 'cd' command means 'change directory'.</p>
+
+        </section>
+
+        <section data-background="#dddddd">
+            <section data-background="#dddddd">
+
+                <p>If you type this in the terminal</p>
+                <pre><code>ls</code></pre>
+                <p>you will see a list of folders such as <strong>app</strong> and <strong>config</strong></p>
+
+                <p>Want to know how to move back up the directory?</p>
+
+                <p><a href="#" class="navigate-down">Yes</a></p>
+
+                <p><a href="#" class="navigate-right">Nah, I want to move on to the next step</a></p>
+            </section>
+            <section data-background="#dddddd">
+                <p>To move back up the directory to <i>Project</i></p>
+
+                <p>In the terminal type:</p>
+                <pre><code>cd ..</code></pre>
+            </section>
+        </section>
+        <section data-background="#dddddd">
+            <section data-background="#dddddd">
+                <p>Lets get setup with a new project</p>
+
+                <p>In the terminal type:</p>
+
+                <pre><code>cd code</code></pre>
+                <pre><code>rails new rails_girls -T</code></pre>
+                <p>This step can take a few minutes to complete. Be patient, we have great code coming.. Once finished follow the step below</p>
+                <pre><code>cd rails_girls</code></pre>
+            </section>
+            <section data-background="#dddddd">
+                <p>This has allowed Rails to create a new application. The <i>-T</i> is short for skip test unit.
+                    We won't be specifically covering tests right now. <b>Note</b> Nitrous will automatically create an example folder for you.
+                    This simply shows you how a <i>sample</i> rails test might look.
+                </p>
+
+            </section>
+        </section>
+        <section data-background="#dddddd">
+            <section data-background="#dddddd">
+                <p>We will start up the web server </p>
+
+                <p>In the terminal type:</p>
+                <pre><code>rails s -b 0.0.0.0</code></pre>
+                <p>Then use the <i>preview</i> menu at the top of the nitrous IDE and select <i>Port 3000 - HTTP</i></p>
+
+                <img width="600" src="/images/nitrous_preview.png" alt="Preview">
+
+                <p><a href="#" class="navigate-down">What is a server?</a></p>
+            </section>
+            <section data-background="#dddddd">
+                <p>You just started a server on your computer! A server SERVES up files to people who ask for them.
+                    Right now, our server is showing the "Welcome aboard" page when you go to
+                    it's "serving" that file up to you when you ask for it by going to that URL.</p>
+
+            </section>
+        </section>
+        <section data-background="#dddddd">
+            <h3>Lets create something</h3>
+
+            <p>One of the reasons why Rails is awesome is that it comes with built-in commands that makes it easy for
+                you to get started.</p>
+
+            <p>The <code>scaffold</code> command makes it super easy to create a concept by generating all the necessary
+                files and folders which you don't have to worry about.
+                It also generates database tables to store information and boilerplate code of how every module
+                interacts.
+            </p>
+
+            <p><code>Scaffold</code> allows you to create a concept (eg: a user, post, comments) in a single command.
+            </p>
+
+            <p></p>
+        </section>
+
+        <section data-background="#dddddd">
+            <p>We are going to create the <strong>idea</strong> concept with the help of <code>scaffold</code> command
+            </p>
+            <pre><code>rails generate scaffold idea name:string description:text picture:string </code></pre>
+        </section>
+
+        <section data-background="#dddddd">
+            <section data-background="#dddddd">
+                <p>You have now created the concept called <strong>idea</strong> that includes:</p>
+                <ul>
+                    <li>Name</li>
+                    <li>Description</li>
+                    <li>Picture</li>
+                </ul>
+
+                <p>The 'string' and 'text' denotes the type of data it will be when stored in the database</p>
+
+                <p><a href="#" class="navigate-down">Tell me more about data types</a></p>
+
+                <p><a href="#" class="navigate-right"> I understand this and I'm ready to move on</a></p>
+            </section>
+            <section data-background="#dddddd">
+                <p>There are various types of data you might include, such as:</p>
+                <ul>
+                    <li><code>:binary</code> - stores data such as images, audio files or movies</li>
+                    <li><code>:boolean</code> - stores true or false values</li>
+                    <li><code>:date</code> - stores data in the date format(year/month/day)</li>
+                    <li><code>:datetime</code> - stores data in both date and time format</li>
+                    <li><code>:integer</code> - stores data as whole numbers</li>
+                    <li><code>:decimal</code> - stores data in decimal numbers</li>
+                </ul>
+            </section>
+        </section>
+
+        <section data-background="#dddddd">
+            <p>We asked rails to keep track of the <strong>idea</strong> concept in the database, and we need to update
+                it.
+                This is called a 'migration'.
+            </p>
+
+            <p>In the terminal type:</p>
+            <pre><code>rake db:migrate</code></pre>
+        </section>
+
+        <section data-background="#dddddd">
+            <p>Lets start our server and see what we have created so far.
+            </p>
+
+            <p>In the terminal type:</p>
+            <pre><code>rails s -b 0.0.0.0</code></pre>
+            <p>Then use the <i>preview</i> menu at the top of the nitrous IDE and select <i>Port 3000 - HTTP</i></p>
+        </section>
+
+        <section data-background="#dddddd">
+            <section data-background="#dddddd">
+                <p>
+                    Click on the <strong>Share</strong> button.
+                </p>
+                <p>
+                    Under the 'links to share' section select application and click on the url.
+                    Select <strong>Open</strong>.
+                </p>
+                <p> Add '/ideas' to the end of the url.</p>
+                <p>
+                    You'll now be able to see the basics of the app you're creating!
+                    If you can't see your app, ask a coach for help.
+                </p>
+
+                <p><a href="#" class="navigate-down">What did scaffold do?</a></p>
+
+                <p><a href="#" class="navigate-right">I want to move on to the next step</a></p>
+            </section>
+            <section data-background="#dddddd">
+                <p>
+                    The <code>scaffold</code> command allow Rails developers to create apps really fast.
+                    It creates a lot of building blocks for you so you don't have to do it manually.
+                    Lets look at the folders and directories it has created.
+                </p>
+                <ul>
+                    <li>app/assets/javascripts/ideas.js.coffee</li>
+                    <li>app/assets/stylesheets/ideas.css.scss</li>
+                    <li>app/assets/stylesheets/scaffolds.css.scss</li>
+                    <li>app/controllers/ideas_controller.rb</li>
+                    <li>app/helpers/ideas_helper.rb</li>
+                    <li>app/models/idea.rb</li>
+                    <li>app/views/ideas/</li>
+                    <li>db/migrate/</li>
+                    <li>db/schema.rb</li>
+                    <li>test/controllers/ideas_controller_test.rb</li>
+                    <li>test/fixtures/ideas.yml</li>
+                    <li>test/helpers/ideas_helper_test.rb</li>
+                    <li>test/models/idea_test.rb</li>
+                </ul>
+                <p><a href="#" class="navigate-down">What are the essential files that I need to know about</a></p>
+            </section>
+            <section data-background="#dddddd">
+                <p>
+                    That is a whole lot of files we didn't need to create. We will discuss a few that we will be working
+                    on.
+                </p>
+
+                <p>
+                    <code>app/models/idea.rb</code> is the file that keeps track of the <strong>model</strong>
+                    information for the <strong>idea</strong> concept.
+                    We'll be working with this file when we add in photos.
+                </p>
+
+                <p>
+                    <code>app/controllers/ideas_controller.rb</code> helps <strong>control</strong> and process all the
+                    requests the server gets
+                    for the pages <strong>ideas</strong>. There are code generated in the file for you which handles the
+                    actions
+                    show, create, edit, delete.
+                </p>
+
+                <p>
+                    <code>app/views/ideas/</code> is a directory that holds all the view(HTML files) of the <strong>ideas</strong>
+                    concept.
+                    This is where you can pretty up the app which we will dive into in the next step.
+                </p>
+            </section>
+        </section>
+
+        <section data-background="#dddddd">
+            <h1>Lets make things beautiful</h1>
+        </section>
+
+        <section data-background="#dddddd">
+            In a Ruby on Rails app, the user interface which is the page that the users sees, is often written in HTML
+            and ERB. This code is stored in the 'views' folder under the app folder.
+        </section>
+        <section data-background="#dddddd">
+            HTML(HyperText Markup Language) is the language that browsers (Google Chrome, Firefox, Safari) use to
+            display content. HTML contains many 'tags' that is used to create your own vision of the web page.
+            These tags come in pairs (an open and a close tag).
+            For example, the main heading on your page will have <code>tags</code> around it.
+            HTML tags use angular brackets < >.
+            Your web browser uses the tags to understand how to display content.
+        </section>
+        <section data-background="#dddddd">
+            <p>These are tags that we will be using for the app: </p>
+            <ul>
+                <li><code>link</code> - connects assets to your page</li>
+                <li><code>div</code> - a container for other content</li>
+                <li><code>a</code> - link to another page</li>
+                <li><code>ul</code> - unorder list, needs a list of elements</li>
+                <li><code>li</code> - list element, must be part of a list</li>
+            </ul>
+        </section>
+
+        <section data-background="#dddddd">
+            ERB (Embedded Ruby) is system in Rails that allows Ruby code to be inserted into files written in
+            HTML or Javascript. The Ruby code goes within specific angle brackets <code><% </code> and <code> %></code>.
+            The server executes this as Ruby code and then embed it in existing HTML.
+        </section>
+
+        <section data-background="#dddddd">
+          <p>
+            In this tutorial, you will come across <code><%= RUBY CODE HERE %></code>, whereby the <code>=</code> comes
+            after the <code><%</code> which means the contents written in ruby code will be executed and rendered on the
+            page.
+            For instance, if you want to show the number of ideas in your app, the code to render the number will be:
+            <code>There are <%= Idea.count %> ideas </code>
+          </p>
+        </section>
+
+        <section data-background="#dddddd">
+          <p>
+            The next piece of this puzzle that makes the website pretty is CSS(Cascading Style Sheets). As before, HTML
+            keeps track
+            of the <i>contents</i> of the website. CSS keeps track of how the page <i>looks</i>.
+          </p>
+        </section>
+
+        <section data-background="#dddddd">
+            <p>
+                At the moment, the app doesn't look nice. Lets go on and add some CSS to pretty it up.
+                On the left panel of the editor in nitrous.io, open the file
+                <code>app/views/layouts/application.html.erb</code>. This is your default layout file.
+            </p>
+
+            <p>
+                Look for this line <code><%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" =>
+                true %></code>
+                Add these lines of code above this line.
+            </p>
+            <pre><code>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.css"/>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap-theme.css"/>
+            </code></pre>
+            <p>Make sure you save the file by using the menu bar File -> Save.</p>
+        </section>
+
+        <section data-background="#dddddd">
+          <p>
+            The <code>rel="stylesheet"</code> tells us the type of link,in this case a link relation. This basically
+            tells the browser there is an
+            external hyperlink to refer to. The <code>href</code> contains the address to the css file which is
+            <code>//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.css</code> and
+            <code>//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap-theme.css</code>.
+            Here, we are using the style sheet called Bootstrap which is made by the people from Twitter.
+          </p>
+        </section>
+
+        <section data-background="#dddddd">
+            <p>
+                Replace the <code> <%= yield %> </code> with
+            </p>
+                <pre><code>
+                    <div class="container">
+                        <%= yield %>
+                    </div>
+                </code></pre>
+            <p>The <code> &lt;div&gt; </code> tag provides a way to divide your code into parts.</p>
+
+            <p>In this case, we have assigned a <i>class</i> named "container" that will give us access to apply the
+                same styling to that part of code.</p>
+        </section>
+
+        <section data-background="#dddddd">
+            <p>We want to have a navigation bar at the top of our page, so that people using our app can find their way
+                around. We also want to have a footer at the bottom of the page. <br>In the same file, under <code>&lt;body&gt;</code>
+                add:</p>
+					<pre><code class=" hljs xml">
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">The Idea app</a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/ideas">Ideas</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+                    </code></pre>
+        </section>
+
+        <section data-background="#dddddd">
+            <p>Let's add the footer too. Before <code>&lt;/body&gt;</code>, add:</p>
+                <pre><code class=" hljs xml">
+<footer>
+    <div class="container">
+        Rails Girls 2015
+    </div>
+</footer>
+<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.js"></script>
+                </code></pre>
+        </section>
+
+        <section data-background="#dddddd">
+            <p>Finally, we're going to make some changes to the way our ideas display. We want to space them out a bit. Open <code>app/assets/stylesheets/application.css</code> <br>and at the bottom, add:
+            </p>
+            <pre><code>
+body { padding-top: 100px; }
+footer { margin-top: 100px; }
+table, td, th { vertical-align: middle; border: none; }
+th { border-bottom: 1px solid #DDD; }
+            </code></pre>
+        </section>
+
+        <section data-background="#dddddd">
+            <p>So, what did that CSS do?</p>
+            <p><code>body</code> - this part is known as the selector and refers to the HTML element you wish to style.</p>
+            <p><code>{ padding-top: 100px; }</code> - this part is known as the declaration; each declaration has a property which is the style attribute you wish to change <code>(padding-top)</code>, <br>and an associated value <code>(100px)</code>.</p>
+            <p>Declarations always end with a semicolon and declaration groups <br>are always enclosed by curly brackets.</p>
+        </section>
+
+        <section data-background="#dddddd">
+            <p>Now lets have a look how did the changes to CSS impact our app </p>
+            <p> Go to the terminal and type: </p>
+            <pre><code>rails s -b 0.0.0.0</code></pre>
+            <p>Then use the <i>preview</i> menu at the top of the nitrous IDE and select <i>Port 3000 - HTTP</i></p>
+            <p> Add the '/ideas' to the end of the URL</p>
+        </section>
+
+        <section data-background="#dddddd">
+            <h1>Adding Images</h1>
+        </section>
+
+        <section data-background="#dddddd">
+            <p>At the moment, our app can't upload images and we need to install a piece of software to enable that.</p>
+            <p>In Rails, there are a lot of plug ins that we can incorporate with our app which are called <strong>gems</strong></p>
+            <p>Gems are basically libraries that contains pre-written code so that you don't have to write it from scratch.</p>
+            <p>Gems are very useful to reduce duplication and errors in your code and are portable to be used in multiple projects.</p>
+        </section>
+
+        <section data-background="#dddddd">
+            <p>In your project menu,you'll see a file called <code>Gemfile</code>. <br>This has all the gems that came with the application we created when we used the <pre><code>rails new</code></pre> generator at the beginning.</p>
+            <p>Open gemfile so you can edit it in the text editor. Under the line, <pre><code>gem 'sqlite3'</code></pre> add:</p>
+            <pre><code>gem 'carrierwave'</code></pre>
+            <p>The <code>sqlite3 gem</code> interfaces with our database, and <code>carrierwave</code> <br>makes it easier to upload images.</p>
+            <p>Hit <code>CTRL-C</code> in the terminal to stop the server</p>
+        </section>
+
+        <section data-background="#dddddd">
+            <p>In the terminal, run this command: </p>
+            <pre><code>bundle</code></pre>
+            <p>Bundler downloads all the gems that are specified in the <code>Gemfile</code> and tracks the versions to ensure that your project has a consistent environment.</p>
+        </section>
+
+        <section data-background="#dddddd">
+            <p>Now, we can generate the code that handles image uploads by doing: </p>
+            <pre><code>rails generate uploader Picture</code></pre>
+            <p>Please start your server up again.</p>
+        </section>
+
+        <section data-background="#dddddd">
+            <p>Open <code>app/models/idea.rb</code>. Under the line <code>class Idea < ActiveRecord::Base</code>, add:
+            <pre><code>mount_uploader :picture, PictureUploader</code></pre>
+        </section>
+        <section data-background="#dddddd">
+            <p>Now, we need to customise the form we use for editing and uploading ideas.</p>
+            <p>We're using the same bit of code to edit and upload. This is found in <code>app/models/idea.rb</code>.</p>
+            <p>This code snippet is used in both <code>edit.html.erb</code> and <code>new.html.erb</code>, as the two forms are basically identical. This saves us some work! If you look at either of those pages, <br>rather than form code, it just says <code><%= render 'form' %></code>.</p>
+        </section>
+
+        <section data-background="#dddddd">
+            <section data-background="#dddddd">
+              <p>If you open <code>app/views/ideas/_form.html.erb</code>, you will see the code <code>form_for(@idea)</code>.</p>
+              <p>This file has HTML code generated for us to create our <strong>idea</strong> form.</p>
+              <p>Find <code><%= f.text_field :picture %></code> and change it to:</p>
+              <pre><code><%= f.file_field :picture %></code></pre>
+              <p>This changes the code from asking for a text input to asking for a file input, which makes it easier for our users to upload an image.</p>
+              <p>Did you get an error?</p>
+                <p><a href="#" class="navigate-right">No.</a></p>
+                <p><a href="#" class="navigate-down">Yes.</a>
+            </section>
+           <section data-background="#dddddd">
+              <p>Sometimes, you might get an <i>TypeError: can’t cast   ActionDispatch::Http::UploadedFile to string.</i> </p>
+              <p>If this happens, change the line to this code instead: </p>
+              <pre><code><%= form_for @idea, :html => {:multipart => true} do |f| %></code></pre>
+           </section>
+        </section>
+
+        <section data-background="#dddddd">
+          <section data-background="#dddddd">
+            <p>In your browser, upload a picture to your idea. When you upload a picture, it doesn't look nice because it only shows the file path, so lets go ahead and fix that.</p>
+            <p>Open <code>app/views/ideas/show.html.erb</code> and change <code><%= @idea.picture %></code> to:
+            <pre><code><%= image_tag(@idea.picture_url, :width => 600) if @idea.picture.present? %></code></pre>
+            <p>Refresh your browser to see what changed.</p>
+            <p><a href="#" class="navigate-right">I understand what happened and want to move on</a></p>
+            <p><a href="#" class="navigate-down">I want to know what did the code changed</a>
+          </section>
+          <section data-background="#dddddd">
+            <p>Let's take a closer look at <code>app/views/ideas/show.html.erb</code>.</p>
+            <p>
+            In the code <code><%= @idea.picture %></code>, @idea is what we call an 'instance variable'. Instance variables are prefixed with an @ symbol. Each <i>view</i> file (files in the app/views folder), has a corresponding controller action, where the instance variables are set.</p>
+            <p>In our code, @idea is set in the ‘show’ action of the Ideas controller. It's set with the code <code>@idea = Idea.find(params[:id])</code>.</p>
+            <p>This allows us to use it in the view <code>show.html.erb</code>. It uses the Rails '<strong>find</strong> method to get the ideas for our app from our database.</p>
+          </section>
+
+          <section data-background="#dddddd">
+            <p>The code that follows the <code>@idea</code> variable (<code>.picture</code>) tells Rails to access the ‘picture’ attribute of our resource (idea). </p>
+            <p>Our new code, <code><%= image_tag(@idea.picture_url,:width => 600)</code>, uses the Ruby on Rails image_tag helper. This helper generates the HTML code <code>&lt;img&gt;</code> tag, but retrieves the image we want to display from the folder 'public/images' where our uploaded images are stored.</p>
+            <p>Rails provide helpers that generates HTML code so that you only need to write vital code and not repeat yourself writing boilerplate code.</p>
+          </section>
+          <section data-background="#dddddd">
+            <p>In the <code>image_tag</code>, we have also specified the width of the image width to 600</p>
+            <p>Finally, the <code>.present?</code> after <code>@idea.picture</code> is a Rails method to check if the picture exists before proceeding in executing the rest of the code.</p>
+          </section>
+        </section>
+
+        <section data-background="#dddddd">
+            <h1>Fine-tuning Routes</h1>
+        </section>
+
+        <section data-background="#dddddd">
+            <p>Our Rails app would need to listen for requests from the browser and provide the correct information through a system called <strong>routing</strong>.</p>
+            <p>Requests from the browser are interpreted as specific HTTP(Hypertext Transfer Protocol) methods.</p>
+            <p> This protocol basically defines how information (usually webpages or webpage components composed of text with hyperlinks - ‘hypertext’), is formatted and transmitted across the internet. </p>
+        </section>
+        <section data-background="#dddddd">
+            <section data-background="#dddddd">
+                <p>There are 4 HTTP methods: </p>
+                    <ul>
+                        <li>GET</li>
+                        <li>PUT</li>
+                        <li>POST</li>
+                        <li>DELETE</li>
+                    </ul>
+                <p>Rails routing system ensures the app knows what to do when it receives each of those methods for any of the resources in your app.</p>
+                <p>In this application <strong>Idea</strong> is modelled as a resource. A resource is something that can be created, read, updated and deleted</p>
+                <p>For example, <code>GET /ideas/new</code> will give you the form for adding a new idea.</p>
+                <p><code>POST /ideas</code> will create a new idea.</p>
+                <p>Need more explanation on how routing works?:</p>
+                    <p><a href="#" class="navigate-right">I am ready for the next task</a></p>
+                    <p><a href="#" class="navigate-down">I want to know more</a></p>
+            </section>
+
+            <section data-background="#dddddd">
+                <p> Rails’ inbuilt routing system automatically generates routes for each resource that map to specific actions (index, show, new, edit, create, update, delete) defined in the controller.
+                     So, for each of our models, there are seven related actions defined in the associated controller,
+                     <code>ideas_controller.rb</code>
+                     These actions specify the appropriate response (a ‘method’) which is most likely to render the corresponding view,<code>ideas/index.html.erb</code>
+                </p>
+            </section>
+            <section data-background="#dddddd">
+                <p>If you look in your <code>ideas_controller.rb</code> you can see these actions and the associated behaviour, and the HTTP method that corresponds with each action:</p>
+                <pre><code>
+                def show
+                    @idea = Idea.find(params[:id])
+
+                    respond_to do |format|
+                      format.html # show.html.erb
+                      format.json { render json: @idea }
+                    end
+                  end
+
+                  # GET /ideas/new
+                  # GET /ideas/new.json
+                </code></pre>
+                <p> In this instance, <code>show</code> is the controller action that corresponds with the <strong>GET</strong> HTTP method. </code> </p>
+                </section>
+                <section data-background="#dddddd">
+                <p>To get a better picture of how each HTTP Method , path(address in the browser address bar) and controller action tie up together, the table below clearly illustrates it </p>
+                  <table class="reveal table">
+                    <thead class= "reveal table th">
+                      <tr>
+                          <td>HTTP Method</td>
+                          <td>Path</td>
+                          <td>Controller Action</td>
+                          <td>used for</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>GET</td>
+                            <td>/ideas</td>
+                            <td>index</td>
+                            <td>displaying a list of all ideas</td>
+                        </tr>
+                        <tr>
+                            <td>GET</td>
+                            <td>/ideas/new</td>
+                            <td>new</td>
+                            <td>returning an HTML form for creating a new idea</td>
+                        </tr>
+                        <tr>
+                            <td>POST</td>
+                            <td>/ideas</td>
+                            <td>create</td>
+                            <td>creating a new idea</td>
+                        </tr>
+                        <tr>
+                            <td>GET</td>
+                            <td>/photos/:id</td>
+                            <td>show</td>
+                            <td>displaying a specific photo</td>
+                        </tr>
+                        <tr>
+                            <td>GET</td>
+                            <td>/photos/:id/edit</td>
+                            <td>edit</td>
+                            <td>returning an HTML form for editing a specific photo</td>
+                        </tr>
+                        <tr>
+                            <td>PUT</td>
+                            <td>/photos/:id</td>
+                            <td>update</td>
+                            <td>updating a specific photo</td>
+                        </tr>
+                        <tr>
+                            <td>DELETE</td>
+                            <td>/photos/:id</td>
+                            <td>destroy</td>
+                            <td>deleting a specific photo</td>
+                        </tr>
+                    </tbody>
+                  </table>
+                </section>
+            </section>
+            <section data-background="#dddddd">
+                <p>We are going to change some of the routes we have set up. When you open the application it still has the Ruby 'Welcome Aboard' message. <br>We had to manually go to /ideas.</p>
+                <p>Open <code>config/routes.rb</code>. After the first line, add:</p>
+                <pre><code>root :to => redirect('/ideas')</code></pre>
+                <p>This changes the default page (root) that is returned when a browser requests your app to the /ideas page. Try it out now (don't forget to save your changes first, and <br>restart the server if you've stopped it).</p>
+            </section>
+        </section>
+        <section data-background="#dddddd">
+          <p>Lastly, we are doing to add a static page to our app. This one is going to <br>provide information about the author of the app - you!</p>
+          <p>In the terminal, type:</p>
+          <pre><code>rails generate controller pages info</code></pre>
+        </section>
+
+        <section data-background="#dddddd">
+          <p>This created a new folder called 'pages', which you can find under <code>app/views</code>.</p>
+          <p>In that folder, you'll see a page called <code>info.html.erb</code>. Open it up.</p>
+          <p>You can customise the information in this page. <br>If you add /pages/info to your application's URL now, you'll see this page.</p>
+        </section>
+      <section data-background="#dddddd">
+        <h2>Push your app to GitHub</h2>
+        <center> <img src="images/Octocat.png" width="200" "box-shadow: 0 0 0px;"></center>
+      </section>
+      <section data-background="#dddddd">                   
+        <p>Earlier, you created a GitHub account.</p>
+        <p>Now, we are going to add your new app to GitHub.</p>
+    </section>
+    <section data-background="#dddddd"> 
+        <p>Open the GitHub website and log in.</p>
+        <p>Click the <a href="https://github.com/new" target="_blank"><img src="images/github.png" width="80%" height="80%"></a> button.</p>
+    </section>
+    <section data-background="#dddddd">
+        <p>Give the repository a name, such as rails-girls.</p>
+        <p>You can also add a description.</p>
+        <p>Choose the 'Public Repository' option and make sure you untick the 'Initialize this repository with a README' box.</p>
+        <p>Finish creating the repository by clicking 'Create repository'.</p>
+    </section>
+    <section data-background="#dddddd">
+      <p>Go back to Nitrous. Make sure you are still in your project directory.</p>
+      <p>You can check this by looking at the terminal. It should show something like this:</p>
+      <pre><code>your_username@railsgirls:~/workspace $</code></pre>
+      <p>If you are not, use the <code>cd</code> command you learned earlier to change back into that directory.</p>
+    </section>
+    <section data-background="#dddddd">
+      <p>In the terminal, type:</p>
+        <pre><code>git init</code></pre>
+      <p>This initializes your local git repository. Remember: git runs on your computer; GitHub stores your code online.</p>
+    </section>
+    <section data-background="#dddddd">   
+          <p>Let's add your code to your local repository. In the terminal, type:</p>
+          <pre><code>git add .</code></pre>
+          <p>The <code>.</code> means all files in this directory. So, this command will get us ready to add all our files to our computer's repository.</p>
+          <p>Git has an intermediary stage before it saves any changes. This is called 'staging', and it allows you to make sure everything is correct, so you can commit (save) them.</p>
+        </section>
+        <section data-background="#dddddd"> 
+          <p>You're now ready to make your first commit! In the terminal, type:</p>
+          <pre><code>git commit -m "my first commit"</code></pre>
+          <p>This commits all of your files to your computer's (local) git repository. The words between the <code>"</code><code>"</code> is your commit message. This tells other people looking at your code what you are doing. You can be more descriptive in your commit messages to describe what you have done</p>
+        </section>  
+        <section data-background="#dddddd">             
+          <p>Now, you need to send the code to GitHub, so you can share it and collaborate on it if you want. In the terminal type:</p>
+          <pre><code>git remote add origin https://github.com/yourusername/yournewrepositoryname.git</code></pre>
+          <p>This makes a remote connection to the GitHub repository you've typed. We normally call this 'origin', as it's the original version.</p>
+        </section>  
+        <section data-background="#dddddd">
+          <p>Now the two repositories(your computer and Github) are connected, you need to push your computer's code to GitHub. In the terminal, type:</p>
+          <pre><code>git push -u origin master</code></pre>
+          <p><i>push</i> command uploads your code to Github in particular to the <i>master</i> branch.</p>
+          <p>Your code is now on GitHub! On the GitHub website, open up the repository you created.</p>
+        </section>      
+        <section data-background="#dddddd">
+          <h2>Congratulations! You've built your basic app.</h2>
+          <p>So, what next?</p>
+          <ul>
+            <li><a href="http://guides.railsgirls.com/heroku" target="_blank">Deploy to Heroku</a></li>
+            <li><a href="http://guides.railsgirls.com/commenting" target="_blank">Allow comments</a></li>
+            <li><a href="http://guides.railsgirls.com/devise" target="_blank">Add authentication</a></li>
+            <li><a href="http://guides.railsgirls.com/design" target="_blank">Improve your design</a></li>
+            <li><a href="http://guides.railsgirls.com/thumbnails" target="_blank">Resize images using Carrierwave</a> </li>
+          </ul>
+        </section>
+    </div>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+            {
+                src: 'lib/js/classList.js', condition: function () {
+                return !document.body.classList;
+            }
+            },
+            {
+                src: 'plugin/markdown/marked.js', condition: function () {
+                return !!document.querySelector('[data-markdown]');
+            }
+            },
+            {
+                src: 'plugin/markdown/markdown.js', condition: function () {
+                return !!document.querySelector('[data-markdown]');
+            }
+            },
+            {
+                src: 'plugin/highlight/highlight.js', async: true, condition: function () {
+                return !!document.querySelector('pre code');
+            }, callback: function () {
+                hljs.initHighlightingOnLoad();
+            }
+            },
+            {src: 'plugin/zoom-js/zoom.js', async: true},
+            {src: 'plugin/notes/notes.js', async: true}
+        ]
+    });
+
+</script>
+
+</body>
+</html>
