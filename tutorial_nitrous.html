@@ -51,7 +51,7 @@
             <h1>Build your Web App!</h1>
 
             <p>Get excited and find out how easy it is to build a web app!</p>
-            
+
             <p> Use the <strong>right arrow</strong> to go to the next step.</p>
 
             <p>
@@ -80,7 +80,7 @@
                 namely <strong>GitHub</strong> and <strong>nitrous.io</strong> .
             </p>
 
-            <p>We need somewhere for you to <i>write code</i> and <i>run a server</i> , and we need somewhere for you to
+            <p>We need somewhere for you to <i>write code</i> and <i>run a server</i>, and we need somewhere for you to
                 <i>store and share your code</i> so you can work with other people.
             </p>
         </section>
@@ -134,7 +134,7 @@
 
                 <pre><code>cd code</code></pre>
                 <pre><code>rails new rails_girls -T</code></pre>
-                <p>This step can take a few minutes to complete. Be patient, we have great code coming.. Once finished follow the step below</p>
+                <p>This step can take a few minutes to complete. Be patient, we have great code coming... Once it has finished, enter the command below to change to your new project directory.</p>
                 <pre><code>cd rails_girls</code></pre>
             </section>
             <section data-background="#dddddd">
@@ -150,7 +150,7 @@
                 <p>We will start up the web server </p>
 
                 <p>In the terminal type:</p>
-                <pre><code>rails s -b 0.0.0.0</code></pre>
+                <pre><code>rails server -b 0.0.0.0</code></pre>
                 <p>Then use the <i>preview</i> menu at the top of the nitrous IDE and select <i>Port 3000 - HTTP</i></p>
 
                 <img width="600" src="/images/nitrous_preview.png" alt="Preview">
@@ -162,6 +162,12 @@
                     Right now, our server is showing the "Welcome aboard" page when you go to
                     it's "serving" that file up to you when you ask for it by going to that URL.</p>
 
+            </section>
+        </section>
+        <section data-background="#dddddd">
+            <section data-background="#dddddd">
+                <p>You should see something like the following image</p>
+                <img width="600" src="/images/riding-rails.png" alt="Rails">
             </section>
         </section>
         <section data-background="#dddddd">
@@ -231,7 +237,7 @@
             </p>
 
             <p>In the terminal type:</p>
-            <pre><code>rails s -b 0.0.0.0</code></pre>
+            <pre><code>rails server -b 0.0.0.0</code></pre>
             <p>Then use the <i>preview</i> menu at the top of the nitrous IDE and select <i>Port 3000 - HTTP</i></p>
         </section>
 
@@ -455,13 +461,13 @@ th { border-bottom: 1px solid #DDD; }
             <p>So, what did that CSS do?</p>
             <p><code>body</code> - this part is known as the selector and refers to the HTML element you wish to style.</p>
             <p><code>{ padding-top: 100px; }</code> - this part is known as the declaration; each declaration has a property which is the style attribute you wish to change <code>(padding-top)</code>, <br>and an associated value <code>(100px)</code>.</p>
-            <p>Declarations always end with a semicolon and declaration groups <br>are always enclosed by curly brackets.</p>
+            <p>Declarations always end with a semicolon and declaration groups are always enclosed by curly brackets.</p>
         </section>
 
         <section data-background="#dddddd">
             <p>Now lets have a look how did the changes to CSS impact our app </p>
             <p> Go to the terminal and type: </p>
-            <pre><code>rails s -b 0.0.0.0</code></pre>
+            <pre><code>rails server -b 0.0.0.0</code></pre>
             <p>Then use the <i>preview</i> menu at the top of the nitrous IDE and select <i>Port 3000 - HTTP</i></p>
             <p> Add the '/ideas' to the end of the URL</p>
         </section>
@@ -478,7 +484,7 @@ th { border-bottom: 1px solid #DDD; }
         </section>
 
         <section data-background="#dddddd">
-            <p>In your project menu,you'll see a file called <code>Gemfile</code>. <br>This has all the gems that came with the application we created when we used the <pre><code>rails new</code></pre> generator at the beginning.</p>
+            <p>In your project menu,you'll see a file called <code>Gemfile</code>. <br>This has all the gems that came with the application we created when we used the <code>rails new</code> generator at the beginning.</p>
             <p>Open gemfile so you can edit it in the text editor. Under the line, <pre><code>gem 'sqlite3'</code></pre> add:</p>
             <pre><code>gem 'carrierwave'</code></pre>
             <p>The <code>sqlite3 gem</code> interfaces with our database, and <code>carrierwave</code> <br>makes it easier to upload images.</p>
@@ -564,7 +570,7 @@ th { border-bottom: 1px solid #DDD; }
         </section>
         <section data-background="#dddddd">
             <section data-background="#dddddd">
-                <p>There are 4 HTTP methods: </p>
+                <p>There are four HTTP methods: </p>
                     <ul>
                         <li>GET</li>
                         <li>PUT</li>
@@ -575,7 +581,7 @@ th { border-bottom: 1px solid #DDD; }
                 <p>In this application <strong>Idea</strong> is modelled as a resource. A resource is something that can be created, read, updated and deleted</p>
                 <p>For example, <code>GET /ideas/new</code> will give you the form for adding a new idea.</p>
                 <p><code>POST /ideas</code> will create a new idea.</p>
-                <p>Need more explanation on how routing works?:</p>
+                <p>Need more explanation on how routing works?</p>
                     <p><a href="#" class="navigate-right">I am ready for the next task</a></p>
                     <p><a href="#" class="navigate-down">I want to know more</a></p>
             </section>
@@ -605,7 +611,7 @@ th { border-bottom: 1px solid #DDD; }
                 <p> In this instance, <code>show</code> is the controller action that corresponds with the <strong>GET</strong> HTTP method. </code> </p>
                 </section>
                 <section data-background="#dddddd">
-                <p>To get a better picture of how each HTTP Method , path(address in the browser address bar) and controller action tie up together, the table below clearly illustrates it </p>
+                <p>To get a better picture of how each HTTP Method, path(address in the browser address bar) and controller action tie up together, the table below clearly illustrates it </p>
                   <table class="reveal table">
                     <thead class= "reveal table th">
                       <tr>
@@ -666,11 +672,11 @@ th { border-bottom: 1px solid #DDD; }
                 <p>We are going to change some of the routes we have set up. When you open the application it still has the Ruby 'Welcome Aboard' message. <br>We had to manually go to /ideas.</p>
                 <p>Open <code>config/routes.rb</code>. After the first line, add:</p>
                 <pre><code>root :to => redirect('/ideas')</code></pre>
-                <p>This changes the default page (root) that is returned when a browser requests your app to the /ideas page. Try it out now (don't forget to save your changes first, and <br>restart the server if you've stopped it).</p>
+                <p>This changes the default page (root) that is returned when a browser requests your app to the /ideas page. Try it out now (don't forget to save your changes first, and restart the server if you've stopped it).</p>
             </section>
         </section>
         <section data-background="#dddddd">
-          <p>Lastly, we are doing to add a static page to our app. This one is going to <br>provide information about the author of the app - you!</p>
+          <p>Lastly, we are doing to add a static page to our app. This one is going to provide information about the author of the app - you!</p>
           <p>In the terminal, type:</p>
           <pre><code>rails generate controller pages info</code></pre>
         </section>
@@ -684,11 +690,11 @@ th { border-bottom: 1px solid #DDD; }
         <h2>Push your app to GitHub</h2>
         <center> <img src="images/Octocat.png" width="200" "box-shadow: 0 0 0px;"></center>
       </section>
-      <section data-background="#dddddd">                   
+      <section data-background="#dddddd">
         <p>Earlier, you created a GitHub account.</p>
         <p>Now, we are going to add your new app to GitHub.</p>
     </section>
-    <section data-background="#dddddd"> 
+    <section data-background="#dddddd">
         <p>Open the GitHub website and log in.</p>
         <p>Click the <a href="https://github.com/new" target="_blank"><img src="images/github.png" width="80%" height="80%"></a> button.</p>
     </section>
@@ -709,28 +715,28 @@ th { border-bottom: 1px solid #DDD; }
         <pre><code>git init</code></pre>
       <p>This initializes your local git repository. Remember: git runs on your computer; GitHub stores your code online.</p>
     </section>
-    <section data-background="#dddddd">   
+    <section data-background="#dddddd">
           <p>Let's add your code to your local repository. In the terminal, type:</p>
           <pre><code>git add .</code></pre>
           <p>The <code>.</code> means all files in this directory. So, this command will get us ready to add all our files to our computer's repository.</p>
           <p>Git has an intermediary stage before it saves any changes. This is called 'staging', and it allows you to make sure everything is correct, so you can commit (save) them.</p>
         </section>
-        <section data-background="#dddddd"> 
+        <section data-background="#dddddd">
           <p>You're now ready to make your first commit! In the terminal, type:</p>
           <pre><code>git commit -m "my first commit"</code></pre>
           <p>This commits all of your files to your computer's (local) git repository. The words between the <code>"</code><code>"</code> is your commit message. This tells other people looking at your code what you are doing. You can be more descriptive in your commit messages to describe what you have done</p>
-        </section>  
-        <section data-background="#dddddd">             
+        </section>
+        <section data-background="#dddddd">
           <p>Now, you need to send the code to GitHub, so you can share it and collaborate on it if you want. In the terminal type:</p>
           <pre><code>git remote add origin https://github.com/yourusername/yournewrepositoryname.git</code></pre>
           <p>This makes a remote connection to the GitHub repository you've typed. We normally call this 'origin', as it's the original version.</p>
-        </section>  
+        </section>
         <section data-background="#dddddd">
           <p>Now the two repositories(your computer and Github) are connected, you need to push your computer's code to GitHub. In the terminal, type:</p>
           <pre><code>git push -u origin master</code></pre>
           <p><i>push</i> command uploads your code to Github in particular to the <i>master</i> branch.</p>
           <p>Your code is now on GitHub! On the GitHub website, open up the repository you created.</p>
-        </section>      
+        </section>
         <section data-background="#dddddd">
           <h2>Congratulations! You've built your basic app.</h2>
           <p>So, what next?</p>

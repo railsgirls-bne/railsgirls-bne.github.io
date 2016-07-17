@@ -24,7 +24,7 @@ Below is only a sample of how your workspace will look. Yours will NOT be the sa
 
 ### Sign Up Next Step
 
-Name your new workspace _railsgirls_, and make sure you are creating a Ruby on Rails workspace. Then click 'Create Workspace'.
+Name your new workspace _railsgirlsbeginners_, and make sure you are creating a Ruby on Rails workspace. Then click 'Create Workspace'.
 
 <img src="/images/nitrous_step1.png">
 
@@ -34,7 +34,7 @@ You will see the image below when your workspace is ready.
 
 <img src="/images/nitrous_projectready_step2.png">
 
-You will then be taken directly to your new workspace.
+Click on "Open IDE" to be taken directly to your new workspace.
 
 ## Workspace environment
 
@@ -52,8 +52,6 @@ It is very important to log out of Nitrous. As a free member you get 50 hours a 
 
 <img src="/images/nitrous_logout.png">
 
-
-
 # Keep in touch
 
 Follow us on twitter
@@ -64,10 +62,8 @@ Rachelle <a href="https://twitter.com/RachelleOnRails" class="twitter-follow-but
 
 Rails Girls Brisbane <a href="https://twitter.com/railsgirlsbne" class="twitter-follow-button" data-show-count="false">Follow @railsgirlsbne</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
-Read the Rails Girls Brisbane blog [http://railsgirlsbrisbane.github.io/](http://railsgirlsbrisbane.github.io/)
+Read the Rails Girls Brisbane blog [http://railsgirlsbne.com/](http://railsgirlsbne.com/)
 
 Email us: <a href="mailto:railsgirlsbne@gmail.com?Subject=Hello%20RailsGirls" target="_top">Rails Girls Brisbane</a>
 
 Join our Facebook Group: <a href="https://www.facebook.com/groups/462831463794656/">Rails Girls BNE Group</a>
-
-
