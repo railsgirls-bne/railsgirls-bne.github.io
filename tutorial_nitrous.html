@@ -111,7 +111,11 @@
 
                 <p>If you type this in the terminal</p>
                 <pre><code>ls</code></pre>
-                <p>you will see a list of folders such as <strong>app</strong> and <strong>config</strong></p>
+                <p>you will see a folder called <strong>code</strong></p>
+                
+                <p>You can type</p>
+                <pre><code>cd code</code></pre> 
+                <p>to go into the <strong>code</strong> folder.</p>
 
                 <p>Want to know how to move back up the directory?</p>
 
@@ -189,8 +193,8 @@
         </section>
 
         <section data-background="#dddddd">
-            <p>We are going to create the <strong>idea</strong> concept with the help of <code>scaffold</code> command
-            </p>
+            <p>We are going to create the <strong>idea</strong> concept with the help of <code>scaffold</code> command</p>
+            <p>(You probably still have your server running in the Terminal. If so, you can stop it by pressing <code>Ctrl+C</code> first)
             <pre><code>rails generate scaffold idea name:string description:text picture:string </code></pre>
         </section>
 
@@ -338,8 +342,8 @@
         </section>
 
         <section data-background="#dddddd">
-            ERB (Embedded Ruby) is system in Rails that allows Ruby code to be inserted into files written in
-            HTML or Javascript. The Ruby code goes within specific angle brackets <code><% </code> and <code> %></code>.
+            ERB (Embedded Ruby) is a system in Rails that allows Ruby code to be inserted into files written in
+            HTML or JavaScript. The Ruby code goes within specific angle brackets <code><% </code> and <code> %></code>.
             The server executes this as Ruby code and then embeds it in existing HTML.
         </section>
 
@@ -362,9 +366,14 @@
         <section data-background="#dddddd">
             <p>
                 At the moment, the app doesn't look nice. Lets go on and add some CSS to pretty it up.
-                On the left panel of the editor in nitrous.io, open the file
+                On the left panel of the editor in nitrous.io, locate in the file tree and open the file
                 <code>app/views/layouts/application.html.erb</code>. This is your default layout file.
             </p>
+            <p>
+                <img src="/images/nitrous-application-layout.png" />
+            </p>
+        </section>
+        <section data-background="#dddddd">
 
             <p>
                 Look for this line <code><%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" =>
@@ -375,7 +384,7 @@
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.css"/>
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap-theme.css"/>
             </code></pre>
-            <p>Make sure you save the file by using the menu bar File -> Save.</p>
+            <p>Make sure you save the file by using the menu bar <strong>File -> Save</strong>.</p>
         </section>
 
         <section data-background="#dddddd">
@@ -401,6 +410,7 @@
 
             <p>In this case, we have assigned a <i>class</i> named "container" that will give us access to apply the
                 same styling to that part of code.</p>
+            <p>Make sure to save your changes with <strong>File -> Save</strong></p>
         </section>
 
         <section data-background="#dddddd">
@@ -432,14 +442,16 @@
 
         <section data-background="#dddddd">
             <p>Let's add the footer too. Right at the bottom, just before <code>&lt;/body&gt;</code>, add:</p>
-                <pre><code class=" hljs xml">
+            <pre><code class=" hljs xml">
 <footer>
     <div class="container">
         Rails Girls 2016
     </div>
 </footer>
 <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.js"></script>
-                </code></pre>
+            </code></pre>
+            
+            <p>Make sure to save these changes with <strong>File -> Save</strong></p>
         </section>
 
         <section data-background="#dddddd">
@@ -451,6 +463,8 @@ footer { margin-top: 100px; }
 table, td, th { vertical-align: middle; border: none; }
 th { border-bottom: 1px solid #DDD; }
             </code></pre>
+            
+            <p>Make sure to save these changes with <strong>File -> Save</strong></p>
         </section>
 
         <section data-background="#dddddd">
@@ -462,7 +476,7 @@ th { border-bottom: 1px solid #DDD; }
 
         <section data-background="#dddddd">
             <p>Now let's have a look to see how the changes to the CSS file impact our app.</p>
-            <p> Go to the terminal and type: </p>
+            <p> If you don't already have your server running, go to the terminal and type: </p>
             <pre><code>rails server -b 0.0.0.0</code></pre>
             <p>Then use the <i>preview</i> menu at the top of the nitrous IDE and select <i>Port 3000 - HTTP</i></p>
             <p> Add the '/ideas' to the end of the URL</p>
@@ -475,7 +489,7 @@ th { border-bottom: 1px solid #DDD; }
         <section data-background="#dddddd">
             <p>At the moment, our app can't upload images. We need to install a piece of software to enable that functionality.</p>
             <p>In Rails, there is a code library called <a href="https://rubygems.org/" class="external" target="_blank">rubygems.org</a>
-                that contains many (9,175,984,635 in fact!) plug-ins that we can incorporate into our app. These plug-ins are called <strong>gems</strong>.</p>
+                that contains many (over 9,192,436,958 in fact!) plug-ins that we can incorporate into our app. These plug-ins are called <strong>gems</strong>.</p>
             <p>Gems are basically pre-written code to perform a single piece of functionality. We use gems so that we don't have to write everything from scratch each time.</p>
             <p>By re-using gems in our applications, we reduce duplication and errors in our code. These gems are portable and can be used in multiple projects.</p>
         </section>
@@ -485,6 +499,7 @@ th { border-bottom: 1px solid #DDD; }
             <p>Open gemfile so you can edit it in the text editor. Under the line, <pre><code>gem 'sqlite3'</code></pre> add:</p>
             <pre><code>gem 'carrierwave'</code></pre>
             <p>The <code>sqlite3 gem</code> interfaces with our database, and <code>carrierwave</code> <br>makes it easier to upload images.</p>
+            <p>Save the changes with <strong>File -> Save</strong></p>
             <p>Hit <code>CTRL-C</code> in the terminal to stop the server</p>
         </section>
 
@@ -497,17 +512,17 @@ th { border-bottom: 1px solid #DDD; }
         <section data-background="#dddddd">
             <p>Now, we can generate the code that handles image uploads by doing: </p>
             <pre><code>rails generate uploader Picture</code></pre>
-            <p>Please restart your server. (<code>rails server -b 0.0.0.0</code>)</p>
+            <p>Please restart your server. (<code>rails server -b 0.0.0.0</code> in the Terminal)</p>
         </section>
 
         <section data-background="#dddddd">
             <p>Open <code>app/models/idea.rb</code>. Under the line <code>class Idea < ActiveRecord::Base</code>, add:
             <pre><code>mount_uploader :picture, PictureUploader</code></pre>
-            <p>Make sure you save the file by using the menu bar File -> Save.</p>
+            <p>Make sure you save the file by using the menu bar <strong>File -> Save</strong>.</p>
         </section>
         <section data-background="#dddddd">
             <p>Now, we need to customise the form we use for editing and uploading ideas.</p>
-            <p>We're using the same bit of code to edit and upload. This is found in <code>app/models/idea.rb</code>.</p>
+            <p>We're using the same bit of code to edit and upload. This is found in <code>app/views/ideas/_form.html.erb</code>.</p>
             <p>This code snippet is used in both <code>edit.html.erb</code> and <code>new.html.erb</code>, as the two forms are basically identical. This saves us some work! If you look at either of those pages, it just says <br /><code><%= render 'form' %></code>.</p>
         </section>
 
@@ -518,7 +533,7 @@ th { border-bottom: 1px solid #DDD; }
               <p>Find <code><%= f.text_field :picture %></code> (line 24) and change it to:</p>
               <pre><code><%= f.file_field :picture %></code></pre>
               <p>This changes the code from asking for a text input to asking for a file input, which makes it easier for our users to upload an image.</p>
-              <p>Refresh your browser to see the changes.</p>
+              <p>Save the file and refresh your browser to see the changes.</p>
               <p>Did you get an error?</p>
                 <p><a href="#" class="navigate-right">No.</a></p>
                 <p><a href="#" class="navigate-down">Yes.</a>
@@ -533,9 +548,23 @@ th { border-bottom: 1px solid #DDD; }
         <section data-background="#dddddd">
           <section data-background="#dddddd">
             <p>In your browser, upload a picture to your idea. When you upload a picture, it doesn't look nice because it only shows the file path. Let's go ahead and fix that!</p>
-            <p>Open <code>app/views/ideas/show.html.erb</code> and change <code><%= @idea.picture %></code> to:
-            <pre><code><%= image_tag(@idea.picture_url, :width => 600) if @idea.picture.present? %></code></pre>
-            <p>Refresh your browser to see what changed.</p>
+            <p>
+                Open 
+                <code>app/views/ideas/show.html.erb</code> 
+                and change 
+                <code><%= @idea.picture %></code> 
+                to:
+                <pre><code><%= image_tag(@idea.picture_url, :width => 600) if @idea.picture.present? %></code></pre>
+            </p>
+            <p>
+                Open 
+                <code>app/views/ideas/index.html.erb</code> 
+                and change (should be line 20)
+                <code>&lt;td&gt;<%= idea.picture %>&lt;/td&gt;</code>
+                to:
+                <pre><code>&lt;td&gt;<%= image_tag(idea.picture_url, :width => 100) if idea.picture.present? %>&lt;/td&gt;</code></pre>
+            </p>
+            <p>Save both files and refresh your browser to see what changed.</p>
             <p><a href="#" class="navigate-right">I understand what happened and I am ready to move on</a></p>
             <p><a href="#" class="navigate-down">I want to know what just happened</a>
           </section>
@@ -684,7 +713,8 @@ th { border-bottom: 1px solid #DDD; }
         <section data-background="#dddddd">
           <p>This created a new folder called 'pages', which you can find under <code>app/views</code>.</p>
           <p>In that folder, you'll see a page called <code>info.html.erb</code>. Open it up.</p>
-          <p>You can customise the information in this page. <br>If you add /pages/info to your application's URL now, you'll see this page.</p>
+          <p>You can customise the information in this page.</p> 
+          <p>Start your app with <code>rails server -b 0.0.0.0</code> and add <em>/pages/info</em> to the URL now, you'll see the current content of this page.</p>
         </section>
       <section data-background="#dddddd">
         <h2>Push your app to GitHub</h2>
@@ -707,7 +737,7 @@ th { border-bottom: 1px solid #DDD; }
     <section data-background="#dddddd">
       <p>Go back to Nitrous. Make sure you are still in your project directory.</p>
       <p>You can check this by looking at the terminal. It should show something like this:</p>
-      <pre><code>your_username@railsgirls:~/workspace $</code></pre>
+      <pre><code>&rarr; rails_girls </code></pre>
       <p>If you are not, use the <code>cd</code> command you learned earlier to change back into that directory.</p>
     </section>
     <section data-background="#dddddd">
