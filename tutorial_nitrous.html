@@ -55,7 +55,7 @@
             <p> Use the <strong>right arrow</strong> to go to the next step.</p>
 
             <p>
-                <small>Created by RailsGirls team</a> / <a href="http://twitter.com/railsgirlsbne">@railsgirlsbne</a>
+                <small>Created by RailsGirls team</a> / <a target="_blank" href="http://twitter.com/railsgirlsbne">@railsgirlsbne</a>
                 </small>
             </p>
         </section>
@@ -89,7 +89,7 @@
         <section class="title" data-background="#dddddd">
             <h2>Setting up with Nitrous</h2>
 
-            <p>Follow the link to open the nitrous setup guide <a href="nitrous-rails-guide">Click here</a></p>
+            <p>Follow the link to open the nitrous setup guide <a target="_blank" href="nitrous-rails-guide">Click here</a></p>
         </section>
         <section data-background="#dddddd">
             <p>In Nitrous, the terminal window is at the bottom of your page.</p>
@@ -112,9 +112,9 @@
                 <p>If you type this in the terminal</p>
                 <pre><code>ls</code></pre>
                 <p>you will see a folder called <strong>code</strong></p>
-                
+
                 <p>You can type</p>
-                <pre><code>cd code</code></pre> 
+                <pre><code>cd code</code></pre>
                 <p>to go into the <strong>code</strong> folder.</p>
 
                 <p>Want to know how to move back up the directory?</p>
@@ -450,7 +450,7 @@
 </footer>
 <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.js"></script>
             </code></pre>
-            
+
             <p>Make sure to save these changes with <strong>File -> Save</strong></p>
         </section>
 
@@ -463,7 +463,7 @@ footer { margin-top: 100px; }
 table, td, th { vertical-align: middle; border: none; }
 th { border-bottom: 1px solid #DDD; }
             </code></pre>
-            
+
             <p>Make sure to save these changes with <strong>File -> Save</strong></p>
         </section>
 
@@ -549,16 +549,16 @@ th { border-bottom: 1px solid #DDD; }
           <section data-background="#dddddd">
             <p>In your browser, upload a picture to your idea. When you upload a picture, it doesn't look nice because it only shows the file path. Let's go ahead and fix that!</p>
             <p>
-                Open 
-                <code>app/views/ideas/show.html.erb</code> 
-                and change 
-                <code><%= @idea.picture %></code> 
+                Open
+                <code>app/views/ideas/show.html.erb</code>
+                and change
+                <code><%= @idea.picture %></code>
                 to:
                 <pre><code><%= image_tag(@idea.picture_url, :width => 600) if @idea.picture.present? %></code></pre>
             </p>
             <p>
-                Open 
-                <code>app/views/ideas/index.html.erb</code> 
+                Open
+                <code>app/views/ideas/index.html.erb</code>
                 and change (should be line 20)
                 <code>&lt;td&gt;<%= idea.picture %>&lt;/td&gt;</code>
                 to:
@@ -713,7 +713,7 @@ th { border-bottom: 1px solid #DDD; }
         <section data-background="#dddddd">
           <p>This created a new folder called 'pages', which you can find under <code>app/views</code>.</p>
           <p>In that folder, you'll see a page called <code>info.html.erb</code>. Open it up.</p>
-          <p>You can customise the information in this page.</p> 
+          <p>You can customise the information in this page.</p>
           <p>Start your app with <code>rails server -b 0.0.0.0</code> and add <em>/pages/info</em> to the URL now, you'll see the current content of this page.</p>
         </section>
       <section data-background="#dddddd">
