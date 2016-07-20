@@ -6,48 +6,219 @@ permalink: sinatra-app-nitrous-guide
 
 # Rails Girls Sinatra App Guide
 
-*Created by Sorcha Abel <a href="https://twitter.com/sabel25" class="twitter-follow-button" data-show-count="false">Follow @sabel25</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script> and Rachelle LeQuesne <a href="https://twitter.com/RachelleOnRails" class="twitter-follow-button" data-show-count="false">Follow @RachelleOnRails</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+*Created by Sorcha Abel [@sabel25](https://twitter.com/sabel25), Rachelle LeQuesne [@RachelleOnRails](https://twitter.com/RachelleOnRails), and Dave Kinkead [@davekinkead](https://twitter.com/davekinkead).  Follow us on Twitter!
+
+The purpose of this guide is to...
 
 
 ## What is Sinatra?
-<img src="/images/sinatrawiki.png">
+
+![Sinatra](/images/sinatrawiki.png)
+
 
 # Getting Started
 
-## *1.* Creating the application with Nitrous
 
+## *1.* Configuring Nitrous
 
 Follow the steps outlined in the Ruby Girls Nitrous Sinatra Setup Guide [Nitrous Setup](/nitrous-sinatra-guide)
 
-## *2.* Write a description for your application
 
-Nitrous automatically creates a `code` directory on creation of a new workspace. We will use the terminal window to create a new sub directory called `railsgirls`.
-Simply move your cursor to the terminal window (it's located at the bottom of the nitrous workspace) and follow the steps below.
+## *2.* Create a README
 
-{% highlight sh %}
-mkdir code/railsgirls
-touch code/railsgirls/README.md
-cd code/railsgirls
-{% endhighlight %}
+A README is just a file explaining what your application or library does.  You can put anything you want in this file but it's useful for documenting what your application does and how a developer can setup their environment to develop or run your application.
+
+Nitrous automatically creates a `code` directory on creation of a new workspace. We will use the terminal window to create a new sub directory called `railsgirls`.  Simply move your cursor to the terminal window (it's located at the bottom of the nitrous workspace) and follow the steps below.
+
+
+    mkdir code/railsgirls
+    touch code/railsgirls/README.md
+    cd code/railsgirls
+
 
 If at any point you are unsure of which folder you are in (when inside the terminal window}, simply type `pwd` and the directory you are currently in will be displayed. Alternatively ask a mentor if unsure.
 
 Note you must save all files in nitrous (`command ⌘ + s`(mac), `control + s`(windows and linux) or menu options `File -> Save`)
 
 Lets open the README.md file we just created in the steps above. The `.md` extension means that this is a MarkDown file.
-A readme file is useful for documenting what your application does, and how a developer can setup their environment to develop or run your application.
 
 - Double click the `README.md` in the nitrous file explorer to open it.
 - Replace the contents of the file with your description.
 - Save the file.
 
-eg.
-```
-# My awesome Sinatra app!
-This app is like the RailsGirls Ideas app, but using Sinatra instead of Rails!
-```
+eg:
+
+    # My awesome Sinatra app!
+
+    This app is like the RailsGirls Ideas app, but using Sinatra instead of Rails!
 
 We will add more documentation as the project evolves.
+
+
+## *3.* Create a Gemfile
+
+A Gemfile is just a list of all the dependencies that your application relies on.  These are things like other Ruby libraries and frameworks that someone else has written so you don't have to.
+
+Because our app is using Sinatra, we will need to add that to our Gemfile.  Create your Gemfile in the terminal just like the README.
+
+    touch Gemfile
+
+Now type the following in the `Gemfile` file.
+
+
+    source 'https://rubygems.org'
+
+    gem 'sinatra'
+
+
+This just tells your environment to look for the `Sinatra` gem at `Rubygems.org`.  You can install the Gemfile dependencies at any time with the command:
+
+    bundle install
+
+
+## *4.* Create an application file
+
+Now it's time to begin coding our application! Create a file called `app.rb` and add the following code: 
+
+
+    require 'sinatra'
+
+    # sintra config
+
+    # nitrous config
+    configure :development do
+      set :bind, '0.0.0.0'
+      set :port, 3000
+    end
+
+
+This tells the Nitrous environment to bind the app to the local address `0.0.0.0:3000` and makes it accessable from the web.
+
+---
+
+**A quick sidenote on HTTP**
+
+HTTP (HyperText Transfer Protocol) is the way (or at least the most common way) that web clients like browsers communicate with web servers.  (See [https://developer.mozilla.org/en-US/Learn/Common_questions/What_is_a_URL](https://developer.mozilla.org/en-US/Learn/Common_questions/What_is_a_URL) for more background).
+
+A HTTP request consists of a verb (HEAD, GET, POST, PUT, PATCH, & DELETE), a protocol (HTTP or HTTPS), a domain (www.google.com), a optional port (:80, :4567), and path (/search), and optional query strings (?q=ninja+cats&tbm=isch).
+
+    https://google.com:80/search?q=ninja+cats&tbm=isch
+
+---
+
+The Sinatra gem allows us to use the Sinatra DSL (Domain Specific Language) in our app.  Sinatra is essentially a routing engine that matches HTTP requests to ruby code and we build a Sinatra app by instructing it how to respond to HTTP requests.  The DSL looks like this:
+
+
+    verb '/route' do
+      # app code here
+    end
+
+
+To see this in action edit the `app.rb` file and add the following code: 
+
+
+    get '/' do
+      'RailsGirls with Sinatra #FTW!'
+    end
+
+
+In the Nitrous terminal, run the app with:
+
+    ruby app.rb
+
+You should see something like the following...
+
+
+    [2016-07-20 02:08:42] INFO  WEBrick 1.3.1
+    [2016-07-20 02:08:42] INFO  ruby 2.3.1 (2016-04-26) [x86_64-linux]
+    == Sinatra (v1.4.7) has taken the stage on 3000 for development with backup from WEBrick
+    [2016-07-20 02:08:42] INFO  WEBrick::HTTPServer#start: pid=2223 port=3000
+
+
+Now at the top of the browser, find `Preview` and select `Port 3000 HTTP`.  This will open a new browser window and you can see you app in action. 
+
+
+# The first route
+
+Like the first RailsGirls tutorial, we are going to create an ideas app to store cool ideas we come up with.  And just like the first tutorial, the ideas will be listed at `/ideas`.
+
+In `app.rb`, at a new path:
+
+
+    get '/ideas' do
+      'I really should put some HTML here!'
+    end
+
+
+Restart your app in the terminal and view your preview site but with the `/ideas` path.
+
+At the moment, our app is just returning plain old text - you can see this by viewing the source in your browser.  So let's follow our advice and add some HTML.  Update your `app.rb` file so it is now like this...
+
+
+    get '/ideas' do
+      '<!doctype html>
+      <html lang="en">
+      <head></head>
+      <body>
+        <h1>My Awesome Ideas</h1>
+      </body>
+      </html>'
+    end
+
+Save, restart your app, and view the preview again.  Much better.
+
+
+# Templates
+
+As awesome as our app is, having all the HTML inside our routes would get unwieldy very quickly.  Twitter generates 500 million new tweets per day which would require a lot typing to make all of those routes.
+
+Instead, we will use a template to separate our routing logic from our display logic.  Create a new directory and an `index.html` file:
+
+    mkdir -p views/ideas
+    touch views/ideas/index.html
+
+In `index.html`, add:
+
+    <!doctype html>
+    <html lang="en">
+    <head></head>
+    <body>
+      <h1>My Awesome Ideas!!</h1>
+    </body>
+    </html>
+
+
+We now need to configure Sinatra to use html templates in the `app.rb` file.
+
+
+    get '/ideas' do
+      html :'ideas/index'
+    end
+
+
+But even this can be better....
+
+  - reusable layouts & erb
+    - change app.rb
+    - layout.erb
+    - index.html -> index.erb
+    - new.erb
+    - show.erb
+  - database
+    - Gemfile
+    - migrations (why not direct SQL here)
+    - config
+    - app.rb
+
+
+
+
+
+
+
+# Old stuff below ..........
+
+
 
 ## *3.* Git
 
