@@ -27,9 +27,39 @@ Name your new workspace _railsgirls_, and make sure you are creating a Ruby work
 
 You will then be taken directly to your new workspace.
 
+## Upgrading to Rails version 5
+By default Cloud9 comes with rails version 4 installed. But there is a newer version of Rails available and at Rails Girls
+we like to stay ahead of the game. Lets upgrade our environment to Rails 5
+
+These steps can be a little tricky so if you are unsure just ask a mentor for help. Lets get started
+
+1. Ensure your cursor is in the bash window (also known as terminal window, see the screen shot below) and type `gem install rails`
+
+2. When completed type `sudo apt-get update` this will ensure we have the latest packages
+
+3. Next type `rails new rails5-proj` this will be a temp project, we will remove it a bit later
+
+4. Then enter `mv workspace workspace.bck` here we are taking a backup of our workspace (its the workspace with the old version of Rails and we don't really need it again but generally it's safer to rename a directory than deleting esp when you are learning)
+
+5. Enter `mkdir workspace` here we are making a new workspace, this will be for our Rails 5 version. The Blog App that we are about to build will be contained within the workspace folder. 
+
+6. Enter `cd rails5-proj` this will  move you into the **rails5-proj** directory
+
+7. Then `cp -r  * ../workspace` here we are simply copying everything into our new workspace directory (this is the Rails 5 one)
+
+8. Type `cd ..` to simply move up one level in the directory structure and then type `ls` to see a list of the files in the current directory. It should be similar to this
+<img src="/images/c9/rails5setup.jpg">
+
+9. You should see a folder called  **rails5_proj** we are going to remove it now, simply type `rm -rf rails5_proj`
+
+10. Finally move into the workspace folder so we can start building our Rails 5 app, type `cd workspace`
+
+11. Let type `bundle install` so we know all our gems are up to date (gems are basically libraries that contains pre-written code so that you don't have to write it from scratch)
+
+
 ## Workspace environment
 
-<img src="/images/c9/c9-project-workspace-annotated.png">
+<img src="/images/c9/c9-project-workspace-annotated.png"  width="600>
 
 The workspace is made up of a few important areas.
 
@@ -42,21 +72,25 @@ The workspace is made up of a few important areas.
 The Ruby global convention is to use 2 spaces for indentation. Lets change the default editor to use 2 spaces.
 
 Click on the settings icon in the upper right side of the window. A preferences window will open edit the __Soft Tabs__ setting to reduce it to 2.
-![Cloud 9 editor](/images/c9/c9-settings.png "C9 editor")
+![Cloud 9 editor](/images/c9/c9-settings.png "C9 editor"  width="600")
 
 ## Viewing your project in the Browser
 
 From the ruby-railsgirls terminal you need to start the rails server. Click the 'Run Project' button.
 
-![Cloud 9 Rails Server](/images/c9/c9-run-server.png "C9 Run Server")
+![Cloud 9 Rails Server](/images/c9/c9-run-server.png "C9 Run Server"  width="600")
 
 Click on the share button in the top right window. From the __Share this workspace__ window click on the url in Application and select the open option
 
 <img src="/images/c9/c9-share-workspace.png">
 
+You may see the Cloud 9 preview page, if so click on the `Open the App` button
+
+<img src="/images/c9/cloud9preview.png" alt="Welcome" width="600">
+
 The Welcome Aboard Ruby page will be displayed
 
-<img src="/images/c9/c9-welcome.png" alt="Welcome" width="600">
+<img src="/images/c9/rails5splash.png" alt="Welcome" width="600">
 
 # Keep in touch
 

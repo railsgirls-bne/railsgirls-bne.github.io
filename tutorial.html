@@ -415,7 +415,7 @@
                 <pre><code class=" hljs xml">
 <footer>
     <div class="container">
-        Rails Girls 2015
+        Rails Girls 2017
     </div>
 </footer>
 <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.js"></script>
@@ -469,7 +469,7 @@ th { border-bottom: 1px solid #DDD; }
 
         <section data-background="#dddddd">
             <p>In the terminal, run this command: </p>
-            <pre><code>bundle</code></pre>
+            <pre><code>bundle install</code></pre>
             <p>Bundler downloads all the gems that are specified in the <code>Gemfile</code> and tracks the versions to ensure that your project has a consistent environment.</p>
         </section>
 
@@ -491,10 +491,10 @@ th { border-bottom: 1px solid #DDD; }
 
         <section data-background="#dddddd">
             <section data-background="#dddddd">
-              <p>If you open <code>app/views/ideas/_form.html.erb</code>, you will see the code <code>form_for(@idea)</code>.</p>
+              <p>If you open <code>app/views/ideas/_form.html.erb</code>, you will see the code <code>form_with(model: idea, local: true)</code>.</p>
               <p>This file has HTML code generated for us to create our <strong>idea</strong> form.</p>
-              <p>Find <code><%= f.text_field :picture %></code> and change it to:</p>
-              <pre><code><%= f.file_field :picture %></code></pre>
+              <p>Find <code><%= form.text_field :picture %></code> and change it to:</p>
+              <pre><code><%= form.file_field :picture, id: :idea_picture %></code></pre>
               <p>This changes the code from asking for a text input to asking for a file input, which makes it easier for our users to upload an image.</p>
               <p>Did you get an error?</p>
                 <p><a href="#" class="navigate-right">No.</a></p>
@@ -672,7 +672,8 @@ th { border-bottom: 1px solid #DDD; }
     </section>
     <section data-background="#dddddd">
         <p>Open the GitHub website and log in.</p>
-        <p>Click the <a href="https://github.com/new" target="_blank"><img src="images/newrepo.png" width="100"></a> button.</p>
+        <p>Click the <b>Start a Project</b> button. </p>
+        <a href="https://github.com/new" target="_blank"><img src="images/github_start_project.png" ></a>
     </section>
     <section data-background="#dddddd">
         <p>Give the repository a name, such as rails-girls.</p>
@@ -706,7 +707,10 @@ th { border-bottom: 1px solid #DDD; }
           <p>Now, you need to send the code to GitHub, so you can share it and collaborate on it if you want. In the terminal type:</p>
           <pre><code>git remote add origin https://github.com/yourusername/yournewrepositoryname.git</code></pre>
           <p>This makes a remote connection to the GitHub repository you've typed. We normally call this 'origin', as it's the original version.</p>
-        </section>
+
+          <p>The exact instructions for you will be on github and will be similar to below</p>
+            <img src="images/github_instructions.png" ></a>
+        </section>  
         <section data-background="#dddddd">
           <p>Now the two repositories(your computer and Github) are connected, you need to push your computer's code to GitHub. In the terminal, type:</p>
           <pre><code>git push -u origin master</code></pre>
