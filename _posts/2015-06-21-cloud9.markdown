@@ -27,7 +27,7 @@ Name your new workspace _railsgirls_, and make sure you are creating a Ruby work
 
 You will then be taken directly to your new workspace.
 
-## Upgrading to Rails version 5
+## Upgrading to Rails Version 5
 By default Cloud9 comes with rails version 4 installed. But there is a newer version of Rails available and at Rails Girls
 we like to stay ahead of the game. Lets upgrade our environment to Rails 5
 
