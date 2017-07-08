@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Rails Girls Pushing to Heroku on Cloud 9
-permalink: sinatra-rspec-guide
+permalink: heroku-c9-guide
 ---
 
 # Rails Girls - Pushing to Heroku on Cloud 9
@@ -29,6 +29,7 @@ group :development do
 end
 group :production do
   gem 'pg'
+
 end
 {% endhighlight %}
 
@@ -37,11 +38,22 @@ use the SQLite database. Clever huh!
 
 Finally save the Gemfile and run `bundle install --without production` to setup your dependencies.
 
+Commit your changes to github
+{% highlight sh %}
+git add Gemfile
+git add Gemfile.lock
+git commit -m 'updating Gemfile for prep push to heroku'
+git push origin master
+{% endhighlight %}
+
 ### Deploying your app
 
 #### App creation
 
-You first need to login to Heroku, type `heroku login`
+You first need to login to Heroku, type `heroku login` and enter your heroku username and password
+
+To ensure we are using the most up to date version of Heroku enter the following command in the terminal window of Cloud 9
+`wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh`
 
 Next we need to create our Heroku app by typing `heroku create` in the cloud 9 terminal and see something like this:
 
