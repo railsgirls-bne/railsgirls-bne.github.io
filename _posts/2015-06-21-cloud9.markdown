@@ -33,13 +33,16 @@ we like to stay ahead of the game. Lets upgrade our environment to Rails 5
 
 These steps can be a little tricky so if you are unsure just ask a mentor for help. Lets get started
 
-1. Ensure your cursor is in the bash window (also known as terminal window, see the screen shot below) and type `gem install rails`
+1. Ensure your cursor is in the bash window (also known as terminal window, see the screen shot below) and type `cd ..` This command will ensure we are
+in the root of the project and not inside our workspace folder. This folder will contain our app but we don't need to be in it to do our rails version install. 
+
+1. When ready type `gem install rails`
 
 2. When completed type `sudo apt-get update` this will ensure we have the latest packages
 
 3. Next type `rails new rails5-proj` this will be a temp project, we will remove it a bit later
 
-4. Then enter `mv workspace workspace.bck` here we are taking a backup of our workspace (its the workspace with the old version of Rails and we don't really need it again but generally it's safer to rename a directory than deleting esp when you are learning)
+4. Then enter `mv workspace workspace.bck` here we are taking a backup of our workspace (its the workspace with the old version of Rails and we don't really need it again but generally it's safer to rename a directory than deleting especially when you are learning)
 
 5. Enter `mkdir workspace` here we are making a new workspace, this will be for our Rails 5 version. The Blog App that we are about to build will be contained within the workspace folder. 
 
@@ -59,7 +62,7 @@ These steps can be a little tricky so if you are unsure just ask a mentor for he
 
 ## Workspace environment
 
-<img src="/images/c9/c9-project-workspace-annotated.png"  width="600>
+<img src="/images/c9/c9-project-workspace-annotated.png"  width="600">
 
 The workspace is made up of a few important areas.
 
