@@ -22,9 +22,9 @@ Once you have signed up, you will be shown your dashboard. __Create a New worksp
 
 <img src="/images/c9_sinatra/c9_new_workspace1.png">
 
-Name your new workspace _ruby_girls_, and make sure you are creating a custom workspace. Then click 'Create workspace'.
+Name your new workspace _sinatra-girls_, and make sure you are creating a blank workspace. Then click 'Create workspace'.
 
-<img src="/images/c9_sinatra/c9_create_workspace2.png">
+<img src="/images/c9/c9-sinatra-homepage.png">
 
 You will then be taken directly to your new workspace.
 
