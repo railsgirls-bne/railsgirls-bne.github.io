@@ -58,9 +58,9 @@ You can modify the `Initial commit` message to anything you like.
 
 The next step is to create a remote repository on GitHub and add it to your app.
 
-- [ ] Log onto GitHub and create a new repository
+- [ ] Log onto GitHub and start a project
 
-<img src="/images/github_new_repo.png">
+<a href="https://github.com/new" target="_blank"><img src="images/github_start_project.png" ></a>
 
 - [ ] Give your repo a title and a description
 
@@ -506,7 +506,7 @@ Enter the following html/erb code:
     </div>
     <footer>
       <div class="container">
-        Ruby Girls 2016
+        Ruby Girls <%= Time.now.year %>
       </div>
     </footer>
     <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.js"></script>
