@@ -260,6 +260,7 @@ Dir['./app/**/*.rb'].sort.each { |file| require file }
 set :root, Dir['./app']
 set :public_folder, Proc.new { File.join(root, 'assets') }
 set :erb, :layout => :'layouts/application'
+
 {% endhighlight %}
 
 Lets examine the first four lines in a bit more detail:
@@ -269,7 +270,7 @@ Lets examine the first four lines in a bit more detail:
 `Bundler.require` loads into the project all the gems that are specified in the `Gemfile`.
 
 `$: << File.expand_path('../', __FILE__)` adds the entire project to $LOAD_PATH. This allows Sinatra to find all the files you’ve added to the project.
-For more on $LOAD_PATH read the [Rails Girls Brisbane blog post](http://railsgirlsbrisbane.github.io/load_path_blog)
+For more on $LOAD_PATH read the [Rails Girls Brisbane blog post](http://www.railsgirlsbne.com/2017/02/05/load_path/)
 
 
 Dir['./app/\*\*/\*.rb'].sort.each { \|file\| require file } This line explicitly requires each file found in our model, view and controller folders.
@@ -402,7 +403,7 @@ end
 
 This route will map the URL `ideas/index` to a listing of all ideas. We have just told Sinatra to look in the ideas folder for an html file called `index.erb` (it has a `.erb` suffix rather than `.html` because it contains embedded Ruby as well as html).
 
-Now that we have created our route we now need to create a fon a corresponding index page to display it. Create a folder for `ideas` in the `app/views/` directory (from terminal window `mkdir app/views/ideas` or use the cloud9 file explorer window). Then create a file called `index.erb`.
+Now that we have created our route we now need to create a corresponding index page to display it. Create a folder for `ideas` in the `app/views/` directory (from terminal window `mkdir app/views/ideas` or use the cloud9 file explorer window). Then create a file called `index.erb`.
 
 ## *10.* Views
 Type or paste the following into the `index.erb` file you just created
@@ -828,7 +829,7 @@ require ‘./config/application'
 run Sinatra::Application
 {% endhighlight %}
 
-We are now ready to follow the heroku guide: [Pushing to Heroku](/heroku)
+We are now ready to follow the heroku guide: [Pushing to Heroku](/heroku-c9-guide)
 
 ## *19.* The End
 
