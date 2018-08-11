@@ -11,11 +11,13 @@ permalink: cloud9-guide
 
 Sign up for a [Github](https://github.com/) account.
 
-Then, go to the [cloud9 website](https://c9.io/).
+By now you should have received an email invite to use Cloud 9. 
+<img src="/images/c9/cloud9invite.png">
 
-Click the __signup__ button. Signup using the github account you just created.
+The link will take you to the Cloud 9 website and from here you should use your github credentials (created in the first step above) to 
+login. Simply click on the github icon (see below)
 
-<img src="/images/c9/c9-signup-with-github.png">
+<img src="/images/c9/c9signin.png">
 
 Once you have signed up, you will be shown your dashboard. __Create a New workspace__ by clicking the green plus icon.
 
