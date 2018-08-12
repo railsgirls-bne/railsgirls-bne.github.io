@@ -485,13 +485,14 @@ th { border-bottom: 1px solid #DDD; }
         </section>
         <section data-background="#dddddd">
             <p>Now, we need to customise the form we use for editing and uploading ideas.</p>
-            <p>We're using the same bit of code to edit and upload. This is found in <code>app/models/idea.rb</code>.</p>
-            <p>This code snippet is used in both <code>edit.html.erb</code> and <code>new.html.erb</code>, as the two forms are basically identical. This saves us some work! If you look at either of those pages, <br>rather than form code, it just says <code><%= render 'form' %></code>.</p>
+            <p>We're using the same bit of code to edit and upload. This code is found in <code>app/views/ideas/_form.html.erb</code>.</p>
+            <p>The following code snippet (<code><%= render 'form', idea: @idea %></code>) is basically calling the above form. That call is used in both <code>edit.html.erb</code> and <code>new.html.erb</code>,
+                as the two forms are basically identical. If you look at either of those pages (edit.html.erb or new.html.erb) <br> it just says <code><%= render 'form', idea: @idea %></code>.</p>
         </section>
 
         <section data-background="#dddddd">
             <section data-background="#dddddd">
-              <p>If you open <code>app/views/ideas/_form.html.erb</code>, you will see the code <code>form_with(model: idea, local: true)</code>.</p>
+              <p>So lets open this form! As mentioned it can be found in <code>app/views/ideas/_form.html.erb</code>, you will see the code <code>form_with(model: idea, local: true)</code>.</p>
               <p>This file has HTML code generated for us to create our <strong>idea</strong> form.</p>
               <p>Find <code><%= form.text_field :picture %></code> and change it to:</p>
               <pre><code><%= form.file_field :picture, id: :idea_picture %></code></pre>
