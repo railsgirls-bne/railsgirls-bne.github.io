@@ -15,7 +15,7 @@ permalink: sinatra-app-guide
 
 ## *1.* Creating the application with Cloud9
 
-Follow the steps outlined in the Ruby Girls Cloud9 Sinatra Setup Guide [Cloud9 Setup](/cloud9-sinatra-guide)
+Follow the steps outlined in the Rails Girls Cloud9 Sinatra Setup Guide [Cloud9 Setup](/cloud9-sinatra-guide)
 
 ## *2.* Write a description for your application
 
@@ -290,7 +290,6 @@ require 'sinatra/activerecord/rake'
 The final step in our setup is the `database.yml` file. This file will contain our sqlite database configuration and is required for connecting to the database. Open the config folder and double click to open the file. Copy and paste the lines below.
 
 {% highlight sh %}
----
 sqlite: &sqlite
   host: 127.0.0.1
   adapter: sqlite3
@@ -507,7 +506,7 @@ Enter the following html/erb code:
     </div>
     <footer>
       <div class="container">
-        Ruby Girls <%= Time.now.year %>
+        Rails Girls <%= Time.now.year %>
       </div>
     </footer>
     <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.js"></script>
