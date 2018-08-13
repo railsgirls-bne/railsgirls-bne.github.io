@@ -535,7 +535,7 @@ From the cloud 9 IDE click the `share` button on the right hand upper window. Fr
 
 <img src="/images/c9_sinatra/c9_browser.png">
 
-You should now see the ideas app running in the browser! `ctrl+c` will terminate the server. At this stage there is a small style issue with your app, it doesn't display as well as it should. We will cover this in a following section.
+You should now see the ideas app running in the browser! `ctrl+c` will terminate the server. <p style="color:orange;"><strong> At this stage there is a small style issue with your app, it doesn't display as well as it should. We will cover this in a following section.</strong></p>
 
 ## *13.* New Route and View
 
