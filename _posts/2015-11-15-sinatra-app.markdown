@@ -818,6 +818,14 @@ Let's preview our changes in the browser. From the terminal window run the follo
 ruby config/application.rb -p $PORT -o $IP
 {% endhighlight %}
 
+## *17.a* Final commit to github
+
+{% highlight sh %}
+git add .
+git commit -m "My sinatra app is finished"
+git push origin master
+{% endhighlight %}
+
 
 ## *18.* The End
 
