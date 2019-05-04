@@ -9,15 +9,23 @@ permalink: cloud9-guide
 *Created by Sorcha Abel <a href="https://twitter.com/sabel25" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @sabel25</a>
                         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
-Sign up for a [Github](https://github.com/) account.
+Sign up for a [Github](https://github.com/) account and ensure you have verified your email address. 
 
 By now you should have received an email invite to use Cloud 9. The image below is a sample only :)
 <img src="/images/c9/cloud9invite.png" width="60%">
 
-The link will take you to the Cloud 9 website and from here you should use your github credentials (created in the first step above) to 
-login. Simply click on the github icon (see below)
+The link will take you to the Cloud 9 website, simply click on the github icon (see below) and from here you should use 
+your github credentials (created in the first step above) to login. 
 
 <img src="/images/c9/c9signin.png">
+
+Ideally this is all you need to do, however at times Cloud9 can be temperamental :( If you cannot proceed to your team account you
+ can follow these steps:
+ 
+1. Click on the team invite link once again that you have in your inbox. 
+2. Click on the `create new account` button (as below)
+
+<img src="/images/c9/cloud9_new_account.jpg">
 
 Once you have signed up, you will be shown your dashboard. __Create a New workspace__ by clicking the green plus icon.
 
