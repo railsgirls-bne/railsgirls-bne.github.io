@@ -46,28 +46,30 @@ These steps can be a little tricky so if you are unsure just ask a mentor for he
 1. Ensure your cursor is in the bash window (also known as terminal window, see the screen shot below) and type `cd ..` This command will ensure we are
 in the root of the project and not inside our workspace folder. This folder will contain our app but we don't need to be in it to do our rails version install.
 
-1. When ready type `gem install rails`
+1. When ready type `rvm use 2.4.0`
 
-2. When completed type `sudo apt-get update` this will ensure we have the latest packages
+2. When ready type `gem install rails`
 
-3. Next type `rails new rails5-proj` this will be a temp project, we will remove it a bit later
+3. When completed type `sudo apt-get update` this will ensure we have the latest packages
 
-4. Then enter `mv workspace workspace.bck` here we are taking a backup of our workspace (its the workspace with the old version of Rails and we don't really need it again but generally it's safer to rename a directory than deleting especially when you are learning)
+4. Next type `rails new rails5-proj` this will be a temp project, we will remove it a bit later
 
-5. Enter `mkdir workspace` here we are making a new workspace, this will be for our Rails 5 version. The Blog App that we are about to build will be contained within the workspace folder.
+5. Then enter `mv workspace workspace.bck` here we are taking a backup of our workspace (its the workspace with the old version of Rails and we don't really need it again but generally it's safer to rename a directory than deleting especially when you are learning)
 
-6. Enter `cd rails5-proj` this will  move you into the **rails5-proj** directory
+6. Enter `mkdir workspace` here we are making a new workspace, this will be for our Rails 5 version. The Blog App that we are about to build will be contained within the workspace folder.
 
-7. Then `cp -r  * ../workspace` here we are simply copying everything into our new workspace directory (this is the Rails 5 one)
+7. Enter `cd rails5-proj` this will  move you into the **rails5-proj** directory
 
-8. Type `cd ..` to simply move up one level in the directory structure and then type `ls` to see a list of the files in the current directory. It should be similar to this
+8. Then `cp -r  * ../workspace` here we are simply copying everything into our new workspace directory (this is the Rails 5 one)
+
+9. Type `cd ..` to simply move up one level in the directory structure and then type `ls` to see a list of the files in the current directory. It should be similar to this
 <img src="/images/c9/rails5setup.jpg">
 
-9. You should see a folder called  **rails5-proj** we are going to remove it now, simply type `rm -rf rails5-proj`
+10. You should see a folder called  **rails5-proj** we are going to remove it now, simply type `rm -rf rails5-proj`
 
-10. Finally move into the workspace folder so we can start building our Rails 5 app, type `cd workspace`
+11. Finally move into the workspace folder so we can start building our Rails 5 app, type `cd workspace`
 
-11. Let's type `bundle install` so we know all our gems are up to date (gems are basically libraries that contains pre-written code so that you don't have to write it from scratch)
+12. Let's type `bundle install` so we know all our gems are up to date (gems are basically libraries that contains pre-written code so that you don't have to write it from scratch)
 
 
 ## Workspace environment
