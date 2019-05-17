@@ -14,7 +14,7 @@ Sign up for a [Github](https://github.com/) account and ensure you have verified
 By now you should have received an email invite to use Cloud 9. The image below is a sample only :)
 <img src="/images/c9/cloud9invite.png" width="60%">
 
-The link will take you to the Cloud 9 website, simply click on the github icon (see below) and from here you should use 
+The link will take you to the Cloud 9 website, click on the `Sign in` button and then simply click on the github icon (see below) and from here you should use 
 your github credentials (created in the first step above) to login. 
 
 <img src="/images/c9/c9signin.png">
