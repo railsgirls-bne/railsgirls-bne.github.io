@@ -56,7 +56,7 @@ in the root of the project and not inside our workspace folder. This folder will
 
 5. Then enter `mv workspace workspace.bck` here we are taking a backup of our workspace (its the workspace with the old version of Rails and we don't really need it again but generally it's safer to rename a directory than deleting especially when you are learning)
 
-6. Enter `mkdir workspace` here we are making a new workspace, this will be for our Rails 5 version. The Blog App that we are about to build will be contained within the workspace folder.
+6. Enter `mkdir workspace` here we are making a new workspace, this will be for our Rails 5 version. The Blog App that we are about to build will be contained within the workspace folder. If however you get a message `mkdir: cannot create directory ‘workspace’: File exists` then simply ignore and continue with the next step :)
 
 7. Enter `cd rails5-proj` this will  move you into the **rails5-proj** directory
 
